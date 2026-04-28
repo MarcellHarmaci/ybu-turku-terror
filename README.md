@@ -19,3 +19,7 @@ To use the components in your app, import them as follows:
 ```tsx
 import { Button } from "@/components/ui/button"
 ```
+
+## Notes
+
+- https://certificates.dev/blog/starting-a-react-project-shadcnui-radix-and-base-ui-explained
