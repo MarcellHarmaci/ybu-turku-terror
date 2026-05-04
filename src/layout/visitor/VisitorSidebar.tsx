@@ -2,22 +2,18 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { PATH_HOME, PATH_SIGNUP } from "@/consts"
+import { PATH_HOME, PATH_SIGN_UP } from "@/consts"
 import {
   IconBeach,
   IconClipboardCheck,
-  IconDatabase,
-  IconFileWord,
   IconInfoCircle,
-  IconReport,
 } from "@tabler/icons-react"
-import { NavCompetition } from "./NavCompetition"
+import { NavGeneral } from "./NavCompetition"
 
 /**
  * @see https://ui.shadcn.com/blocks
@@ -29,33 +25,16 @@ const VisitorSidebar = () => {
       email: "m@example.com",
       avatar: "/avatars/shadcn.jpg",
     },
-    navCompetition: [
+    navGeneral: [
       {
         name: "Info",
         url: PATH_HOME,
         icon: IconInfoCircle,
       },
       {
-        name: "Signup",
-        url: PATH_SIGNUP,
+        name: "Sign-up",
+        url: PATH_SIGN_UP,
         icon: IconClipboardCheck,
-      },
-    ],
-    documents: [
-      {
-        name: "Data Library",
-        url: "#",
-        icon: IconDatabase,
-      },
-      {
-        name: "Reports",
-        url: "#",
-        icon: IconReport,
-      },
-      {
-        name: "Word Assistant",
-        url: "#",
-        icon: IconFileWord,
       },
     ],
   }
@@ -80,10 +59,9 @@ const VisitorSidebar = () => {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavCompetition items={data.navCompetition} />
-        <SidebarGroup />
+        <NavGeneral items={data.navGeneral} />
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter>{/* TODO language selector */}</SidebarFooter>
     </Sidebar>
   )
 }

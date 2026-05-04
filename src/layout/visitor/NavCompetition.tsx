@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sidebar"
 import { NavLink, useLocation } from "react-router"
 
-export function NavCompetition({
+export function NavGeneral({
   items,
 }: {
   items: {
@@ -24,7 +24,7 @@ export function NavCompetition({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Competition</SidebarGroupLabel>
+      <SidebarGroupLabel>General</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>

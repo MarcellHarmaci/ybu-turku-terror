@@ -6,9 +6,11 @@ const VisitorLayout = () => {
   return (
     <>
       <VisitorSidebar />
-      <main>
+      <main className="w-full">
         <SidebarTrigger />
-        <Outlet />
+        <div className="flex flex-col gap-2 px-2 sm:px-8 md:px-16 lg:px-24 xl:px-48">
+          <Outlet />
+        </div>
       </main>
     </>
   )
