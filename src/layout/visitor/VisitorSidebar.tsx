@@ -27,7 +27,7 @@ const VisitorSidebar = () => {
     },
     navGeneral: [
       {
-        name: "Info",
+        name: "Tournament Information",
         url: PATH_HOME,
         icon: IconInfoCircle,
       },
