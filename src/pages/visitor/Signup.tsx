@@ -49,7 +49,7 @@ export function SignUp() {
   return (
     <div className="px-2 sm:px-8 md:px-16 lg:px-24 xl:px-48">
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Card>
+        <Card className="shadow-xl">
           <CardHeader>
             <CardTitle className="text-2xl md:text-3xl">
               {t("signup.title")}

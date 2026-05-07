@@ -23,5 +23,12 @@
       "description": "Joukkueesi nimi. Tämä näkyy muille joukkueille turnauksen verkkosivulla."
     },
     "submit": "Ilmoittaudu"
+  },
+  "home": {
+    "main": {
+      "overview": "Yleiskatsaus",
+      "description": "Yyteri Beach Ultimate eli YBU on ultimateturnaus, joka pelataan loose mixedinä (5 vs 5) Porin Yyterissä 15.-16.8.2026. YBU järjestettiin ensimmäisen kerran vuonna 1999.",
+      "contact": "Jos sinulla on kysyttävää turnaukseen liittyen, voit olla meihin yhteydessä <0>sähköpostitse</0>, <1>Instagramissa</1> ja <2>WhatsApp-yhteisön</2> kautta. Tervetuloa YBUun!"
+    }
   }
 }

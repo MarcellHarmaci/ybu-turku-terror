@@ -23,5 +23,12 @@
       "description": "The name of your team. This will be visible to other teams on the tournament website."
     },
     "submit": "Sign up"
+  },
+  "home": {
+    "main": {
+      "overview": "Overview",
+      "description": "Yyteri Beach Ultimate aka YBU is an ultimate tournament, which is played as loose-mixed (5 vs 5) in Pori's Yyteri on 15 and 16 August 2026. YBU was organised for the first time in 1999.",
+      "contact": "If you have questions concerning the tournament, you can contact us via <0>email</0>, via <1>Instagram</1> and via the <2>WhatsApp community</2>. Welcome to YBU!"
+    }
   }
 }
