@@ -1,5 +1,6 @@
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
+import "./i18n"
 
 import { ThemeProvider } from "@/components/theme-provider.tsx"
 import { SidebarProvider } from "./components/ui/sidebar"

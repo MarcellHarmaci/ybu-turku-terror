@@ -13,6 +13,7 @@ import {
   IconClipboardCheck,
   IconInfoCircle,
 } from "@tabler/icons-react"
+import LanguageSelect from "./LanguageSelect"
 import { NavGeneral } from "./NavCompetition"
 
 /**
@@ -61,7 +62,9 @@ const VisitorSidebar = () => {
       <SidebarContent>
         <NavGeneral items={data.navGeneral} />
       </SidebarContent>
-      <SidebarFooter>{/* TODO language selector */}</SidebarFooter>
+      <SidebarFooter>
+        <LanguageSelect />
+      </SidebarFooter>
     </Sidebar>
   )
 }

@@ -1,0 +1,27 @@
+{
+  "app": {
+    "title": "YBU Turku Terror"
+  },
+  "sidebar": {
+    "language": "Kieli"
+  },
+  "signup": {
+    "title": "Ilmoittautuminen",
+    "description": "Rekisteröi joukkueesi vuoden 2026 Yyteri Beach Ultimate -turnaukseen!",
+    "contactPerson": {
+      "label": "Yhteyshenkilö",
+      "placeholder": "Joukkueen yhteyshenkilön nimi"
+    },
+    "contactEmail": {
+      "label": "Yhteyssähköposti",
+      "placeholder": "sahkoposti@esimerkki.fi",
+      "description": "Sähköpostiosoite, johon järjestäjät voivat ottaa yhteyttä. Tätä ei jaeta muiden joukkueiden kanssa."
+    },
+    "teamName": {
+      "label": "Joukkueen nimi",
+      "placeholder": "Mahtava joukkueesi nimi",
+      "description": "Joukkueesi nimi. Tämä näkyy muille joukkueille turnauksen verkkosivulla."
+    },
+    "submit": "Ilmoittaudu"
+  }
+}

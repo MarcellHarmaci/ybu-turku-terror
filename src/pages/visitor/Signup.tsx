@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next"
 import z from "zod"
 
 const formSchema = z.object({
@@ -29,6 +30,8 @@ const formSchema = z.object({
 })
 
 export function SignUp() {
+  const { t } = useTranslation()
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,10 +51,10 @@ export function SignUp() {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl md:text-3xl">Sign-up</CardTitle>
-            <CardDescription>
-              Register your team for the 2026 Yyteri Beach Ultimate tournament!
-            </CardDescription>
+            <CardTitle className="text-2xl md:text-3xl">
+              {t("signup.title")}
+            </CardTitle>
+            <CardDescription>{t("signup.description")}</CardDescription>
           </CardHeader>
           <CardContent>
             <FieldGroup>
@@ -60,14 +63,14 @@ export function SignUp() {
                 control={form.control}
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="form-signup-contact-person">
-                      Contact person
+                    <FieldLabel htmlFor="form-signup.contact-person">
+                      {t("signup.contactPerson.label")}
                     </FieldLabel>
                     <Input
                       {...field}
                       id="form-signup-contact-person"
                       aria-invalid={fieldState.invalid}
-                      placeholder="The team contact person's name"
+                      placeholder={t("signup.contactPerson.placeholder")}
                       autoComplete="off"
                     />
                     {fieldState.invalid && (
@@ -82,19 +85,18 @@ export function SignUp() {
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="form-signup-email">
-                      Contact email
+                      {t("signup.contactEmail.label")}
                     </FieldLabel>
                     <Input
                       {...field}
                       aria-invalid={fieldState.invalid}
                       id="form-signup-email"
                       type="email"
-                      placeholder="email@example.com"
+                      placeholder={t("signup.contactEmail.placeholder")}
                       autoComplete="email"
                     />
                     <FieldDescription>
-                      An address where the organizers can reach you. This will
-                      not be shared with other teams.
+                      {t("signup.contactEmail.description")}
                     </FieldDescription>
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -108,18 +110,17 @@ export function SignUp() {
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="form-signup-team-name">
-                      Team name
+                      {t("signup.teamName.label")}
                     </FieldLabel>
                     <Input
                       {...field}
                       id="form-signup-team-name"
                       aria-invalid={fieldState.invalid}
-                      placeholder="Your awesome team name"
+                      placeholder={t("signup.teamName.placeholder")}
                       autoComplete="off"
                     />
                     <FieldDescription>
-                      The name of your team. This will be visible to other teams
-                      on the tournament website.
+                      {t("signup.teamName.description")}
                     </FieldDescription>
                     {fieldState.invalid && (
                       <FieldError errors={[fieldState.error]} />
@@ -136,7 +137,7 @@ export function SignUp() {
               className="w-full md:w-64"
               type="submit"
             >
-              Sign up
+              {t("signup.submit")}
             </Button>
           </CardFooter>
         </Card>

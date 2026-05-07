@@ -1,0 +1,27 @@
+{
+  "app": {
+    "title": "YBU Turku Terror"
+  },
+  "sidebar": {
+    "language": "Language"
+  },
+  "signup": {
+    "title": "Sign-up",
+    "description": "Register your team for the 2026 Yyteri Beach Ultimate tournament!",
+    "contactPerson": {
+      "label": "Contact person",
+      "placeholder": "The team contact person's name"
+    },
+    "contactEmail": {
+      "label": "Contact email",
+      "placeholder": "email@example.com",
+      "description": "An address where the organizers can reach you. This will not be shared with other teams."
+    },
+    "teamName": {
+      "label": "Team name",
+      "placeholder": "Your awesome team name",
+      "description": "The name of your team. This will be visible to other teams on the tournament website."
+    },
+    "submit": "Sign up"
+  }
+}
