@@ -1,4 +1,5 @@
 import Alert from "@/components/custom/alert"
+import TextInput from "@/components/custom/form/TextInput"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -8,17 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
+import { FieldGroup } from "@/components/ui/field"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
-import { Controller, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useSignup } from "./hooks/useSignup"
 import { signupSchema, type SignUpData } from "./model/SignupData"
@@ -59,75 +53,31 @@ export function SignUp() {
           </CardHeader>
           <CardContent>
             <FieldGroup>
-              <Controller
+              <TextInput
+                control={form.control}
                 name="contactPerson"
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="form-signup.contact-person">
-                      {t("signup.contactPerson.label")}
-                    </FieldLabel>
-                    <Input
-                      {...field}
-                      id="form-signup-contact-person"
-                      aria-invalid={fieldState.invalid}
-                      placeholder={t("signup.contactPerson.placeholder")}
-                      autoComplete="off"
-                    />
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
-                    )}
-                  </Field>
-                )}
+                id="form-signup-contact-person"
+                label={t("signup.contactPerson.label")}
+                placeholder={t("signup.contactPerson.placeholder")}
+                autoComplete="off"
               />
-              <Controller
+              <TextInput
+                control={form.control}
                 name="contactEmail"
-                control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="form-signup-email">
-                      {t("signup.contactEmail.label")}
-                    </FieldLabel>
-                    <Input
-                      {...field}
-                      aria-invalid={fieldState.invalid}
-                      id="form-signup-email"
-                      type="email"
-                      placeholder={t("signup.contactEmail.placeholder")}
-                      autoComplete="email"
-                    />
-                    <FieldDescription>
-                      {t("signup.contactEmail.description")}
-                    </FieldDescription>
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
-                    )}
-                  </Field>
-                )}
+                id="form-signup-email"
+                label={t("signup.contactEmail.label")}
+                placeholder={t("signup.contactEmail.placeholder")}
+                type="email"
+                autoComplete="email"
               />
-              <Controller
-                name="teamName"
+              <TextInput
                 control={form.control}
-                render={({ field, fieldState }) => (
-                  <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="form-signup-team-name">
-                      {t("signup.teamName.label")}
-                    </FieldLabel>
-                    <Input
-                      {...field}
-                      id="form-signup-team-name"
-                      aria-invalid={fieldState.invalid}
-                      placeholder={t("signup.teamName.placeholder")}
-                      autoComplete="off"
-                    />
-                    <FieldDescription>
-                      {t("signup.teamName.description")}
-                    </FieldDescription>
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
-                    )}
-                  </Field>
-                )}
+                name="teamName"
+                id="form-signup-team-name"
+                label={t("signup.teamName.label")}
+                placeholder={t("signup.teamName.placeholder")}
+                description={t("signup.teamName.description")}
+                autoComplete="off"
               />
             </FieldGroup>
           </CardContent>
