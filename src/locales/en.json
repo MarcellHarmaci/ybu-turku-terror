@@ -22,7 +22,9 @@
       "placeholder": "Your awesome team name",
       "description": "The name of your team. This will be visible to other teams on the tournament website."
     },
-    "submit": "Sign up"
+    "submit": "Sign up",
+    "success": "Successfully signed up!",
+    "error": "Failed to sign up!"
   },
   "home": {
     "main": {

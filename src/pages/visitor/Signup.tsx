@@ -1,3 +1,4 @@
+import { Alert, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -16,24 +17,18 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { IconExclamationCircle } from "@tabler/icons-react"
+import { CheckCircle2Icon } from "lucide-react"
 import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
-import z from "zod"
-
-const formSchema = z.object({
-  contactPerson: z.string().min(3).max(100),
-  contactEmail: z.email(),
-  teamName: z
-    .string()
-    .min(3, "The team name must be at least 3 characters.")
-    .max(32, "The team name must be at most 32 characters."),
-})
+import { useSignup } from "./hooks/useSignup"
+import { signupSchema, type SignUpData } from "./model/SignupData"
 
 export function SignUp() {
   const { t } = useTranslation()
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<SignUpData>({
+    resolver: zodResolver(signupSchema),
     defaultValues: {
       contactPerson: "",
       contactEmail: "",
@@ -41,13 +36,14 @@ export function SignUp() {
     },
   })
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
-    // TODO Do something with the form values.
-    console.log(data)
+  const { save, loading, success, error } = useSignup()
+
+  function onSubmit(data: SignUpData) {
+    save(data)
   }
 
   return (
-    <div className="px-2 sm:px-8 md:px-16 lg:px-24 xl:px-48">
+    <div className="flex flex-col gap-8 px-2 sm:px-8 md:px-16 lg:px-24 xl:px-48">
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <Card className="shadow-xl">
           <CardHeader>
@@ -136,12 +132,25 @@ export function SignUp() {
               size="sm"
               className="w-full md:w-64"
               type="submit"
+              disabled={loading}
             >
               {t("signup.submit")}
             </Button>
           </CardFooter>
         </Card>
       </form>
+      {success && (
+        <Alert className="max-w">
+          <CheckCircle2Icon />
+          <AlertTitle>{t("signup.success")}</AlertTitle>
+        </Alert>
+      )}
+      {error && (
+        <Alert variant="destructive" className="max-w">
+          <IconExclamationCircle />
+          <AlertTitle>{t("signup.error")}</AlertTitle>
+        </Alert>
+      )}
     </div>
   )
 }
