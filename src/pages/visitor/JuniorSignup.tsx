@@ -14,6 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router"
 import { useJuniorSignup } from "./hooks/useJuniorSignup"
 import {
   juniorSignupSchema,
@@ -60,11 +61,71 @@ export function JuniorSignUp() {
 
   return (
     <div className="flex flex-col gap-8 px-2 sm:px-8 md:px-16 lg:px-24 xl:px-48">
+      <Card className="shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-2xl md:text-3xl">Junnu-YBU 2026</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-1.5">
+          <p>Milloin: Lauantaina 15.8.2026, 11:00 alkaen</p>
+          <p>
+            Missä: Yyterin Hiekkaranta - konttiravintoloiden kohdalla rannalla
+          </p>{" "}
+          <p>
+            Yyteri Beach Ultimate -tapahtuman yhteydessä lauantaina järjestetään
+            historian toinen Junnu-YBU. 🎉
+          </p>
+          <p>
+            Tarkoituksena on saada kaiken ikäisille junioreille hauskoja ja
+            mielekkäitä beach-pelejä.
+          </p>
+          <ul className="mx-5 list-disc">
+            <li>Pelataan 5 vs 5, hieman normaalia pienemmällä kentällä</li>
+            <li>
+              Peliaika noin 25 min (esim. 11 pisteeseen) - tarkennetaan kun
+              joukkeiden määrä varmistuu
+            </li>
+            <li>Vapaa määrä tyttöjä ja poikia kentällä</li>
+          </ul>
+          <p>
+            Keräämme ilmoittautumisia sekä juniorijoukkueilta että yksittäisiltä
+            junioripelaajilta (pick-up). Yksittäiset pelaajat joko kootaan
+            omaksi joukkueekseen tai yhdistetään sopiviin joukkueisiin.
+          </p>
+          <p>
+            Pelit on tarkoitus pelata aikavälillä 11-17, kerrothan jos on
+            aikatauluhaasteita.
+          </p>
+          <p>Ilmoittautuminen 1.7. mennessä.</p>
+          <p>
+            Pelaajamaksu 5€ per pelaaja - maksu Mobile Pay 045 123 1246 (Asmo
+            Soinio) - viestiin joukkueen nimi
+          </p>
+          <p>
+            TD: Asmo Soinio -{" "}
+            <Link
+              target="_blank"
+              className="text-blue-700"
+              to="mailto:asmo.soinio@gmail.com"
+            >
+              asmo.soinio@gmail.com
+            </Link>{" "}
+            /{" "}
+            <Link
+              target="_blank"
+              className="text-blue-700"
+              to="tel:045 123 1246"
+            >
+              045 123 1246
+            </Link>
+          </p>
+        </CardContent>
+      </Card>
+
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Card className="shadow-xl">
+        <Card className="mb-6 shadow-xl">
           <CardHeader>
             <CardTitle className="text-2xl md:text-3xl">
-              Junnu-YBU 2026 ilmoittautuminen
+              Ilmoittautuminen
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -142,8 +203,12 @@ export function JuniorSignUp() {
           </CardFooter>
         </Card>
       </form>
-      {success && <Alert type="success" title={t("signup.success")} />}
-      {error && <Alert type="error" title={t("signup.error")} />}
+      {success && (
+        <Alert type="success" className="mb-6" title={t("signup.success")} />
+      )}
+      {error && (
+        <Alert type="error" className="mb-6" title={t("signup.error")} />
+      )}
     </div>
   )
 }

@@ -53,7 +53,7 @@ export function SignUp() {
   return (
     <div className="flex flex-col gap-8 px-2 sm:px-8 md:px-16 lg:px-24 xl:px-48">
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <Card className="shadow-xl">
+        <Card className="mb-6 shadow-xl">
           <CardHeader>
             <CardTitle className="text-2xl md:text-3xl">
               {t("signup.title")}
@@ -134,8 +134,12 @@ export function SignUp() {
           </CardFooter>
         </Card>
       </form>
-      {success && <Alert type="success" title={t("signup.success")} />}
-      {error && <Alert type="error" title={t("signup.error")} />}
+      {success && (
+        <Alert type="success" className="mb-6" title={t("signup.success")} />
+      )}
+      {error && (
+        <Alert type="error" className="mb-6" title={t("signup.error")} />
+      )}
     </div>
   )
 }

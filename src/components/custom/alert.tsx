@@ -7,6 +7,7 @@ interface AlertProps {
   type: "success" | "error"
   title: string
   description?: string
+  className?: string
 }
 
 const Alert = (props: AlertProps) => {
@@ -26,7 +27,9 @@ const Alert = (props: AlertProps) => {
         : null
 
   return (
-    <ShadcnAlert className={cn("max-w shadow-xl", typeStyle?.title)}>
+    <ShadcnAlert
+      className={cn("max-w shadow-xl", typeStyle?.title, props.className)}
+    >
       {typeStyle?.icon}
       <AlertTitle>{props.title}</AlertTitle>
       {props.description && (
