@@ -1,4 +1,4 @@
-import { Alert, AlertTitle } from "@/components/ui/alert"
+import Alert from "@/components/custom/alert"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -17,8 +17,6 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { IconExclamationCircle } from "@tabler/icons-react"
-import { CheckCircle2Icon } from "lucide-react"
 import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useSignup } from "./hooks/useSignup"
@@ -139,18 +137,8 @@ export function SignUp() {
           </CardFooter>
         </Card>
       </form>
-      {success && (
-        <Alert className="max-w">
-          <CheckCircle2Icon />
-          <AlertTitle>{t("signup.success")}</AlertTitle>
-        </Alert>
-      )}
-      {error && (
-        <Alert variant="destructive" className="max-w">
-          <IconExclamationCircle />
-          <AlertTitle>{t("signup.error")}</AlertTitle>
-        </Alert>
-      )}
+      {success && <Alert type="success" title={t("signup.success")} />}
+      {error && <Alert type="error" title={t("signup.error")} />}
     </div>
   )
 }
