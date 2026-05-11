@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -15,34 +14,43 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
-import { useSignup } from "./hooks/useSignup"
+import { useJuniorSignup } from "./hooks/useJuniorSignup"
 import {
-  levelOfPlayOptions,
-  signupSchema,
-  type SignUpData,
-} from "./model/SignupData"
+  juniorSignupSchema,
+  playerType,
+  type JuniorSignupData,
+} from "./model/JuniorSignupData"
 
-export function SignUp() {
+export function JuniorSignUp() {
   const { t } = useTranslation()
 
-  const form = useForm<SignUpData>({
-    resolver: zodResolver(signupSchema),
+  const form = useForm<JuniorSignupData>({
+    resolver: zodResolver(juniorSignupSchema),
     defaultValues: {
       email: "",
-      teamName: "",
-      playerCount: 0,
-      levelOfPlay: undefined,
-      contactEmail: "",
+      playerType: undefined,
+      teamOrPlayerName: "",
       contactPerson: "",
-      contactPhone: "",
+      contactPhone: undefined,
+      contactEmail: undefined,
+      comment: undefined,
     },
   })
 
-  const { insert, loading, success, error } = useSignup()
+  const { insert, loading, success, error } = useJuniorSignup()
 
-  function onSubmit(data: SignUpData) {
-    insert(data)
+  function onSubmit(data: JuniorSignupData) {
+    insert({
+      ...data,
+      contactPhone: data.contactPhone ?? null,
+      contactEmail: data.contactEmail ?? null,
+      comment: data.comment ?? null,
+    })
   }
+
+  useEffect(() => {
+    console.log(success, error)
+  }, [success, error])
 
   useEffect(() => {
     if (success) {
@@ -56,68 +64,68 @@ export function SignUp() {
         <Card className="shadow-xl">
           <CardHeader>
             <CardTitle className="text-2xl md:text-3xl">
-              {t("signup.title")}
+              Junnu-YBU 2026 ilmoittautuminen
             </CardTitle>
-            <CardDescription>{t("signup.description")}</CardDescription>
           </CardHeader>
           <CardContent>
             <FieldGroup>
               <TextInput
                 control={form.control}
                 name="email"
-                id="form-signup-email"
-                label={t("signup.email.label")}
+                id="form-j-signup-email"
+                label="Email"
                 type="email"
                 autoComplete="email"
-              />
-              <TextInput
-                control={form.control}
-                name="teamName"
-                id="form-signup-team-name"
-                label={t("signup.teamName.label")}
-                description={t("signup.teamName.description")}
-                autoComplete="off"
-              />
-              <TextInput
-                control={form.control}
-                name="playerCount"
-                id="form-signup-player-count"
-                label={t("signup.playerCount.label")}
-                autoComplete="off"
-                type="number"
+                required
               />
               <Select
                 control={form.control}
-                name="levelOfPlay"
-                id="form-signup-player-count"
-                label={t("signup.levelOfPlay.label")}
-                description={t("signup.levelOfPlay.description")}
+                name="playerType"
+                id="form-j-signup-player-type"
+                label="Joukkue vai yksittäinen pelaaja"
+                items={playerType}
                 autoComplete="off"
-                items={levelOfPlayOptions}
+                required
+              />
+              <TextInput
+                control={form.control}
+                name="teamOrPlayerName"
+                id="form-j-signup-team-player-name"
+                label="Joukkueen/pelaajan nimi (paikkakunta)"
+                autoComplete="off"
+                required
               />
               <TextInput
                 control={form.control}
                 name="contactPerson"
-                id="form-signup-contact-person"
-                label={t("signup.contactPerson.label")}
-                description={t("signup.contactPerson.description")}
+                id="form-j-signup-contact-person"
+                label="Yhteyshenkilön nimi"
                 autoComplete="off"
+                required
+              />
+              <TextInput
+                control={form.control}
+                name="contactPhone"
+                id="form-j-signup-contact-phone"
+                label="Yhteyshenkilön puhelinnumero"
+                autoComplete="tel"
+                required
               />
               <TextInput
                 control={form.control}
                 name="contactEmail"
-                id="form-signup-contact-email"
-                label={t("signup.contactEmail.label")}
-                description={t("signup.contactEmail.description")}
+                id="form-j-signup-contact-email"
+                label="Yhteyshenkilön sähköposti"
+                description="(jos eri kuin lomakkeen täyttäjä)"
                 type="email"
                 autoComplete="email"
               />
               <TextInput
                 control={form.control}
-                name="contactPhone"
-                id="form-signup-contact-phone"
-                label={t("signup.contactPhone.label")}
-                autoComplete="tel"
+                name="comment"
+                id="form-j-signup-comment"
+                label="Kommentteja tai kysymyksiä"
+                autoComplete="off"
               />
             </FieldGroup>
           </CardContent>
@@ -140,4 +148,4 @@ export function SignUp() {
   )
 }
 
-export default SignUp
+export default JuniorSignUp

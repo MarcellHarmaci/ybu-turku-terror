@@ -12,17 +12,23 @@ export const useInsert = <T extends DocumentData>() => {
 
     setLoading(true)
 
-    addDoc(collectionRef, data).then(
-      () => {
-        setLoading(false)
-        setSuccess(true)
-      },
-      (reason) => {
-        console.error("Could not save data!", reason)
+    addDoc(collectionRef, data)
+      .then(
+        () => {
+          setLoading(false)
+          setSuccess(true)
+        },
+        (reason) => {
+          console.error("Could not insert data!", reason)
+          setLoading(false)
+          setError(reason)
+        }
+      )
+      .catch((reason) => {
+        console.error("Could not insert data!", reason)
         setLoading(false)
         setError(reason)
-      }
-    )
+      })
   }
 
   return { insert, loading, success, error }

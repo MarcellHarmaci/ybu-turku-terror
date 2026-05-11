@@ -10,6 +10,7 @@ import AdminLayout from "./layout/admin"
 import VisitorLayout from "./layout/visitor"
 import AdminHome from "./pages/admin/AdminHome"
 import Home from "./pages/visitor/Home"
+import JuniorSignUp from "./pages/visitor/JuniorSignup"
 import Rules from "./pages/visitor/Rules"
 import SignUp from "./pages/visitor/Signup"
 
@@ -20,7 +21,7 @@ const RouteConfig = () => (
         <Route path={PATH_HOME} element={<Home />} />
         <Route path={PATH_RULES} element={<Rules />} />
         <Route path={PATH_SIGN_UP} element={<SignUp />} />
-        <Route path={PATH_SIGN_UP_JUNIOR} element={<SignUp />} />
+        <Route path={PATH_SIGN_UP_JUNIOR} element={<JuniorSignUp />} />
         <Route path={PATH_TEAMS} element={<></>} />
       </Route>
 
