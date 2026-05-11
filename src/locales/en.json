@@ -163,5 +163,84 @@
         }
       ]
     }
+  },
+  "rules": {
+    "title": "Rules (säännöt englanniksi)",
+    "general": {
+      "title": "General rules",
+      "content": [
+        "Games are up to 13 points (hard cap), time cap 35 minutes. The final game is up to 15 points (hard cap), time cap 45 minutes.",
+        "When the time cap is reached, the current point is finished. If one team leads by 3 or more points when the time is up, then the game is over (pagacap). If not and neither team has reached 13 points, the new point cap will be the leading team’s score +1.",
+        "Announcements on the loudspeaker are “Pelikello käy” (game starts), “20 minuuttia pelattu” (20 minutes played) and “peliaika päättynyt” (game time is over). At 20 minutes there is an opportunity for a 1 minute long water break. ",
+        "No half time. No time-outs. No brick rule. Callahan goals apply.",
+        "Mixed rule: Both men and women from each team have to be on the field at every point. Teams decide themselves how many men and women they put on the field.",
+        "No visiting players are allowed in the quarter finals, semi finals or final match."
+      ]
+    },
+    "overview": {
+      "title": "Overview of beach ultimate rules",
+      "description": "The tournament will be played with the official BULA 5-on-5 Beach Ultimate rules with mixed teams (both men and women have to be on the field at every point). Here's an overview of the most important rules:",
+      "content": [
+        {
+          "title": "The Field",
+          "rule": "The field for 5-on-5 BULA Beach Ultimate consists of a 45 m x 25 m rectangle called the playing field proper, with a 15 m by 25 m rectangle called an end zone aligned along each of the 25 m sides."
+        },
+        {
+          "title": "Start of the game",
+          "rule": "The winner of the coin (or Frisbee) toss determines whether it will start on offence or decides what end zone to defend first. Next, both teams line up on the front of their respective end zone line. The defence throws the disc to the offence and the game begins."
+        },
+        {
+          "title": "Movement of the disc and the players",
+          "rule": "The disc can be thrown from one player to another in any direction. A player may not run while in possession of the disc."
+        },
+        {
+          "title": "Possession",
+          "rule": "The person with the disc has 10 seconds to throw the disc to a teammate. The defender guarding the thrower counts the seconds out loud (\"stalling one, two, three...\")."
+        },
+        {
+          "title": "Change of possession",
+          "rule": "A turnover results whenever one of the following items occur:",
+          "bullets": [
+            "- the disc touches the ground (also when knocked down by the defence)",
+            "- the disc is caught outside the field",
+            "- the disc is intercepted by an opposing player"
+          ],
+          "ending": "Upon a turnover the defence immediately takes possession of the disc and becomes the offence."
+        },
+        {
+          "title": "Scoring",
+          "rule": "A goal is scored when a player catches a legal pass in the end zone of the attack. Play is initiated after each score."
+        },
+        {
+          "title": "Initiate Play",
+          "rule": "Each new point begins again with both teams lining up on the front of their respective end zone line with the team that just scored throwing the disc to the other team."
+        },
+        {
+          "title": "Non-contact",
+          "rule": "Beach Ultimate is a non-contact sport. A foul occurs when contact is made."
+        },
+        {
+          "title": "No Referees",
+          "rule": "The sport is self-officiated. All fouls are called by the player(s) involved. When a foul results in loss of possession, the play is stopped and resumed as if possession was not lost. If the player committing the foul disagrees with the foul call, the play is redone."
+        }
+      ]
+    },
+    "spirit": {
+      "title": "Spirit of the Game",
+      "description": "The Spirit of the Game is not so much a rule, but an attitude... a way of playing. It relies upon a spirit of sportsmanship that places the responsibility for fair play on the players themselves. Highly competitive play is encouraged, but never at the expense of mutual respect between players. The Spirit of the Game is one of the fundamental beliefs of the Beach Ultimate sport. Without it the game loses its charm. The Spirit must exist!",
+      "more": {
+        "title": "Read more",
+        "content": [
+          {
+            "source": "European Ultimate Federation",
+            "url": "https://www.ultimatefederation.eu/spirit-of-the-game"
+          },
+          {
+            "source": "Finnish Flying Disc Association",
+            "url": "https://ultimate.fi/liitto/etusivu/spirit-of-the-game/"
+          }
+        ]
+      }
+    }
   }
 }
