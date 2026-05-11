@@ -7,14 +7,22 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { PATH_HOME, PATH_SIGN_UP } from "@/consts"
+import {
+  PATH_HOME,
+  PATH_RULES,
+  PATH_SIGN_UP,
+  PATH_SIGN_UP_JUNIOR,
+  PATH_TEAMS,
+} from "@/consts"
 import {
   IconBeach,
   IconClipboardCheck,
+  IconGavel,
   IconInfoCircle,
+  IconUsers,
 } from "@tabler/icons-react"
 import LanguageSelect from "./LanguageSelect"
-import { NavGeneral } from "./NavCompetition"
+import { NavGeneral } from "./NavGeneral"
 
 /**
  * @see https://ui.shadcn.com/blocks
@@ -33,9 +41,24 @@ const VisitorSidebar = () => {
         icon: IconInfoCircle,
       },
       {
+        name: "Rules",
+        url: PATH_RULES,
+        icon: IconGavel,
+      },
+      {
         name: "Sign-up",
         url: PATH_SIGN_UP,
         icon: IconClipboardCheck,
+      },
+      {
+        name: "Junior Sign-up",
+        url: PATH_SIGN_UP_JUNIOR,
+        icon: IconClipboardCheck,
+      },
+      {
+        name: "Teams",
+        url: PATH_TEAMS,
+        icon: IconUsers,
       },
     ],
   }
