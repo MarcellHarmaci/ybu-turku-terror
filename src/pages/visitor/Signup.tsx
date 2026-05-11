@@ -1,4 +1,5 @@
 import Alert from "@/components/custom/alert"
+import Select from "@/components/custom/form/Select"
 import TextInput from "@/components/custom/form/TextInput"
 import { Button } from "@/components/ui/button"
 import {
@@ -15,7 +16,11 @@ import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useSignup } from "./hooks/useSignup"
-import { signupSchema, type SignUpData } from "./model/SignupData"
+import {
+  levelOfPlayOptions,
+  signupSchema,
+  type SignUpData,
+} from "./model/SignupData"
 
 export function SignUp() {
   const { t } = useTranslation()
@@ -23,9 +28,13 @@ export function SignUp() {
   const form = useForm<SignUpData>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
-      contactPerson: "",
-      contactEmail: "",
+      email: "",
       teamName: "",
+      playerCount: 0,
+      levelOfPlay: undefined,
+      contactEmail: "",
+      contactPerson: "",
+      contactPhone: "",
     },
   })
 
@@ -55,10 +64,41 @@ export function SignUp() {
             <FieldGroup>
               <TextInput
                 control={form.control}
+                name="email"
+                id="form-signup-email"
+                label={t("signup.email.label")}
+              />
+              <TextInput
+                control={form.control}
+                name="teamName"
+                id="form-signup-team-name"
+                label={t("signup.teamName.label")}
+                description={t("signup.teamName.description")}
+                autoComplete="off"
+              />
+              <TextInput
+                control={form.control}
+                name="playerCount"
+                id="form-signup-player-count"
+                label={t("signup.playerCount.label")}
+                autoComplete="off"
+                type="number"
+              />
+              <Select
+                control={form.control}
+                name="levelOfPlay"
+                id="form-signup-player-count"
+                label={t("signup.levelOfPlay.label")}
+                description={t("signup.levelOfPlay.description")}
+                autoComplete="off"
+                items={levelOfPlayOptions}
+              />
+              <TextInput
+                control={form.control}
                 name="contactPerson"
                 id="form-signup-contact-person"
                 label={t("signup.contactPerson.label")}
-                placeholder={t("signup.contactPerson.placeholder")}
+                description={t("signup.contactPerson.description")}
                 autoComplete="off"
               />
               <TextInput
@@ -66,18 +106,16 @@ export function SignUp() {
                 name="contactEmail"
                 id="form-signup-email"
                 label={t("signup.contactEmail.label")}
-                placeholder={t("signup.contactEmail.placeholder")}
+                description={t("signup.contactEmail.description")}
                 type="email"
                 autoComplete="email"
               />
               <TextInput
                 control={form.control}
-                name="teamName"
-                id="form-signup-team-name"
-                label={t("signup.teamName.label")}
-                placeholder={t("signup.teamName.placeholder")}
-                description={t("signup.teamName.description")}
-                autoComplete="off"
+                name="contactPhone"
+                id="form-signup-phone"
+                label={t("signup.contactPhone.label")}
+                autoComplete="tel"
               />
             </FieldGroup>
           </CardContent>

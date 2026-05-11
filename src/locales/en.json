@@ -8,19 +8,31 @@
   "signup": {
     "title": "Sign-up",
     "description": "Register your team for the 2026 Yyteri Beach Ultimate tournament!",
-    "contactPerson": {
-      "label": "Contact person",
-      "placeholder": "The team contact person's name"
-    },
-    "contactEmail": {
-      "label": "Contact email",
-      "placeholder": "email@example.com",
-      "description": "An address where the organizers can reach you. This will not be shared with other teams."
+    "email": {
+      "label": "E-mail"
     },
     "teamName": {
-      "label": "Team name",
-      "placeholder": "Your awesome team name",
+      "label": "Name of the team",
       "description": "The name of your team. This will be visible to other teams on the tournament website."
+    },
+    "playerCount": {
+      "label": "Estimate on the number of players in the team"
+    },
+    "levelOfPlay": {
+      "label": "Team's level of play",
+      "description": "May or may not be used at seeding."
+    },
+    "contactPerson": {
+      "label": "Contact person",
+      "description": "The team contact person's name"
+    },
+    "contactEmail": {
+      "label": "Contact person's e-mail",
+      "description": "An address where the organizers can reach you. This will not be shared with other teams."
+    },
+    "contactPhone": {
+      "label": "Contact person's phone number",
+      "description": "An address where the organizers can reach you. This will not be shared with other teams."
     },
     "submit": "Sign up",
     "success": "Successfully signed up!",

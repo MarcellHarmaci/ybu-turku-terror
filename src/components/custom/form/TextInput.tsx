@@ -14,7 +14,6 @@ import {
 
 type TextInputProps<TFieldValues extends FieldValues = FieldValues> = {
   label: string
-  placeholder: string
   description?: string
 } & Pick<ControllerProps<TFieldValues>, "control" | "name"> &
   ComponentProps<"input">
@@ -22,8 +21,7 @@ type TextInputProps<TFieldValues extends FieldValues = FieldValues> = {
 function TextInput<TFieldValues extends FieldValues = FieldValues>(
   props: TextInputProps<TFieldValues>
 ) {
-  const { label, placeholder, description, control, name, ...inputProps } =
-    props
+  const { label, description, control, name, ...inputProps } = props
 
   return (
     <Controller
@@ -32,12 +30,7 @@ function TextInput<TFieldValues extends FieldValues = FieldValues>(
       render={({ field, fieldState }) => (
         <Field data-invalid={fieldState.invalid}>
           <FieldLabel htmlFor={inputProps.id}>{label}</FieldLabel>
-          <Input
-            {...field}
-            {...inputProps}
-            aria-invalid={fieldState.invalid}
-            placeholder={placeholder}
-          />
+          <Input {...inputProps} {...field} aria-invalid={fieldState.invalid} />
           {description && <FieldDescription>{description}</FieldDescription>}
           {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
         </Field>
