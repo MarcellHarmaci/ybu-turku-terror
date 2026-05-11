@@ -1,16 +1,11 @@
-import { useSave } from "@/service/useSave"
+import { useInsert } from "@/service/useInsert"
 import type { SignUpData } from "../model/SignupData"
 
 export const useSignup = () => {
-  const saveHook = useSave<SignUpData>()
+  const insertHook = useInsert<SignUpData>()
 
   return {
-    ...saveHook,
-    save: (data: SignUpData) =>
-      saveHook.save(
-        "signup",
-        data.teamName.toLowerCase().replaceAll(" ", "-"),
-        data
-      ),
+    ...insertHook,
+    insert: (data: SignUpData) => insertHook.insert("signup", data),
   }
 }

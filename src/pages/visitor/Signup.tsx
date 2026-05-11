@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useEffect } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 import { useSignup } from "./hooks/useSignup"
@@ -34,11 +35,17 @@ export function SignUp() {
     },
   })
 
-  const { save, loading, success, error } = useSignup()
+  const { insert, loading, success, error } = useSignup()
 
   function onSubmit(data: SignUpData) {
-    save(data)
+    insert(data)
   }
+
+  useEffect(() => {
+    if (success) {
+      form.reset()
+    }
+  }, [success, form])
 
   return (
     <div className="flex flex-col gap-8 px-2 sm:px-8 md:px-16 lg:px-24 xl:px-48">

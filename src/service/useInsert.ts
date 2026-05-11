@@ -1,18 +1,18 @@
-import { doc, setDoc, type DocumentData } from "firebase/firestore"
+import { addDoc, collection, type DocumentData } from "firebase/firestore"
 import { useState } from "react"
 import { db } from "../firebase"
 
-export const useSave = <T extends DocumentData>() => {
+export const useInsert = <T extends DocumentData>() => {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState()
 
-  const save = (collection: string, docId: string, data: T) => {
-    const document = doc(db, collection, docId)
+  const insert = (collectionName: string, data: T) => {
+    const collectionRef = collection(db, collectionName)
 
     setLoading(true)
 
-    setDoc(document, data).then(
+    addDoc(collectionRef, data).then(
       () => {
         setLoading(false)
         setSuccess(true)
@@ -25,5 +25,5 @@ export const useSave = <T extends DocumentData>() => {
     )
   }
 
-  return { save, loading, success, error }
+  return { insert, loading, success, error }
 }
