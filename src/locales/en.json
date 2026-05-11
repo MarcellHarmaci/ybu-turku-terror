@@ -29,6 +29,125 @@
       "overview": "Overview",
       "description": "Yyteri Beach Ultimate aka YBU is an ultimate tournament, which is played as loose-mixed (5 vs 5) in Pori's Yyteri on 15 and 16 August 2026. YBU was organised for the first time in 1999.",
       "contact": "If you have questions concerning the tournament, you can contact us via <0>email</0>, via <1>Instagram</1> and via the <2>WhatsApp community</2>. Welcome to YBU!"
+    },
+    "general": {
+      "title": "General information about the tournament",
+      "content": [
+        "Playing fields will be built on the beach and a staff tent will be put next to the fields. The easiest way to get to the playing fields and the staff tent is to walk to the beach via the duckboards from the end of Yyterinsantojentie next to Yyteri info building.",
+        "There is always a staff member at the staff tent, and you can buy Turku Terror Frisbees from the tent. You can also find a daily game schedule from the tent, where the results of the games will be updated. The results and final rankings will also be updated in the electronic, more accurate game schedule, which will be posted later.",
+        "Drinking water can be obtained from the upper end of the duckboards (NB! It is advisable to bring a larger water canister for the team, if available). There are also toilets on the beach.",
+        "During the tournament, we will establish a WhatsApp community. The YBU community includes a General group open to everybody. There will also be a group to which the teams' contact persons will be added and where information about the tournament will be shared.",
+        "Teams should bring their own first aid supplies."
+      ]
+    },
+    "fees": {
+      "title": "Fees",
+      "content": [
+        "The team fee is 320 € and it covers 8 players. Extra players can be bought for 40 € / player. The team fee and extra player fees will be paid in YBU Holvi. Team fee and possible extra players should be paid in Holvi by 1.8."
+      ]
+    },
+    "travel": {
+      "title": "Travelling to Yyteri",
+      "description": "The easiest way to Yyteri Beach is by car. If you need a ride, write a message to YBU whatsapp community and let’s try to arrange car pools.",
+      "options": [
+        {
+          "travel": "Pori - Yyteri",
+          "modes": [
+            {
+              "name": "Pori - Yyteri bus",
+              "urls": ["https://pjl.pori.fi/etusivu/aikataulut-ja-reitit/"],
+              "description": "Line 34 from Porin center to Yyteriin, stops ‘Yyteri leirintä I’ (camping), ‘Yyterin Sannat E’ (info and beach), ‘Yyterin Hotelli E’ (hotel, not in order). Ride takes about 25 minutes."
+            },
+            {
+              "name": "Taxis",
+              "urls": ["https://02taksi.fi/english/", "https://bolt.eu/en/"]
+            }
+          ]
+        },
+        {
+          "travel": "To Pori",
+          "modes": [
+            {
+              "name": "Buses",
+              "urls": [
+                "https://liput.matkahuolto.fi/connectionsearch#breadcrumb"
+              ]
+            },
+            {
+              "name": "Trains",
+              "urls": ["https://www.vr.fi/aikataulut"]
+            }
+          ]
+        },
+        {
+          "travel": "To Finland",
+          "modes": [
+            {
+              "name": "Flying to Helsinki or Turku",
+              "urls": [
+                "https://www.finnair.com/fi-fi",
+                "https://www.skyscanner.fi/"
+              ]
+            },
+            {
+              "name": "Via a ship",
+              "urls": [
+                "https://www.sales.vikingline.com/",
+                "https://www.tallink.com/",
+                "https://www.eckeroline.com/",
+                "https://www.finnlines.com/"
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Note! Detailed travelling information might be outdated. Please check the service provider's website for up-to-date information."
+    },
+    "accommodation": {
+      "title": "Accommodation",
+      "description": "There are multiple accommodation options in Yyteri, for example:",
+      "options": [
+        {
+          "name": "Yyteri Resort & Camping (cottages / camping)",
+          "url": "https://yytericamping.fi/",
+          "comment": "If you are staying at the Camping, remember to move your car away from the area in time on Sunday"
+        },
+        {
+          "name": "Yyteri Beach Holiday Resort",
+          "url": "https://yyteribeach.fi/"
+        },
+        {
+          "name": "Aamuhuoneistot in Yyteri",
+          "url": "https://www.aamuhuoneistot.fi/"
+        },
+        {
+          "name": "Other accommodation options on City of Pori’s website",
+          "url": "https://www.visitpori.fi/en/yyteri/accommodation-in-yyteri/"
+        }
+      ]
+    },
+    "schedule": {
+      "title": "Schedule",
+      "description": "You can find the preliminary schedule for the tournament below. More detailed game schedules will be published closer to the tournament.",
+      "preliminarySchedule": [
+        {
+          "day": "Saturday",
+          "events": [
+            { "time": "9.00-16.30", "event": "Games at the beach" },
+            { "time": "19-01", "event": "Beach party" }
+          ]
+        },
+        {
+          "day": "Sunday",
+          "events": [
+            { "time": "9.00-16.30", "event": "Games at the beach" },
+            {
+              "time": "14.00-16.00",
+              "event": "Saunas are reserved for the tournament’s participants. The saunas are located close to the Camping area’s gate."
+            }
+          ]
+        }
+      ]
     }
   }
 }
