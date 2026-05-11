@@ -32,7 +32,7 @@
     },
     "contactPhone": {
       "label": "Contact person's phone number",
-      "description": "An address where the organizers can reach you. This will not be shared with other teams."
+      "description": "Contact person will be added to the WhatsApp group with the staff and other contact persons in YBU WhatsApp community."
     },
     "submit": "Sign up",
     "success": "Successfully signed up!",

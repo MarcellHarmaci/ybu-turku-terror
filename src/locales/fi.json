@@ -8,27 +8,135 @@
   "signup": {
     "title": "Ilmoittautuminen",
     "description": "Rekisteröi joukkueesi vuoden 2026 Yyteri Beach Ultimate -turnaukseen!",
-    "contactPerson": {
-      "label": "Yhteyshenkilö",
-      "placeholder": "Joukkueen yhteyshenkilön nimi"
-    },
-    "contactEmail": {
-      "label": "Yhteyssähköposti",
-      "placeholder": "sahkoposti@esimerkki.fi",
-      "description": "Sähköpostiosoite, johon järjestäjät voivat ottaa yhteyttä. Tätä ei jaeta muiden joukkueiden kanssa."
+    "email": {
+      "label": "E-mail"
     },
     "teamName": {
       "label": "Joukkueen nimi",
-      "placeholder": "Mahtava joukkueesi nimi",
-      "description": "Joukkueesi nimi. Tämä näkyy muille joukkueille turnauksen verkkosivulla."
+      "description": "Joukkueen yhteyshenkilön nimi."
     },
-    "submit": "Ilmoittaudu"
+    "playerCount": {
+      "label": "Arvio joukkueen pelaajamäärästä"
+    },
+    "levelOfPlay": {
+      "label": "Joukkueen pelitaso",
+      "description": "Saatetaan käyttää sijoittelussa."
+    },
+    "contactPerson": {
+      "label": "Yhteyshenkilö",
+      "description": "Joukkueen yhteyshenkilön nimi."
+    },
+    "contactEmail": {
+      "label": "Yhteyshenkilön sähköposti",
+      "description": "Sähköpostiosoite, johon järjestäjät voivat ottaa yhteyttä. Tätä ei jaeta muiden joukkueiden kanssa."
+    },
+    "contactPhone": {
+      "label": "Yhteishenkilön puhelinnumero",
+      "description": "Yhteyshenkilö tullaan lisäämään WhatsApp-yhteisön Yhteyshenkilöt-ryhmään staffin ja muiden yhteyshenkilöiden kanssa."
+    },
+    "submit": "Ilmoittaudu",
+    "success": "Ilmoittautuminen onnistui!",
+    "error": "Ilmoittautuminen epäonnistui!"
   },
   "home": {
     "main": {
       "overview": "Yleiskatsaus",
       "description": "Yyteri Beach Ultimate eli YBU on ultimateturnaus, joka pelataan loose mixedinä (5 vs 5) Porin Yyterissä 15.-16.8.2026. YBU järjestettiin ensimmäisen kerran vuonna 1999.",
       "contact": "Jos sinulla on kysyttävää turnaukseen liittyen, voit olla meihin yhteydessä <0>sähköpostitse</0>, <1>Instagramissa</1> ja <2>WhatsApp-yhteisön</2> kautta. Tervetuloa YBUun!"
+    },
+    "general": {
+      "title": "Yleistä tietoa turnauksesta",
+      "content": [
+        "Rannalle rakennetaan turnausta varten pelikentät ja kenttien lähelle pystytetään staff-teltta. Pelikentille ja staff-teltalle löytää helpoiten perille kävelemällä rannalle Yyterinsantojentien ja Yyteri-infopisteen päästä lähtevien lankongien kautta.",
+        "Staff-teltalla on päivystämässä aina joku staffilainen ja teltalta voi ostaa Turku Terrorin frisbeitä. Teltalta löytyy lisäksi päiväkohtainen peliaikataulu, johon päivitetään pelien tulokset. Tulokset sekä lopulliset sijoitukset päivittyvät myös sähköiseen, tarkempaan peliaikatauluun, joka julkaistaan myöhemmin.",
+        "Lankongin yläpäästä saa otettua juomavettä (HUOM! Kannattaa ottaa mukaan isompi vesikanisteri joukkuetta varten, jos tällainen löytyy). Rannalta löytyy myös vessat.",
+        "Turnauksen ajaksi perustetaan WhatsApp-yhteisö, johon luodaan Yleinen-kanava, joka on avoin kaikille. Lisäksi YBU-yhteisöstä löytyy Yhteishenkilöt-kanava, johon lisätään joukkueiden yhteyshenkilöt ja jossa jaetaan tarvittaessa turnausta koskevaa informaatiota.",
+        "Joukkueilla tulee olla mukana omat EA-tarvikkeet."
+      ]
+    },
+    "fees": {
+      "title": "Maksut",
+      "content": [
+        "Joukkuemaksu on 320 € ja se kattaa 8 pelaajan osallistumisen turnaukseen. Lisäpelaajat maksavat 40 € / pelaaja. Joukkuemaksun ja lisäpelaajamaksut maksetaan YBU Holvissa. Joukkuemaksu ja mahdolliset lisäpelaajat tulee maksaa Holvissa 1.8. mennessä."
+      ]
+    },
+    "travel": {
+      "title": "Matkustus Yyteriin",
+      "description": "Yyteriin pääsee helpoiten autoilla. Mikäli olet vailla kyytiä, heitä viestiä YBU-yhteisöön ja yritetään järjestää kimppakyytejä.",
+      "options": [
+        {
+          "travel": "Pori - Yyteri",
+          "modes": [
+            {
+              "name": "Pori - Yyteri bussit",
+              "urls": ["https://pjl.pori.fi/etusivu/aikataulut-ja-reitit/"],
+              "description": "Linja 34 Porin keskustasta Yyteriin, pysäkit Yyteri leirintä I (camping), Yyterin Sannat E (info ja ranta), Yyterin Hotelli E (hotelli). Kesto noin 25 min."
+            }
+          ]
+        },
+        {
+          "travel": "Poriin",
+          "modes": [
+            {
+              "name": "Bussit",
+              "urls": [
+                "https://liput.matkahuolto.fi/connectionsearch#breadcrumb"
+              ]
+            },
+            {
+              "name": "Junat",
+              "urls": ["https://www.vr.fi/aikataulut"]
+            }
+          ]
+        }
+      ],
+      "note": "Huom! Yksityiskohtaiset matkustustiedot saattavat olla vanhentuneita, tarkasta ajantasaiset tiedot palveluntarjoajan nettisivuilta."
+    },
+    "accommodation": {
+      "title": "Majoitus",
+      "description": "Yyterissä on useita majoitusvaihtoehtoja, esimerkiksi:",
+      "options": [
+        {
+          "name": "Yyteri Resort & Camping (mökit / leirintä)",
+          "url": "https://yytericamping.fi/",
+          "comment": "Jos majoitut Campingissa, muista siirtää sunnuntaina autosi ajoissa alueelta pois"
+        },
+        {
+          "name": "Yyteri Beach lomakeskus",
+          "url": "https://yyteribeach.fi/"
+        },
+        {
+          "name": "Aamuhuoneistot Yyterissä",
+          "url": "https://www.aamuhuoneistot.fi/"
+        },
+        {
+          "name": "Muita majoitusvaihtoehtoja Porin kaupungin nettisivuilla",
+          "url": "https://www.visitpori.fi/yyteri/majoitus-yyterissa/"
+        }
+      ]
+    },
+    "schedule": {
+      "title": "Aikataulu",
+      "description": "Alta löytyy alustava aikataulu turnauksen osalta. Tarkemmat peliaikataulut julkaistaan lähempänä turnausta.",
+      "preliminarySchedule": [
+        {
+          "day": "Lauantai",
+          "events": [
+            { "time": "Noin klo 9.00-16.30", "event": "Pelit rannalla" },
+            { "time": "Klo 19-01", "event": "Rantabileet" }
+          ]
+        },
+        {
+          "day": "Sunnuntai",
+          "events": [
+            { "time": "Noin klo 9.00-16.30", "event": "Pelit rannalla" },
+            {
+              "time": "Klo 14.00-16.00",
+              "event": "Saunat varattuna turnaukseen osallistuneille. Saunat sijaitsevat Camping alueen portin läheisyydessä."
+            }
+          ]
+        }
+      ]
     }
   }
 }
