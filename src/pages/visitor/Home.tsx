@@ -41,6 +41,7 @@ export function Home() {
       </div>
 
       <Card className="shadow-xl">
+        <img src="ybu-header.jpg" alt="YBU Design Header" />
         <CardHeader>
           <CardTitle className="text-2xl md:text-3xl">
             {t("home.main.overview")}
