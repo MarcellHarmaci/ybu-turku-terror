@@ -23,6 +23,7 @@ import {
 } from "@tabler/icons-react"
 import LanguageSelect from "./LanguageSelect"
 import { NavGeneral } from "./NavGeneral"
+import ThemeToggle from "./ThemeToggle"
 
 /**
  * @see https://ui.shadcn.com/blocks
@@ -87,6 +88,7 @@ const VisitorSidebar = () => {
       </SidebarContent>
       <SidebarFooter>
         <LanguageSelect />
+        <ThemeToggle />
       </SidebarFooter>
     </Sidebar>
   )

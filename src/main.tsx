@@ -1,9 +1,10 @@
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
+import "react-theme-switch-animation"
 import "./firebase"
 import "./i18n"
 
-import { ThemeProvider } from "@/components/theme-provider.tsx"
+import { ThemeProvider } from "./components/theme-provider"
 import { SidebarProvider } from "./components/ui/sidebar"
 import { TooltipProvider } from "./components/ui/tooltip"
 import "./index.css"

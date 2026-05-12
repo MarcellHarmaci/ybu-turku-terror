@@ -19,7 +19,7 @@ const LanguageSelect = () => {
   ]
 
   return (
-    <Field className="w-full max-w-xs p-2">
+    <Field className="w-full max-w-xs">
       <FieldLabel>
         <IconWorld /> {t("sidebar.language")}
       </FieldLabel>
