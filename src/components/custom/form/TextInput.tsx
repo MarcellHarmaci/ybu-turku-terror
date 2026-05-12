@@ -5,6 +5,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { cn } from "@/lib/utils"
 import { type ComponentProps } from "react"
 import {
   Controller,
@@ -30,7 +31,12 @@ function TextInput<TFieldValues extends FieldValues = FieldValues>(
       render={({ field, fieldState }) => (
         <Field data-invalid={fieldState.invalid}>
           <FieldLabel htmlFor={inputProps.id}>{label}</FieldLabel>
-          <Input {...inputProps} {...field} aria-invalid={fieldState.invalid} />
+          <Input
+            {...inputProps}
+            {...field}
+            aria-invalid={fieldState.invalid}
+            className={cn("shadow-sm", inputProps.className)}
+          />
           {description && <FieldDescription>{description}</FieldDescription>}
           {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
         </Field>

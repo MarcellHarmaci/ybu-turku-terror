@@ -1,6 +1,7 @@
-import Alert from "@/components/custom/alert"
+import Alert from "@/components/custom/Alert"
 import Select from "@/components/custom/form/Select"
 import TextInput from "@/components/custom/form/TextInput"
+import Link from "@/components/custom/Link"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -14,7 +15,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
-import { Link } from "react-router"
 import { useJuniorSignup } from "./hooks/useJuniorSignup"
 import {
   juniorSignupSchema,
@@ -102,19 +102,11 @@ export function JuniorSignUp() {
           </p>
           <p>
             TD: Asmo Soinio -{" "}
-            <Link
-              target="_blank"
-              className="text-blue-700"
-              to="mailto:asmo.soinio@gmail.com"
-            >
+            <Link target="_blank" to="mailto:asmo.soinio@gmail.com">
               asmo.soinio@gmail.com
             </Link>{" "}
             /{" "}
-            <Link
-              target="_blank"
-              className="text-blue-700"
-              to="tel:045 123 1246"
-            >
+            <Link target="_blank" to="tel:045 123 1246">
               045 123 1246
             </Link>
           </p>

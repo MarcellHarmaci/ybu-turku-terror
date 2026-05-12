@@ -24,13 +24,18 @@ export function NavGeneral({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>General</SidebarGroupLabel>
+      <SidebarGroupLabel className="sidebar-group-label">
+        General
+      </SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton
               asChild
               isActive={location.pathname === item.url}
+              className={
+                location.pathname === item.url ? "sidebar-button-active" : ""
+              }
             >
               <NavLink to={item.url}>
                 <item.icon className="size-5!" />

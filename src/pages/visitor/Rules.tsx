@@ -1,3 +1,4 @@
+import Link from "@/components/custom/Link"
 import {
   Card,
   CardContent,
@@ -6,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { useTranslation } from "react-i18next"
-import { Link } from "react-router"
 import type { Rule } from "./model/Rule"
 import type { SpiritUrl } from "./model/SpiritUrl"
 
@@ -27,9 +27,7 @@ export function Rules() {
           {(
             t("rules.general.content", { returnObjects: true }) as string[]
           ).map((paragraph: string, index: number) => (
-            <p key={`rule-general-${index}`} className="text-slate-700">
-              {paragraph}
-            </p>
+            <p key={`rule-general-${index}`}>{paragraph}</p>
           ))}
         </CardContent>
       </Card>
@@ -39,16 +37,14 @@ export function Rules() {
           <CardTitle className="text-2xl md:text-3xl">
             {t("rules.overview.title")}
           </CardTitle>
-          <CardDescription className="text-slate-800">
-            {t("rules.overview.description")}
-          </CardDescription>
+          <CardDescription>{t("rules.overview.description")}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
           {(t("rules.overview.content", { returnObjects: true }) as Rule[]).map(
             (rule: Rule, index: number) => (
               <div key={`rule-beach-${index}`}>
-                <p className="text-lg text-slate-800">{rule.title}</p>
-                <p className="text-slate-700">{rule.rule}</p>
+                <p className="text-lg">{rule.title}</p>
+                <p>{rule.rule}</p>
               </div>
             )
           )}
@@ -60,9 +56,7 @@ export function Rules() {
           <CardTitle className="text-2xl md:text-3xl">
             {t("rules.spirit.title")}
           </CardTitle>
-          <CardDescription className="text-slate-800">
-            {t("rules.spirit.description")}
-          </CardDescription>
+          <CardDescription>{t("rules.spirit.description")}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
           {(
@@ -71,8 +65,8 @@ export function Rules() {
             }) as SpiritUrl[]
           ).map((reading: SpiritUrl, index: number) => (
             <div key={`rule-spirit-reading-${index}`}>
-              <p className="text-lg text-slate-800">{reading.source}</p>
-              <Link target="_blank" className="text-blue-700" to={reading.url}>
+              <p className="text-lg">{reading.source}</p>
+              <Link target="_blank" to={reading.url}>
                 {reading.url}
               </Link>
             </div>

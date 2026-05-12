@@ -1,4 +1,4 @@
-import Alert from "@/components/custom/alert"
+import Alert from "@/components/custom/Alert"
 import Select from "@/components/custom/form/Select"
 import TextInput from "@/components/custom/form/TextInput"
 import { Button } from "@/components/ui/button"
@@ -125,7 +125,7 @@ export function SignUp() {
             <Button
               variant="default"
               size="sm"
-              className="w-full md:w-64"
+              className="w-full lg:w-48"
               type="submit"
               disabled={loading}
             >

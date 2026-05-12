@@ -11,6 +11,7 @@ import {
   SelectValue,
   Select as ShadcnSelect,
 } from "@/components/ui/select"
+import { cn } from "@/lib/utils"
 import { type ComponentProps } from "react"
 import {
   Controller,
@@ -48,7 +49,11 @@ function Select<TFieldValues extends FieldValues = FieldValues>(
             value={field.value}
             onValueChange={field.onChange}
           >
-            <SelectTrigger id={inputProps.id} aria-invalid={fieldState.invalid}>
+            <SelectTrigger
+              id={inputProps.id}
+              aria-invalid={fieldState.invalid}
+              className={cn("shadow-sm", inputProps.className)}
+            >
               <SelectValue placeholder={inputProps.placeholder} />
             </SelectTrigger>
             <SelectContent position="item-aligned">
