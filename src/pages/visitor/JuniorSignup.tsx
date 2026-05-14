@@ -60,7 +60,7 @@ export function JuniorSignUp() {
   }, [success, form])
 
   return (
-    <div className="flex flex-col gap-8 px-2 sm:px-8 md:px-16 lg:px-24 xl:px-48">
+    <div className="flex flex-col gap-8">
       <Card className="shadow-xl">
         <CardHeader>
           <CardTitle className="text-2xl md:text-3xl">Junnu-YBU 2026</CardTitle>

@@ -1,4 +1,4 @@
-import { SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarTrigger } from "@/components/custom/sidebar/SidebarTrigger"
 import { Outlet } from "react-router"
 import VisitorSidebar from "./VisitorSidebar"
 
@@ -8,7 +8,7 @@ const VisitorLayout = () => {
       <VisitorSidebar />
       <main className="w-full">
         <SidebarTrigger />
-        <div className="mx-auto flex max-w-5xl flex-col gap-2">
+        <div className="mx-auto flex max-w-5xl flex-col gap-2 p-2 sm:p-4 md:p-6 lg:p-8">
           <Outlet />
         </div>
       </main>
