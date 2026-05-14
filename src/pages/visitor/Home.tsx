@@ -26,7 +26,7 @@ export function Home() {
   }) as ScheduleItem[]
 
   return (
-    <div className="flex flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
+    <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-semibold md:text-3xl">
           Yyteri Beach Ultimate Tournament 2026

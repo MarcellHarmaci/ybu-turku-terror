@@ -8,6 +8,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import { NavLink, useLocation } from "react-router"
 
@@ -21,6 +22,7 @@ export function NavGeneral({
   }[]
 }) {
   const location = useLocation()
+  const { openMobile, setOpenMobile } = useSidebar()
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -36,6 +38,7 @@ export function NavGeneral({
               className={
                 location.pathname === item.url ? "sidebar-button-active" : ""
               }
+              onClick={() => setOpenMobile(!openMobile)}
             >
               <NavLink to={item.url}>
                 <item.icon className="size-5!" />

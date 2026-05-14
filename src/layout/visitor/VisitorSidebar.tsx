@@ -6,6 +6,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import {
   PATH_HOME,
@@ -21,48 +22,46 @@ import {
   IconInfoCircle,
   IconUsers,
 } from "@tabler/icons-react"
-import LanguageSelect from "./LanguageSelect"
+import { Link } from "react-router"
+import LanguageSelect from "../../components/custom/sidebar/LanguageSelect"
+import ThemeToggle from "../../components/custom/sidebar/ThemeToggle"
 import { NavGeneral } from "./NavGeneral"
-import ThemeToggle from "./ThemeToggle"
+
+const sidebarConfig = {
+  navGeneral: [
+    {
+      name: "Tournament Information",
+      url: PATH_HOME,
+      icon: IconInfoCircle,
+    },
+    {
+      name: "Rules",
+      url: PATH_RULES,
+      icon: IconGavel,
+    },
+    {
+      name: "Sign-up",
+      url: PATH_SIGN_UP,
+      icon: IconClipboardCheck,
+    },
+    {
+      name: "Junior Sign-up",
+      url: PATH_SIGN_UP_JUNIOR,
+      icon: IconClipboardCheck,
+    },
+    {
+      name: "Teams",
+      url: PATH_TEAMS,
+      icon: IconUsers,
+    },
+  ],
+}
 
 /**
  * @see https://ui.shadcn.com/blocks
  */
 const VisitorSidebar = () => {
-  const data = {
-    user: {
-      name: "shadcn",
-      email: "m@example.com",
-      avatar: "/avatars/shadcn.jpg",
-    },
-    navGeneral: [
-      {
-        name: "Tournament Information",
-        url: PATH_HOME,
-        icon: IconInfoCircle,
-      },
-      {
-        name: "Rules",
-        url: PATH_RULES,
-        icon: IconGavel,
-      },
-      {
-        name: "Sign-up",
-        url: PATH_SIGN_UP,
-        icon: IconClipboardCheck,
-      },
-      {
-        name: "Junior Sign-up",
-        url: PATH_SIGN_UP_JUNIOR,
-        icon: IconClipboardCheck,
-      },
-      {
-        name: "Teams",
-        url: PATH_TEAMS,
-        icon: IconUsers,
-      },
-    ],
-  }
+  const { openMobile, setOpenMobile } = useSidebar()
 
   return (
     <Sidebar>
@@ -72,19 +71,20 @@ const VisitorSidebar = () => {
             <SidebarMenuButton
               asChild
               className="data-[slot=sidebar-menu-button]:p-1.5!"
+              onClick={() => setOpenMobile(!openMobile)}
             >
-              <a href={PATH_HOME}>
+              <Link to={PATH_HOME}>
                 <IconBeach className="size-6!" />
                 <span className="text-base font-semibold">
                   Yyteri Beach Ultimate
                 </span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavGeneral items={data.navGeneral} />
+        <NavGeneral items={sidebarConfig.navGeneral} />
       </SidebarContent>
       <SidebarFooter>
         <LanguageSelect />
