@@ -3,7 +3,22 @@
     "title": "YBU Turku Terror"
   },
   "sidebar": {
-    "language": "Kieli"
+    "general": {
+      "title": "Yleinen",
+      "info": "Turnaustiedot",
+      "rules": "Säännöt",
+      "signup": "Ilmoittautuminen",
+      "junior-signup": "Junnujen ilmoittautuminen",
+      "teams": "Joukkueet"
+    },
+    "language": "Kieli",
+    "mode": {
+      "switch": "Vaihda {{nextMode}}-tilaan",
+      "switch-next-mode-light": "vaalea",
+      "switch-next-mode-dark": "tumma",
+      "light": "Vaalea tila",
+      "dark": "Tumma tila"
+    }
   },
   "signup": {
     "title": "Ilmoittautuminen",
@@ -39,6 +54,12 @@
     "error": "Ilmoittautuminen epäonnistui!"
   },
   "home": {
+    "header": {
+      "title": "Yyterin Beach Ultimate Turnaus 2026",
+      "host": "Isäntänä Turku Terror",
+      "location": "Paikka: Yyteri, Pori",
+      "deadline": "Ilmoittautuminen päättyy: 1.8.2026"
+    },
     "main": {
       "overview": "Yleiskatsaus",
       "description": "Yyteri Beach Ultimate eli YBU on ultimateturnaus, joka pelataan loose mixedinä (5 vs 5) Porin Yyterissä 15.-16.8.2026. YBU järjestettiin ensimmäisen kerran vuonna 1999.",

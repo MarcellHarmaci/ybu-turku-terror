@@ -28,33 +28,36 @@ import ThemeToggle from "../../components/custom/sidebar/ThemeToggle"
 import { NavGeneral } from "./NavGeneral"
 
 const sidebarConfig = {
-  navGeneral: [
-    {
-      name: "Tournament Information",
-      url: PATH_HOME,
-      icon: IconInfoCircle,
-    },
-    {
-      name: "Rules",
-      url: PATH_RULES,
-      icon: IconGavel,
-    },
-    {
-      name: "Sign-up",
-      url: PATH_SIGN_UP,
-      icon: IconClipboardCheck,
-    },
-    {
-      name: "Junior Sign-up",
-      url: PATH_SIGN_UP_JUNIOR,
-      icon: IconClipboardCheck,
-    },
-    {
-      name: "Teams",
-      url: PATH_TEAMS,
-      icon: IconUsers,
-    },
-  ],
+  navGeneral: {
+    title: "sidebar.general.title",
+    items: [
+      {
+        name: "sidebar.general.info",
+        url: PATH_HOME,
+        icon: IconInfoCircle,
+      },
+      {
+        name: "sidebar.general.rules",
+        url: PATH_RULES,
+        icon: IconGavel,
+      },
+      {
+        name: "sidebar.general.signup",
+        url: PATH_SIGN_UP,
+        icon: IconClipboardCheck,
+      },
+      {
+        name: "sidebar.general.junior-signup",
+        url: PATH_SIGN_UP_JUNIOR,
+        icon: IconClipboardCheck,
+      },
+      {
+        name: "sidebar.general.teams",
+        url: PATH_TEAMS,
+        icon: IconUsers,
+      },
+    ],
+  },
 }
 
 /**
@@ -84,7 +87,10 @@ const VisitorSidebar = () => {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavGeneral items={sidebarConfig.navGeneral} />
+        <NavGeneral
+          title={sidebarConfig.navGeneral.title}
+          items={sidebarConfig.navGeneral.items}
+        />
       </SidebarContent>
       <SidebarFooter>
         <LanguageSelect />

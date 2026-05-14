@@ -3,7 +3,22 @@
     "title": "YBU Turku Terror"
   },
   "sidebar": {
-    "language": "Language"
+    "general": {
+      "title": "General",
+      "info": "Tournament Information",
+      "rules": "Rules",
+      "signup": "Sign-up",
+      "junior-signup": "Junior Sign-up",
+      "teams": "Teams"
+    },
+    "language": "Language",
+    "mode": {
+      "switch": "Switch to {{nextMode}} mode",
+      "switch-next-mode-light": "light",
+      "switch-next-mode-dark": "dark",
+      "light": "Light mode",
+      "dark": "Dark mode"
+    }
   },
   "signup": {
     "title": "Sign-up",
@@ -39,6 +54,12 @@
     "error": "Failed to sign up!"
   },
   "home": {
+    "header": {
+      "title": "Yyteri Beach Ultimate Tournament 2026",
+      "host": "Hosted by Turku Terror",
+      "location": "Location: Yyteri, Pori",
+      "deadline": "Sign-up deadline: 1.8.2026"
+    },
     "main": {
       "overview": "Overview",
       "description": "Yyteri Beach Ultimate aka YBU is an ultimate tournament, which is played as loose-mixed (5 vs 5) in Pori's Yyteri on 15 and 16 August 2026. YBU was organised for the first time in 1999.",

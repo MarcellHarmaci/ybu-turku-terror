@@ -10,11 +10,14 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { useTranslation } from "react-i18next"
 import { NavLink, useLocation } from "react-router"
 
 export function NavGeneral({
+  title,
   items,
 }: {
+  title: string
   items: {
     name: string
     url: string
@@ -22,12 +25,13 @@ export function NavGeneral({
   }[]
 }) {
   const location = useLocation()
+  const { t } = useTranslation()
   const { openMobile, setOpenMobile } = useSidebar()
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel className="sidebar-group-label">
-        General
+        {t(title)}
       </SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
@@ -42,7 +46,7 @@ export function NavGeneral({
             >
               <NavLink to={item.url}>
                 <item.icon className="size-5!" />
-                <span>{item.name}</span>
+                <span>{t(item.name)}</span>
               </NavLink>
             </SidebarMenuButton>
           </SidebarMenuItem>

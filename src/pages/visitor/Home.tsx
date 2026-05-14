@@ -29,14 +29,14 @@ export function Home() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-2xl font-semibold md:text-3xl">
-          Yyteri Beach Ultimate Tournament 2026
+          {t("home.header.title")}
         </h1>
         <div className="mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-500">
-          <span>Hosted by Turku Terror</span>
+          <span>{t("home.header.host")}</span>
           <span>|</span>
-          <span>Location: Yyteri, Pori</span>
+          <span>{t("home.header.location")}</span>
           <span>|</span>
-          <span>Sign-up deadline: 1.8.2026</span>
+          <span>{t("home.header.deadline")}</span>
         </div>
       </div>
 
