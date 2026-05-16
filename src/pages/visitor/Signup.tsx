@@ -1,6 +1,6 @@
-import Alert from "@/components/custom/Alert"
 import Select from "@/components/custom/form/Select"
 import TextInput from "@/components/custom/form/TextInput"
+import toast from "@/components/custom/toast"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -47,8 +47,15 @@ export function SignUp() {
   useEffect(() => {
     if (success) {
       form.reset()
+      toast.success(t("signup.success"))
     }
-  }, [success, form])
+  }, [success, form, t])
+
+  useEffect(() => {
+    if (error) {
+      toast.error(t("signup.error"))
+    }
+  }, [error, form, t])
 
   return (
     <div className="flex flex-col gap-8">
@@ -134,12 +141,6 @@ export function SignUp() {
           </CardFooter>
         </Card>
       </form>
-      {success && (
-        <Alert type="success" className="mb-6" title={t("signup.success")} />
-      )}
-      {error && (
-        <Alert type="error" className="mb-6" title={t("signup.error")} />
-      )}
     </div>
   )
 }
