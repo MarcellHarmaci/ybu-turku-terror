@@ -1,4 +1,5 @@
 import Link from "@/components/custom/Link"
+import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardContent,
@@ -31,12 +32,10 @@ export function Home() {
         <h1 className="text-2xl font-semibold md:text-3xl">
           {t("home.header.title")}
         </h1>
-        <div className="mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-500">
-          <span>{t("home.header.host")}</span>
-          <span>|</span>
-          <span>{t("home.header.location")}</span>
-          <span>|</span>
-          <span>{t("home.header.deadline")}</span>
+        <div className="mt-2 flex flex-wrap items-center gap-3 text-sm">
+          <Badge variant="secondary">{t("home.header.host")}</Badge>
+          <Badge variant="outline">{t("home.header.location")}</Badge>
+          <Badge variant="default">{t("home.header.deadline")}</Badge>
         </div>
       </div>
 
@@ -180,16 +179,18 @@ export function Home() {
               <div key={`schedule-item-${index}`} className="w-full">
                 <h5 className="mb-1 text-xl">{scheduleItem.day}</h5>
                 <table className="w-full table-fixed">
-                  {scheduleItem.events.map((event, eventIndex) => (
-                    <tr key={`schedule-event-${eventIndex}`}>
-                      <td className="w-28 border-y border-primary p-1 pr-2 text-right">
-                        {event.time}:
-                      </td>
-                      <td className="border-y border-primary p-1">
-                        {event.event}
-                      </td>
-                    </tr>
-                  ))}
+                  <tbody>
+                    {scheduleItem.events.map((event, eventIndex) => (
+                      <tr key={`schedule-event-${eventIndex}`}>
+                        <td className="w-28 border-y border-primary p-1 pr-2 text-right">
+                          {event.time}:
+                        </td>
+                        <td className="border-y border-primary p-1">
+                          {event.event}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
                 </table>
                 {index < preliminarySchedule.length - 1 && (
                   <Separator className="mt-4" />
