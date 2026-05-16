@@ -7,7 +7,9 @@ const VisitorLayout = () => {
     <>
       <VisitorSidebar />
       <main className="w-full">
-        <SidebarTrigger />
+        <div className="w-full border-b border-sidebar-border bg-sidebar">
+          <SidebarTrigger />
+        </div>
         <div className="mx-auto flex max-w-5xl flex-col gap-2 p-2 sm:p-4 md:p-6 lg:p-8">
           <Outlet />
         </div>

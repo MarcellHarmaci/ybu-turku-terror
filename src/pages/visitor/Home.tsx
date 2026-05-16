@@ -177,17 +177,20 @@ export function Home() {
         <CardContent className="flex flex-col gap-3">
           {preliminarySchedule.map(
             (scheduleItem: ScheduleItem, index: number) => (
-              <div key={`schedule-item-${index}`}>
+              <div key={`schedule-item-${index}`} className="w-full">
                 <h5 className="mb-1 text-xl">{scheduleItem.day}</h5>
-                {scheduleItem.events.map((event, eventIndex) => (
-                  <div
-                    key={`schedule-event-${eventIndex}`}
-                    className="flex flex-row gap-1.5"
-                  >
-                    <div>{event.time}:</div>
-                    <div>{event.event}</div>
-                  </div>
-                ))}
+                <table className="w-full table-fixed">
+                  {scheduleItem.events.map((event, eventIndex) => (
+                    <tr key={`schedule-event-${eventIndex}`}>
+                      <td className="w-28 border-y border-primary p-1 pr-2 text-right">
+                        {event.time}:
+                      </td>
+                      <td className="border-y border-primary p-1">
+                        {event.event}
+                      </td>
+                    </tr>
+                  ))}
+                </table>
                 {index < preliminarySchedule.length - 1 && (
                   <Separator className="mt-4" />
                 )}
