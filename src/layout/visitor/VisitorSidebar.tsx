@@ -1,3 +1,4 @@
+import SidebarGroup from "@/components/custom/sidebar/SidebarGroup"
 import {
   Sidebar,
   SidebarContent,
@@ -22,49 +23,50 @@ import {
   IconInfoCircle,
   IconUsers,
 } from "@tabler/icons-react"
+import { useTranslation } from "react-i18next"
 import { Link } from "react-router"
 import LanguageSelect from "../../components/custom/sidebar/LanguageSelect"
 import ThemeToggle from "../../components/custom/sidebar/ThemeToggle"
-import { NavGeneral } from "./NavGeneral"
-
-const sidebarConfig = {
-  navGeneral: {
-    title: "sidebar.general.title",
-    items: [
-      {
-        name: "sidebar.general.info",
-        url: PATH_HOME,
-        icon: IconInfoCircle,
-      },
-      {
-        name: "sidebar.general.rules",
-        url: PATH_RULES,
-        icon: IconGavel,
-      },
-      {
-        name: "sidebar.general.signup",
-        url: PATH_SIGN_UP,
-        icon: IconClipboardCheck,
-      },
-      {
-        name: "sidebar.general.junior-signup",
-        url: PATH_SIGN_UP_JUNIOR,
-        icon: IconClipboardCheck,
-      },
-      {
-        name: "sidebar.general.teams",
-        url: PATH_TEAMS,
-        icon: IconUsers,
-      },
-    ],
-  },
-}
 
 /**
  * @see https://ui.shadcn.com/blocks
  */
 const VisitorSidebar = () => {
   const { openMobile, setOpenMobile } = useSidebar()
+  const { t } = useTranslation()
+
+  const sidebarConfig = {
+    navGeneral: {
+      title: t("sidebar.general.title"),
+      items: [
+        {
+          name: t("sidebar.general.info"),
+          url: PATH_HOME,
+          icon: IconInfoCircle,
+        },
+        {
+          name: t("sidebar.general.rules"),
+          url: PATH_RULES,
+          icon: IconGavel,
+        },
+        {
+          name: t("sidebar.general.signup"),
+          url: PATH_SIGN_UP,
+          icon: IconClipboardCheck,
+        },
+        {
+          name: t("sidebar.general.junior-signup"),
+          url: PATH_SIGN_UP_JUNIOR,
+          icon: IconClipboardCheck,
+        },
+        {
+          name: t("sidebar.general.teams"),
+          url: PATH_TEAMS,
+          icon: IconUsers,
+        },
+      ],
+    },
+  }
 
   return (
     <Sidebar>
@@ -87,7 +89,7 @@ const VisitorSidebar = () => {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavGeneral
+        <SidebarGroup
           title={sidebarConfig.navGeneral.title}
           items={sidebarConfig.navGeneral.items}
         />
