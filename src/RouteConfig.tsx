@@ -11,7 +11,7 @@ import {
 import AdminLayout from "./layout/admin"
 import VisitorLayout from "./layout/visitor"
 import AdminHome from "./pages/admin/AdminHome"
-import News from "./pages/admin/editor/News"
+import News from "./pages/admin/news/News"
 import Home from "./pages/visitor/Home"
 import JuniorSignUp from "./pages/visitor/JuniorSignup"
 import Rules from "./pages/visitor/Rules"
