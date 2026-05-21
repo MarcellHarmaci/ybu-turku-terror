@@ -1,13 +1,14 @@
+import type { FirebaseError } from "firebase/app"
 import { addDoc, collection, type DocumentData } from "firebase/firestore"
 import { useState } from "react"
 import { db } from "../firebase"
 
-export const useInsert = <T extends DocumentData>() => {
+export const useInsert = <T extends DocumentData>(collectionName: string) => {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
-  const [error, setError] = useState()
+  const [error, setError] = useState<string>()
 
-  const insert = (collectionName: string, data: T) => {
+  const insert = (data: T) => {
     const collectionRef = collection(db, collectionName)
 
     setLoading(true)
@@ -18,10 +19,10 @@ export const useInsert = <T extends DocumentData>() => {
           setLoading(false)
           setSuccess(true)
         },
-        (reason) => {
+        (reason: FirebaseError) => {
           console.error("Could not insert data!", reason)
           setLoading(false)
-          setError(reason)
+          setError(reason.message)
         }
       )
       .catch((reason) => {

@@ -16,17 +16,20 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { cn } from "@/lib/utils"
+import { Spinner } from "../ui/spinner"
 
 interface DataTableProps<TData, TValue> {
   className?: string
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  loading?: boolean
 }
 
 export function DataTable<TData, TValue>({
   className,
   columns,
   data,
+  loading = false,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -77,7 +80,11 @@ export function DataTable<TData, TValue>({
                 colSpan={columns.length}
                 className={cn(ellipsizeOverflow, "h-24 text-center")}
               >
-                No results.
+                {loading ? (
+                  <Spinner className="inline size-8" />
+                ) : (
+                  "No results."
+                )}
               </TableCell>
             </TableRow>
           )}
