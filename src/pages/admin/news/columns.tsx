@@ -9,12 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { IconDots, IconEdit, IconEye, IconTrash } from "@tabler/icons-react"
 import type { ColumnDef } from "@tanstack/react-table"
-
-export interface NewsItem {
-  id: string
-  title: string
-  content: string
-}
+import type { NewsItem } from "./model/domain"
 
 export const columns: ColumnDef<NewsItem>[] = [
   {
@@ -24,12 +19,14 @@ export const columns: ColumnDef<NewsItem>[] = [
   {
     accessorKey: "title",
     header: "Title",
-    size: 30,
+  },
+  {
+    accessorKey: "timestamp",
+    header: "Published at",
   },
   {
     accessorKey: "actions",
     header: "Actions",
-    size: 10,
     cell: ({ row }) => {
       const newsItem = row.original
 
