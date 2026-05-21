@@ -6,6 +6,7 @@ import { Spinner } from "@/components/ui/spinner"
 import { IconPlus } from "@tabler/icons-react"
 import { useEffect } from "react"
 import { columns } from "./columns"
+import { useDeleteNews } from "./hooks/useDeleteNews"
 import { useInsertNews } from "./hooks/useInsertNews"
 import { useNews } from "./hooks/useNews"
 
@@ -16,6 +17,8 @@ export function News() {
     loading: insertiLoading,
     error: insertError,
   } = useInsertNews()
+  const deleteOperation = useDeleteNews()
+  const { error: deleteError } = deleteOperation
 
   useEffect(() => {
     if (insertError) {
@@ -23,7 +26,13 @@ export function News() {
     }
   }, [insertError])
 
-  const insertNews = () =>
+  useEffect(() => {
+    if (deleteError) {
+      toast.error(deleteError)
+    }
+  }, [deleteError])
+
+  const insertEmptyNewsItem = () =>
     insert({
       id: "",
       title: "",
@@ -37,14 +46,14 @@ export function News() {
       <div className="flex flex-row justify-end gap-4">
         <div className="text-xl">News</div>
         <div className="flex grow justify-end">
-          <Button onClick={insertNews} disabled={insertiLoading}>
+          <Button onClick={insertEmptyNewsItem} disabled={insertiLoading}>
             {insertiLoading ? <Spinner /> : <IconPlus />} Add article
           </Button>
         </div>
       </div>
       <DataTable
         className="w-full"
-        columns={columns}
+        columns={columns(deleteOperation)}
         data={news ?? []}
         loading={isLoading}
       />
