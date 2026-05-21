@@ -3,6 +3,7 @@ import {
   FirestoreError,
   onSnapshot,
   query,
+  QueryConstraint,
   type DocumentData,
   type FirestoreDataConverter,
 } from "firebase/firestore"
@@ -14,13 +15,14 @@ export const useFirebaseDocuments = <
   DbModelType extends DocumentData,
 >(
   collectionName: string,
-  converter: FirestoreDataConverter<ModelType, DbModelType>
+  converter: FirestoreDataConverter<ModelType, DbModelType>,
+  ...queryConstraints: QueryConstraint[]
 ) => {
   const [data, setData] = useState<ModelType[]>()
   const [error, setError] = useState<string>()
 
   const collectionRef = collection(db, collectionName).withConverter(converter)
-  const q = query(collectionRef)
+  const q = query(collectionRef, ...queryConstraints)
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
