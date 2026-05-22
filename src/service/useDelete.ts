@@ -10,9 +10,7 @@ export interface DeleteOperation {
   error?: string
 }
 
-export const useDelete: (collectionName: string) => DeleteOperation = (
-  collectionName: string
-) => {
+export const useDelete = (collectionName: string) => {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string>()
@@ -42,5 +40,5 @@ export const useDelete: (collectionName: string) => DeleteOperation = (
       })
   }
 
-  return { delete: deleteFunc, loading, success, error }
+  return { del: deleteFunc, loading, success, error }
 }

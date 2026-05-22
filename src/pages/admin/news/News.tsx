@@ -4,11 +4,13 @@ import toast from "@/components/custom/toast"
 import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
 import { IconPlus } from "@tabler/icons-react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { columns } from "./columns"
+import { Preview } from "./dialog/Preview"
 import { useDeleteNews } from "./hooks/useDeleteNews"
 import { useInsertNews } from "./hooks/useInsertNews"
 import { useNews } from "./hooks/useNews"
+import type { NewsItem } from "./model/domain"
 
 export function News() {
   const { data: news, isLoading, error } = useNews()
@@ -17,8 +19,7 @@ export function News() {
     loading: insertiLoading,
     error: insertError,
   } = useInsertNews()
-  const deleteOperation = useDeleteNews()
-  const { error: deleteError } = deleteOperation
+  const { del, error: deleteError } = useDeleteNews()
 
   useEffect(() => {
     if (insertError) {
@@ -40,6 +41,8 @@ export function News() {
       timestamp: new Date(),
     })
 
+  const [preview, setPreview] = useState<NewsItem>()
+
   return (
     <div className="flex flex-col gap-4">
       {error && <Alert type="error" title="Error" description={error} />}
@@ -51,9 +54,10 @@ export function News() {
           </Button>
         </div>
       </div>
+      <Preview newsItem={preview} close={() => setPreview(undefined)} />
       <DataTable
         className="w-full"
-        columns={columns(deleteOperation)}
+        columns={columns(del, setPreview)}
         data={news ?? []}
         loading={isLoading}
       />

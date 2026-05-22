@@ -7,20 +7,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import type { DeleteOperation } from "@/service/useDelete"
 import { IconDots, IconEdit, IconEye, IconTrash } from "@tabler/icons-react"
 import type { ColumnDef } from "@tanstack/react-table"
 import type { NewsItem } from "./model/domain"
 
-export const columns: (delOp: DeleteOperation) => ColumnDef<NewsItem>[] = (
-  delOp
-) => {
-  const deleteItem = (item: NewsItem) => {
-    if (item.id) {
-      delOp.delete(item.id)
-    }
-  }
-
+export const columns: (
+  onDelete: (id: string) => void,
+  onPreview: (newsItem: NewsItem) => void
+) => ColumnDef<NewsItem>[] = (onDelete, onPreview) => {
   return [
     {
       accessorKey: "id",
@@ -33,7 +27,8 @@ export const columns: (delOp: DeleteOperation) => ColumnDef<NewsItem>[] = (
     {
       accessorKey: "timestamp",
       header: "Published at",
-      cell: ({ row }) => row.original.timestamp.toLocaleDateString(),
+      cell: ({ row }) =>
+        new Intl.DateTimeFormat("fi-FI").format(row.original.timestamp),
     },
     {
       accessorKey: "actions",
@@ -61,17 +56,16 @@ export const columns: (delOp: DeleteOperation) => ColumnDef<NewsItem>[] = (
               </DropdownMenuItem>
               <DropdownMenuItem
                 variant="destructive"
-                onClick={() => deleteItem(newsItem)}
+                onClick={() => {
+                  if (newsItem.id) {
+                    onDelete(newsItem.id)
+                  }
+                }}
               >
                 <IconTrash /> Delete
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem
-                onClick={() => {
-                  // TODO display preview
-                  console.log("Preview item: ", newsItem.id)
-                }}
-              >
+              <DropdownMenuItem onClick={() => onPreview(newsItem)}>
                 <IconEye /> Preview
               </DropdownMenuItem>
             </DropdownMenuContent>
