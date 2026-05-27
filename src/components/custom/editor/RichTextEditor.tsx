@@ -159,12 +159,26 @@ const extensions = [
   }),
   Color,
   Highlight,
-  BulletList,
-  OrderedList,
+  BulletList.configure({
+    HTMLAttributes: {
+      class: "list-inside list-disc",
+    },
+  }),
+  OrderedList.configure({
+    HTMLAttributes: {
+      class: "list-inside list-decimal",
+    },
+  }),
   TextAlign,
   Indent,
   LineHeight,
-  TaskList,
+  TaskList.configure({
+    taskItem: {
+      HTMLAttributes: {
+        class: "inline",
+      },
+    },
+  }),
   Link,
   Blockquote,
   HorizontalRule,

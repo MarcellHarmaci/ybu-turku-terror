@@ -10,6 +10,7 @@ import {
 import { Field, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Spinner } from "@/components/ui/spinner"
+import { NewsArticle } from "@/pages/visitor/news/NewsArticle"
 import { useEffect, useState } from "react"
 import { useSaveNews } from "../hooks/useSaveNews"
 import type { NewsItem } from "../model/domain"
@@ -70,6 +71,13 @@ export function Editor({ newsItem, close }: EditorProps) {
               id="editor-content"
               defaultValue={newsItem?.content}
               onChange={setContent}
+            />
+          </Field>
+          <Field className="flex flex-1">
+            <FieldLabel htmlFor="editor-preview">Preview</FieldLabel>
+            <NewsArticle
+              id="editor-preview"
+              newsItem={{ ...newsItem, content }}
             />
           </Field>
         </div>
