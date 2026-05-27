@@ -6,6 +6,7 @@ import { Spinner } from "@/components/ui/spinner"
 import { IconPlus } from "@tabler/icons-react"
 import { useEffect, useState } from "react"
 import { columns } from "./columns"
+import { Editor } from "./dialog/Editor"
 import { Preview } from "./dialog/Preview"
 import { useDeleteNews } from "./hooks/useDeleteNews"
 import { useInsertNews } from "./hooks/useInsertNews"
@@ -42,6 +43,7 @@ export function News() {
     })
 
   const [preview, setPreview] = useState<NewsItem>()
+  const [editor, setEditor] = useState<NewsItem>()
 
   return (
     <div className="flex flex-col gap-4">
@@ -55,9 +57,10 @@ export function News() {
         </div>
       </div>
       <Preview newsItem={preview} close={() => setPreview(undefined)} />
+      <Editor newsItem={editor} close={() => setEditor(undefined)} />
       <DataTable
         className="w-full"
-        columns={columns(del, setPreview)}
+        columns={columns(del, setPreview, setEditor)}
         data={news ?? []}
         loading={isLoading}
       />

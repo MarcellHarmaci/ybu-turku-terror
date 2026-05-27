@@ -13,8 +13,9 @@ import type { NewsItem } from "./model/domain"
 
 export const columns: (
   onDelete: (id: string) => void,
-  onPreview: (newsItem: NewsItem) => void
-) => ColumnDef<NewsItem>[] = (onDelete, onPreview) => {
+  onPreview: (newsItem: NewsItem) => void,
+  onEdit: (newsItem: NewsItem) => void
+) => ColumnDef<NewsItem>[] = (onDelete, onPreview, onEdit) => {
   return [
     {
       accessorKey: "id",
@@ -46,12 +47,7 @@ export const columns: (
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem
-                onClick={() => {
-                  // TODO display edit dialog
-                  console.log("Edit item: ", newsItem.id)
-                }}
-              >
+              <DropdownMenuItem onClick={() => onEdit(newsItem)}>
                 <IconEdit /> Edit
               </DropdownMenuItem>
               <DropdownMenuItem
