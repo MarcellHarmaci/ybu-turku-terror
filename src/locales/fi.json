@@ -8,7 +8,11 @@
       "info": "Turnaustiedot",
       "rules": "Säännöt",
       "signup": "Ilmoittautuminen",
-      "junior-signup": "Junnujen ilmoittautuminen",
+      "junior-signup": "Junnujen ilmoittautuminen"
+    },
+    "tournament": {
+      "title": "Turnaus",
+      "news": "Uutiset",
       "teams": "Joukkueet"
     },
     "language": "Kieli",
@@ -159,5 +163,8 @@
         }
       ]
     }
+  },
+  "news": {
+    "title": "Uutiset"
   }
 }

@@ -13,13 +13,9 @@ import { useInsertNews } from "./hooks/useInsertNews"
 import { useNews } from "./hooks/useNews"
 import type { NewsItem } from "./model/domain"
 
-export function News() {
+export function NewsEditor() {
   const { data: news, isLoading, error } = useNews()
-  const {
-    insert,
-    loading: insertiLoading,
-    error: insertError,
-  } = useInsertNews()
+  const { insert, loading: insertLoading, error: insertError } = useInsertNews()
   const { del, error: deleteError } = useDeleteNews()
 
   useEffect(() => {
@@ -51,8 +47,8 @@ export function News() {
       <div className="flex flex-row justify-end gap-4">
         <div className="text-xl">News</div>
         <div className="flex grow justify-end">
-          <Button onClick={insertEmptyNewsItem} disabled={insertiLoading}>
-            {insertiLoading ? <Spinner /> : <IconPlus />} Add article
+          <Button onClick={insertEmptyNewsItem} disabled={insertLoading}>
+            {insertLoading ? <Spinner /> : <IconPlus />} Add article
           </Button>
         </div>
       </div>
@@ -68,4 +64,4 @@ export function News() {
   )
 }
 
-export default News
+export default NewsEditor

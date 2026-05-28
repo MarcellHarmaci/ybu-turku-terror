@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sidebar"
 import {
   PATH_HOME,
+  PATH_NEWS,
   PATH_RULES,
   PATH_SIGN_UP,
   PATH_SIGN_UP_JUNIOR,
@@ -21,6 +22,7 @@ import {
   IconClipboardCheck,
   IconGavel,
   IconInfoCircle,
+  IconNews,
   IconUsers,
 } from "@tabler/icons-react"
 import { useTranslation } from "react-i18next"
@@ -59,8 +61,18 @@ const VisitorSidebar = () => {
           url: PATH_SIGN_UP_JUNIOR,
           icon: IconClipboardCheck,
         },
+      ],
+    },
+    tournament: {
+      title: t("sidebar.tournament.title"),
+      items: [
         {
-          name: t("sidebar.general.teams"),
+          name: t("sidebar.tournament.news"),
+          url: PATH_NEWS,
+          icon: IconNews,
+        },
+        {
+          name: t("sidebar.tournament.teams"),
           url: PATH_TEAMS,
           icon: IconUsers,
         },
@@ -92,6 +104,10 @@ const VisitorSidebar = () => {
         <SidebarGroup
           title={sidebarConfig.navGeneral.title}
           items={sidebarConfig.navGeneral.items}
+        />
+        <SidebarGroup
+          title={sidebarConfig.tournament.title}
+          items={sidebarConfig.tournament.items}
         />
       </SidebarContent>
       <SidebarFooter>

@@ -7,6 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { DATE_FORMAT } from "@/consts"
 import { IconDots, IconEdit, IconEye, IconTrash } from "@tabler/icons-react"
 import type { ColumnDef } from "@tanstack/react-table"
 import type { NewsItem } from "./model/domain"
@@ -28,8 +29,7 @@ export const columns: (
     {
       accessorKey: "timestamp",
       header: "Published at",
-      cell: ({ row }) =>
-        new Intl.DateTimeFormat("fi-FI").format(row.original.timestamp),
+      cell: ({ row }) => DATE_FORMAT.format(row.original.timestamp),
     },
     {
       accessorKey: "actions",
