@@ -26,7 +26,7 @@ export function NewsArticle({ id, className, newsItem }: NewsArticleProps) {
         </CardDescription>
       </CardHeader>
       <CardContent
-        className="flex flex-col gap-2"
+        className="flex flex-col gap-2 px-8 py-4"
         dangerouslySetInnerHTML={{ __html: newsItem.content }}
       ></CardContent>
     </Card>
