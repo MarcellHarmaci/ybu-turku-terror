@@ -7,9 +7,12 @@ import {
 import { useState } from "react"
 import { db } from "../firebase"
 
-export const useFirestoreSave = <ModelType, DbModelType extends DocumentData>(
+export const useFirestoreSave = <
+  ModelType extends DocumentData,
+  DbModelType extends DocumentData = ModelType,
+>(
   collectionName: string,
-  converter: FirestoreDataConverter<ModelType, DbModelType>
+  converter?: FirestoreDataConverter<ModelType, DbModelType>
 ) => {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -23,7 +26,11 @@ export const useFirestoreSave = <ModelType, DbModelType extends DocumentData>(
 
   const save = (docId: string, data: ModelType) => {
     reset()
-    const document = doc(db, collectionName, docId).withConverter(converter)
+
+    let document = doc(db, collectionName, docId)
+    if (converter) {
+      document = document.withConverter(converter)
+    }
 
     setLoading(true)
 

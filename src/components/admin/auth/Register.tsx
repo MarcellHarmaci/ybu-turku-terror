@@ -17,10 +17,12 @@ import { createUserWithEmailAndPassword } from "firebase/auth"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
+import { useInsertAdmin } from "./hooks/useInsertAdmin"
 import { schema, type LoginFormData } from "./schema"
 
 export function Register() {
   const { t } = useTranslation()
+  const { insert } = useInsertAdmin()
   const [loading, setLoading] = useState(false)
 
   const form = useForm<LoginFormData>({
@@ -36,7 +38,7 @@ export function Register() {
 
     await createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((credentials) => {
-        // TODO Insert unapproved user into admin collection
+        insert(credentials.user.uid)
         console.log("User registered with UID:", credentials.user.uid)
       })
       .catch((reason) => {
