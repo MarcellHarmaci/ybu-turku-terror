@@ -1,11 +1,11 @@
-import { useFirestoreSave } from "@/service/useFirestoreSave"
+import { useSave } from "@/firestore/useSave"
 
 interface Admin {
   approved: boolean
 }
 
 export const useInsertAdmin = () => {
-  const hook = useFirestoreSave<Admin>("admins")
+  const hook = useSave<Admin>("admins")
 
   const insert = (uid: string) => {
     hook.save(uid, { approved: false })

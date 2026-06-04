@@ -11,13 +11,13 @@ import {
 } from "@/components/ui/card"
 import { FieldGroup } from "@/components/ui/field"
 import { auth } from "@/firebase"
+import { useInsertAdmin } from "@/service/auth/useInsertAdmin"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { FirebaseError } from "firebase/app"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
-import { useInsertAdmin } from "./hooks/useInsertAdmin"
 import { schema, type LoginFormData } from "./schema"
 
 export function Register() {

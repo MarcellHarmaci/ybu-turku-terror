@@ -11,11 +11,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { FieldGroup } from "@/components/ui/field"
+import { useJuniorSignup } from "@/service/signup/useJuniorSignup"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
-import { useJuniorSignup } from "./hooks/useJuniorSignup"
 import {
   juniorSignupSchema,
   playerType,

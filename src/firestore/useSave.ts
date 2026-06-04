@@ -7,7 +7,7 @@ import {
 import { useState } from "react"
 import { db } from "../firebase"
 
-export const useFirestoreSave = <
+export const useSave = <
   ModelType extends DocumentData,
   DbModelType extends DocumentData = ModelType,
 >(

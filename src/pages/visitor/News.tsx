@@ -1,6 +1,6 @@
 import Alert from "@/components/custom/Alert"
+import { useNews } from "@/service/news/useNews"
 import { useTranslation } from "react-i18next"
-import { useNews } from "../admin/news/hooks/useNews"
 import type { NewsItem } from "../admin/news/model/domain"
 import { NewsArticle } from "./news/NewsArticle"
 

@@ -10,10 +10,7 @@ import {
 import { useEffect, useState } from "react"
 import { db } from "../firebase"
 
-export const useFirebaseDocuments = <
-  ModelType,
-  DbModelType extends DocumentData,
->(
+export const useDocuments = <ModelType, DbModelType extends DocumentData>(
   collectionName: string,
   converter: FirestoreDataConverter<ModelType, DbModelType>,
   ...queryConstraints: QueryConstraint[]

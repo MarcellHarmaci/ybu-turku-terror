@@ -11,8 +11,8 @@ import { Field, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Spinner } from "@/components/ui/spinner"
 import { NewsArticle } from "@/pages/visitor/news/NewsArticle"
+import { useSaveNews } from "@/service/news/useSaveNews"
 import { useEffect, useState } from "react"
-import { useSaveNews } from "../hooks/useSaveNews"
 import type { NewsItem } from "../model/domain"
 
 interface EditorProps {
