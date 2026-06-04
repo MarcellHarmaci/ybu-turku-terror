@@ -260,7 +260,7 @@ function RichTextEditor({
   })
 
   useEffect(() => {
-    window["editor"] = editor
+    window.editor = editor
   }, [editor])
 
   if (!editor) {
