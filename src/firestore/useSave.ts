@@ -1,3 +1,4 @@
+import type { FirebaseError } from "firebase/app"
 import {
   doc,
   setDoc,
@@ -16,12 +17,12 @@ export const useSave = <
 ) => {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState<string>()
 
   const reset = () => {
     setLoading(false)
     setSuccess(false)
-    setError(false)
+    setError(undefined)
   }
 
   const save = (docId: string, data: ModelType) => {
@@ -34,17 +35,17 @@ export const useSave = <
 
     setLoading(true)
 
-    setDoc(document, data).then(
-      () => {
-        setLoading(false)
+    setDoc(document, data)
+      .then(() => {
         setSuccess(true)
-      },
-      () => {
-        console.error("Could not save data!")
+      })
+      .catch((reason: FirebaseError) => {
+        setError(reason.message)
+        console.error(reason)
+      })
+      .finally(() => {
         setLoading(false)
-        setError(true)
-      }
-    )
+      })
   }
 
   return { save, loading, success, error, reset }

@@ -1,8 +1,8 @@
 import RichTextEditor from "@/components/custom/editor/RichTextEditor"
+import toast from "@/components/custom/toast"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogFooter,
   DialogTitle,
@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Spinner } from "@/components/ui/spinner"
 import { NewsArticle } from "@/pages/visitor/news/NewsArticle"
 import { useSaveNews } from "@/service/news/useSaveNews"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import type { NewsItem } from "../model/domain"
 
 interface EditorProps {
@@ -26,20 +26,31 @@ export function Editor({ newsItem, close }: EditorProps) {
 
   const { save, loading, success, error, reset } = useSaveNews()
 
+  const closeDialog = useCallback(() => {
+    reset()
+    close()
+  }, [close, reset])
+
   const onSave = () => {
     if (newsItem?.id) {
       save(newsItem.id, { ...newsItem, title, content })
     } else {
-      close()
+      closeDialog()
     }
   }
 
   useEffect(() => {
     if (success) {
-      reset()
-      close()
+      closeDialog()
     }
-  }, [success, close, reset])
+  }, [success, closeDialog])
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error)
+      reset()
+    }
+  }, [error, reset])
 
   if (!newsItem) {
     return null
@@ -49,7 +60,7 @@ export function Editor({ newsItem, close }: EditorProps) {
     <Dialog
       open={!!newsItem}
       onOpenChange={(open) => {
-        if (!open) close()
+        if (!open) closeDialog()
       }}
       modal
     >
@@ -82,17 +93,10 @@ export function Editor({ newsItem, close }: EditorProps) {
           </Field>
         </div>
         <DialogFooter>
-          <DialogClose asChild>
-            <Button onClick={onSave} disabled={loading}>
-              {loading && <Spinner />}
-              Save
-            </Button>
-          </DialogClose>
-          {!!error && (
-            <div className="text-sm font-normal text-destructive">
-              Failed to save!
-            </div>
-          )}
+          <Button onClick={onSave} disabled={loading}>
+            {loading && <Spinner />}
+            Save
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

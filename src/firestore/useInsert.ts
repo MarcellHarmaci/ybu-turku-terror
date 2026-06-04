@@ -14,21 +14,15 @@ export const useInsert = <T extends DocumentData>(collectionName: string) => {
     setLoading(true)
 
     addDoc(collectionRef, data)
-      .then(
-        () => {
-          setLoading(false)
-          setSuccess(true)
-        },
-        (reason: FirebaseError) => {
-          console.error("Could not insert data!", reason)
-          setLoading(false)
-          setError(reason.message)
-        }
-      )
-      .catch((reason) => {
-        console.error("Could not insert data!", reason)
+      .then(() => {
+        setSuccess(true)
+      })
+      .catch((reason: FirebaseError) => {
+        setError(reason.message)
+        console.error(reason)
+      })
+      .finally(() => {
         setLoading(false)
-        setError(reason)
       })
   }
 
