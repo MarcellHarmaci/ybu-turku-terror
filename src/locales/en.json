@@ -8,7 +8,11 @@
       "info": "Tournament Information",
       "rules": "Rules",
       "signup": "Sign-up",
-      "junior-signup": "Junior Sign-up",
+      "junior-signup": "Junior Sign-up"
+    },
+    "tournament": {
+      "title": "Tournament",
+      "news": "News",
       "teams": "Teams"
     },
     "language": "Language",
@@ -263,5 +267,8 @@
         ]
       }
     }
+  },
+  "news": {
+    "title": "News"
   }
 }

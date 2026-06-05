@@ -6,7 +6,7 @@ export const signupSchema = z.object({
     .string()
     .min(3, "The team name must be at least 3 characters.")
     .max(32, "The team name must be at most 32 characters."),
-  playerCount: z.coerce.number<number>().min(1).max(20),
+  playerCount: z.coerce.number<number>().min(5).max(20),
   levelOfPlay: z.enum(
     ["power-competitive", "power-regular", "lower-casual", "lower-beginner"],
     "Please select the level of play!"

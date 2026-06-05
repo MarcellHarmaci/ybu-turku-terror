@@ -1,7 +1,7 @@
-import Alert from "@/components/custom/Alert"
 import Select from "@/components/custom/form/Select"
 import TextInput from "@/components/custom/form/TextInput"
 import Link from "@/components/custom/Link"
+import toast from "@/components/custom/toast"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -11,11 +11,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { FieldGroup } from "@/components/ui/field"
+import { useJuniorSignup } from "@/service/signup/useJuniorSignup"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useTranslation } from "react-i18next"
-import { useJuniorSignup } from "./hooks/useJuniorSignup"
 import {
   juniorSignupSchema,
   playerType,
@@ -50,14 +50,17 @@ export function JuniorSignUp() {
   }
 
   useEffect(() => {
-    console.log(success, error)
-  }, [success, error])
-
-  useEffect(() => {
     if (success) {
       form.reset()
+      toast.success(t("signup.success"))
     }
-  }, [success, form])
+  }, [success, form, t])
+
+  useEffect(() => {
+    if (error) {
+      toast.error(t("signup.error"))
+    }
+  }, [error, form, t])
 
   return (
     <div className="flex flex-col gap-8">
@@ -195,12 +198,6 @@ export function JuniorSignUp() {
           </CardFooter>
         </Card>
       </form>
-      {success && (
-        <Alert type="success" className="mb-6" title={t("signup.success")} />
-      )}
-      {error && (
-        <Alert type="error" className="mb-6" title={t("signup.error")} />
-      )}
     </div>
   )
 }

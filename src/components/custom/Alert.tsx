@@ -4,6 +4,7 @@ import { CheckCircle2Icon } from "lucide-react"
 import { AlertDescription, AlertTitle, Alert as ShadcnAlert } from "../ui/alert"
 
 interface AlertProps {
+  id?: string
   type: "success" | "error"
   title: string
   description?: string
@@ -15,20 +16,21 @@ const Alert = (props: AlertProps) => {
     props.type === "success"
       ? {
           icon: <CheckCircle2Icon />,
-          title: "border-green-500 bg-green-100 text-green-700",
+          card: "border-green-500 bg-green-100 text-green-700",
           description: "text-green-800",
         }
       : props.type === "error"
         ? {
             icon: <IconExclamationCircle />,
-            title: "border-red-700 bg-red-100 text-red-700",
+            card: "border-red-700 bg-red-100 text-red-700",
             description: "text-red-800",
           }
         : null
 
   return (
     <ShadcnAlert
-      className={cn("max-w shadow-xl", typeStyle?.title, props.className)}
+      id={props.id}
+      className={cn("max-w shadow-xl", typeStyle?.card, props.className)}
     >
       {typeStyle?.icon}
       <AlertTitle>{props.title}</AlertTitle>

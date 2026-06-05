@@ -3,17 +3,16 @@
 import { type Icon } from "@tabler/icons-react"
 
 import {
-  SidebarGroup,
+  SidebarGroup as ShadcnSidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import { useTranslation } from "react-i18next"
 import { NavLink, useLocation } from "react-router"
 
-export function NavGeneral({
+export function SidebarGroup({
   title,
   items,
 }: {
@@ -25,13 +24,12 @@ export function NavGeneral({
   }[]
 }) {
   const location = useLocation()
-  const { t } = useTranslation()
   const { openMobile, setOpenMobile } = useSidebar()
 
   return (
-    <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+    <ShadcnSidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel className="sidebar-group-label">
-        {t(title)}
+        {title}
       </SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
@@ -46,12 +44,14 @@ export function NavGeneral({
             >
               <NavLink to={item.url}>
                 <item.icon className="size-5!" />
-                <span>{t(item.name)}</span>
+                {item.name}
               </NavLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
         ))}
       </SidebarMenu>
-    </SidebarGroup>
+    </ShadcnSidebarGroup>
   )
 }
+
+export default SidebarGroup
