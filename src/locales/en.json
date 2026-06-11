@@ -27,6 +27,7 @@
   "signup": {
     "title": "Sign-up",
     "description": "Register your team for the 2026 Yyteri Beach Ultimate tournament!",
+    "deadline": "Deadline",
     "email": {
       "label": "E-mail"
     },
@@ -62,7 +63,7 @@
       "title": "Yyteri Beach Ultimate Tournament 2026",
       "host": "Hosted by Turku Terror",
       "location": "Location: Yyteri, Pori",
-      "deadline": "Sign-up deadline: 1.8.2026"
+      "deadline": "Sign-up deadline: 1.7.2026"
     },
     "main": {
       "overview": "Overview",

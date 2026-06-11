@@ -27,6 +27,7 @@
   "signup": {
     "title": "Ilmoittautuminen",
     "description": "Rekisteröi joukkueesi vuoden 2026 Yyteri Beach Ultimate -turnaukseen!",
+    "deadline": "Määräaika",
     "email": {
       "label": "E-mail"
     },
@@ -62,7 +63,7 @@
       "title": "Yyterin Beach Ultimate Turnaus 2026",
       "host": "Isäntänä Turku Terror",
       "location": "Paikka: Yyteri, Pori",
-      "deadline": "Ilmoittautuminen päättyy: 1.8.2026"
+      "deadline": "Ilmoittautuminen päättyy: 1.7.2026"
     },
     "main": {
       "overview": "Yleiskatsaus",

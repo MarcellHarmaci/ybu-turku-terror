@@ -65,7 +65,11 @@ export function SignUp() {
             <CardTitle className="text-2xl md:text-3xl">
               {t("signup.title")}
             </CardTitle>
-            <CardDescription>{t("signup.description")}</CardDescription>
+            <CardDescription>
+              {t("signup.description")}
+              <br />
+              {t("signup.deadline")}: <b>1.7.2026</b>
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <FieldGroup>
