@@ -1,51 +1,42 @@
-import { doc, getDoc, type DocumentData } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { db } from "../firebase";
-import { useConverter } from "./useConverter";
+import {
+  doc,
+  FirestoreError,
+  onSnapshot,
+  type DocumentData,
+  type FirestoreDataConverter,
+} from "firebase/firestore"
+import { useEffect, useState } from "react"
+import { db } from "../firebase"
 
 export interface ServiceHookConfig {
-  skip: boolean;
+  skip: boolean
 }
 
-/**
- * While `loading`, `data` will be undefined.
- * When `loading` turns `false`, `data` will be the requested document of type `T`
- * or `null` if the document does not exist or an error occurs.
- * @param collection
- * @param docId
- * @returns
- */
-export const useDocument = <T extends DocumentData>(
-  collection: string,
+export const useDocument = <ModelType, DbModelType extends DocumentData>(
+  collectionName: string,
   docId: string,
+  converter: FirestoreDataConverter<ModelType, DbModelType>,
   config?: ServiceHookConfig
 ) => {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<T | null>();
-  const [error, setError] = useState();
-  const [refetchTrigger, setRefetchTrigger] = useState(0);
+  const [data, setData] = useState<ModelType | undefined>()
+  const [error, setError] = useState<string>()
 
-  const document = doc(db, collection, docId).withConverter(useConverter<T>());
+  const docRef = doc(db, collectionName, docId).withConverter(converter)
 
   useEffect(() => {
-    if (config?.skip) return;
+    if (config?.skip) return
 
-    setLoading(true);
-
-    getDoc(document).then(
-      (value) => {
-        setLoading(false);
-        setData(value.data());
-      },
-      (reason) => {
-        setLoading(false);
-        setError(reason);
-        setData(null);
+    const unsubscribe = onSnapshot(
+      docRef,
+      (docSnapshot) => setData(docSnapshot.data()),
+      (error: FirestoreError) => {
+        console.error("Firestore onSnapshot error:", error)
+        setError(error.message)
       }
-    );
-  }, [refetchTrigger, config]);
+    )
 
-  const refetch = () => setRefetchTrigger((prev) => prev + 1);
+    return unsubscribe
+  }, [config])
 
-  return { loading, success: !!data, data, error, refetch };
-};
+  return { isLoading: data === undefined, data, error }
+}
