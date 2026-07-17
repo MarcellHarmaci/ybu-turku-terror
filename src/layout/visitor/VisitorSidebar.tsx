@@ -15,6 +15,7 @@ import {
   PATH_RULES,
   PATH_SIGN_UP,
   PATH_SIGN_UP_JUNIOR,
+  PATH_STANDINGS,
   PATH_TEAMS,
 } from "@/consts"
 import {
@@ -23,6 +24,7 @@ import {
   IconGavel,
   IconInfoCircle,
   IconNews,
+  IconTable,
   IconUsers,
 } from "@tabler/icons-react"
 import { useTranslation } from "react-i18next"
@@ -75,6 +77,11 @@ const VisitorSidebar = () => {
           name: t("sidebar.tournament.teams"),
           url: PATH_TEAMS,
           icon: IconUsers,
+        },
+        {
+          name: t("sidebar.tournament.standings"),
+          url: PATH_STANDINGS,
+          icon: IconTable,
         },
       ],
     },

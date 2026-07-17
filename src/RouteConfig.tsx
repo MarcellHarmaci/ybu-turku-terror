@@ -7,6 +7,7 @@ import {
   PATH_RULES,
   PATH_SIGN_UP,
   PATH_SIGN_UP_JUNIOR,
+  PATH_STANDINGS,
   PATH_TEAMS,
 } from "./consts"
 import AdminLayout from "./layout/admin"
@@ -18,6 +19,7 @@ import JuniorSignUp from "./pages/visitor/JuniorSignup"
 import News from "./pages/visitor/News"
 import Rules from "./pages/visitor/Rules"
 import SignUp from "./pages/visitor/Signup"
+import Standings from "./pages/visitor/Standings"
 
 const RouteConfig = () => (
   <BrowserRouter>
@@ -29,6 +31,7 @@ const RouteConfig = () => (
         <Route path={PATH_SIGN_UP_JUNIOR} element={<JuniorSignUp />} />
         <Route path={PATH_TEAMS} element={<></>} />
         <Route path={PATH_NEWS} element={<News />} />
+        <Route path={PATH_STANDINGS} element={<Standings />} />
       </Route>
 
       <Route path={PATH_ADMIN_HOME} element={<AdminLayout />}>
