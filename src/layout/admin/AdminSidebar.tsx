@@ -9,8 +9,12 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import { PATH_ADMIN_EDITOR_NEWS, PATH_ADMIN_HOME } from "@/consts"
-import { IconNews, IconSettings } from "@tabler/icons-react"
+import {
+  PATH_ADMIN_EDITOR_NEWS,
+  PATH_ADMIN_EDITOR_STANDINGS,
+  PATH_ADMIN_HOME,
+} from "@/consts"
+import { IconNews, IconSettings, IconTable } from "@tabler/icons-react"
 import { Link } from "react-router"
 import LanguageSelect from "../../components/custom/sidebar/LanguageSelect"
 import ThemeToggle from "../../components/custom/sidebar/ThemeToggle"
@@ -23,6 +27,11 @@ const sidebarConfig = {
         name: "News",
         url: PATH_ADMIN_EDITOR_NEWS,
         icon: IconNews,
+      },
+      {
+        name: "Standings",
+        url: PATH_ADMIN_EDITOR_STANDINGS,
+        icon: IconTable,
       },
     ],
   },

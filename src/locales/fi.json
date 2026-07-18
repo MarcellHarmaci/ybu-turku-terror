@@ -13,7 +13,8 @@
     "tournament": {
       "title": "Turnaus",
       "news": "Uutiset",
-      "teams": "Joukkueet"
+      "teams": "Joukkueet",
+      "standings": "Sarjataulukko"
     },
     "language": "Kieli",
     "mode": {
@@ -167,5 +168,8 @@
   },
   "news": {
     "title": "Uutiset"
+  },
+  "standings": {
+    "title": "Sarjataulukko"
   }
 }

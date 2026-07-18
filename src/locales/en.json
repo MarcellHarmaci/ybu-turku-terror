@@ -13,7 +13,8 @@
     "tournament": {
       "title": "Tournament",
       "news": "News",
-      "teams": "Teams"
+      "teams": "Teams",
+      "standings": "Standings"
     },
     "language": "Language",
     "mode": {
@@ -271,5 +272,8 @@
   },
   "news": {
     "title": "News"
+  },
+  "standings": {
+    "title": "Standings"
   }
 }
