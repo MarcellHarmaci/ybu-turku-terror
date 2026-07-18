@@ -168,5 +168,8 @@
   },
   "news": {
     "title": "Uutiset"
+  },
+  "standings": {
+    "title": "Sarjataulukko"
   }
 }

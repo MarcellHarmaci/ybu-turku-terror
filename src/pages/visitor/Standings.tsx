@@ -1,17 +1,20 @@
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
+import { useUrl } from "@/service/standings/useUrl"
 import Papa from "papaparse"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 
 export function Standings() {
   const { t } = useTranslation()
+  const { url: csvUrl, isLoading } = useUrl()
   const [data, setData] = useState<string[][]>()
-  // TODO steta for errors errors: ParseError[];
-
-  const csvUrl =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSL_qQhF1vYQUoSqQe_NAfLnaQYm39bGHFHnn9apFdulcHtEoIhOSfivZlmusW5ejtpvbczMqx2XjAB/pub?output=csv"
+  // TODO state for errors: ParseError[];
 
   useEffect(() => {
+    if (!csvUrl) {
+      return
+    }
+
     Papa.parse<string[]>(csvUrl, {
       download: true,
       complete: function (results) {
@@ -21,7 +24,7 @@ export function Standings() {
     })
   }, [csvUrl])
 
-  if (!data) {
+  if (isLoading || !data) {
     return "Loading..."
   }
 
@@ -29,7 +32,9 @@ export function Standings() {
     <div className="flex flex-col gap-4">
       {/* TODO display error state */}
       {/* {error && <Alert type="error" title="Error" description={error} />} */}
-      <div className="text-2xl font-semibold md:text-3xl">Standings</div>
+      <div className="text-2xl font-semibold md:text-3xl">
+        {t("standings.title")}
+      </div>
       <div className="flex flex-col gap-6">
         <Table>
           <TableBody>

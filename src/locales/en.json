@@ -272,5 +272,8 @@
   },
   "news": {
     "title": "News"
+  },
+  "standings": {
+    "title": "Standings"
   }
 }
