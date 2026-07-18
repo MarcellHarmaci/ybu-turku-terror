@@ -12,7 +12,7 @@ function debounce<A = unknown, R = void>(
         clearTimeout(timeoutId)
       }
 
-      timeoutId = setTimeout(() => {
+      timeoutId = window.setTimeout(() => {
         resolve(func(args))
       }, wait)
     })
