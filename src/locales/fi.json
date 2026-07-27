@@ -142,6 +142,55 @@
         }
       ]
     },
+    "food": {
+      "title": "Ruoka",
+      "description": "Yyterissä on useita ravintoloita, jotka ovat auki turnauksen ajan. Osasta ravintoloista saat alennusta sanomalla kassalla olevasi ultimatepelaaja / osallistuvasi YBU 2026 -turnaukseen. Alta löytyy suurin piirteinen lista rannan lähellä olevista ruokapaikoista ja ruokakaupoista sekä turnauskampanjahinnoista.",
+      "options": [
+        {
+          "name": "K-Market Länsipori",
+          "note": "matkalla Yyteriin, noin 15,8 km päässä Yyteristä",
+          "hours": "pe 7-22, la 8-22 & su 10-22",
+          "description": "mm. aamupalatarvikkeita, välipalaa ja juotavaa",
+          "discount": "-10% kaikista ruoista (erillinen sähköinen alennuspassi)",
+          "address": "Korpraalintie 36, 28600 Pori"
+        },
+        {
+          "name": "Kota pizzeria",
+          "hours": "pe-la 13-20",
+          "discount": "-10% kaikista ruoista"
+        },
+        {
+          "name": "Rento burger",
+          "hours": "pe 13.30-17.30, la 13-18.30",
+          "discount": "-10% kaikista ruoista"
+        },
+        {
+          "name": "Yyteri Shop / kahvila",
+          "hours": "pe-su 10-20"
+        },
+        {
+          "name": "K-Supermarket Dyyni",
+          "note": "noin 6 km päässä Yyteristä",
+          "hours": "pe 7-23, la 8-23 & su 9-23",
+          "address": "Kiviaidantie 11, 28800 Pori"
+        },
+        {
+          "group": "Dyyniravintolat/konttiravintolat",
+          "places": [
+            {
+              "name": "Jungle juice bar",
+              "hours": "pe-su 11-19",
+              "discount": "Alennusjuoma"
+            },
+            {
+              "name": "R-Kioski Yyteri",
+              "hours": "pe 10-20, la 10-21",
+              "discount": "Tuotteet -30% sanomalla \"ÄRRÄ KESÄ\""
+            }
+          ]
+        }
+      ]
+    },
     "schedule": {
       "title": "Aikataulu",
       "description": "Alta löytyy alustava aikataulu turnauksen osalta. Tarkemmat peliaikataulut julkaistaan lähempänä turnausta.",
@@ -162,6 +211,19 @@
               "event": "Saunat varattuna turnaukseen osallistuneille. Saunat sijaitsevat Camping alueen portin läheisyydessä."
             }
           ]
+        }
+      ]
+    },
+    "feedback": {
+      "title": "Palaute ja spirit-palkinto",
+      "items": [
+        {
+          "description": "Muistathan lohkopelien päätteeksi vastata joukkueesi puolesta kyselyyn turnauksen spirit-palkinnosta:",
+          "url": "https://forms.gle/5ib4txFBvxDCnkJv5"
+        },
+        {
+          "description": "Voit antaa halutessasi palautetta turnauksen jälkeen tämän kyselyn kautta:",
+          "url": "https://forms.gle/WnA5vDQo12CzPicY9"
         }
       ]
     }
