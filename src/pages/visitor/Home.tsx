@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import type { AccommodationOption } from "@/model/AccommodationOption"
+import type { FeedbackItem } from "@/model/FeedbackItem"
+import type { FoodOption, FoodPlace } from "@/model/FoodOption"
 import type { ScheduleItem } from "@/model/ScheduleItem"
 import type { TravelOption } from "@/model/TravelOption"
 import { Trans, useTranslation } from "react-i18next"
@@ -22,6 +24,12 @@ export function Home() {
   const accommodationOptions = t("home.accommodation.options", {
     returnObjects: true,
   }) as AccommodationOption[]
+  const foodOptions = t("home.food.options", {
+    returnObjects: true,
+  }) as FoodOption[]
+  const feedbackItems = t("home.feedback.items", {
+    returnObjects: true,
+  }) as FeedbackItem[]
   const preliminarySchedule = t("home.schedule.preliminarySchedule", {
     returnObjects: true,
   }) as ScheduleItem[]
@@ -82,6 +90,7 @@ export function Home() {
               <p key={`general-info-${index}`}>{paragraph}</p>
             )
           )}
+          <img src="beach-map.png" alt="Beach Map" />
         </CardContent>
       </Card>
 
@@ -169,6 +178,41 @@ export function Home() {
       <Card className="shadow-xl">
         <CardHeader>
           <CardTitle className="text-2xl md:text-3xl">
+            {t("home.food.title")}
+          </CardTitle>
+          <CardDescription>{t("home.food.description")}</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-3">
+          {foodOptions.map((foodOption: FoodOption, index: number) => (
+            <div key={`food-option-${index}`}>
+              {"group" in foodOption ? (
+                <>
+                  <h5 className="mb-1 text-xl">{foodOption.group}</h5>
+                  <ul className="flex flex-col gap-2 pl-6">
+                    {foodOption.places.map((place, placeIndex) => (
+                      <li
+                        key={`food-option-${index}-${placeIndex}`}
+                        className="list-disc"
+                      >
+                        <FoodPlaceDetails place={place} />
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <FoodPlaceDetails place={foodOption} />
+              )}
+              {index < foodOptions.length - 1 && (
+                <Separator className="mt-4" />
+              )}
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+
+      <Card className="shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-2xl md:text-3xl">
             {t("home.schedule.title")}
           </CardTitle>
           <CardDescription>{t("home.schedule.description")}</CardDescription>
@@ -200,7 +244,41 @@ export function Home() {
           )}
         </CardContent>
       </Card>
+
+      <Card className="shadow-xl">
+        <CardHeader>
+          <CardTitle className="text-2xl md:text-3xl">
+            {t("home.feedback.title")}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-3">
+          {feedbackItems.map((feedbackItem: FeedbackItem, index: number) => (
+            <div key={`feedback-item-${index}`}>
+              <p>{feedbackItem.description}</p>
+              <Link to={feedbackItem.url} target="_blank">
+                {feedbackItem.url}
+              </Link>
+              {index < feedbackItems.length - 1 && (
+                <Separator className="mt-4" />
+              )}
+            </div>
+          ))}
+        </CardContent>
+      </Card>
     </div>
+  )
+}
+
+function FoodPlaceDetails({ place }: { place: FoodPlace }) {
+  return (
+    <>
+      <div className="font-medium">{place.name}</div>
+      {place.note && <div>{place.note}</div>}
+      <div>{place.hours}</div>
+      {place.description && <p>{place.description}</p>}
+      {place.discount && <p>{place.discount}</p>}
+      {place.address && <p>{place.address}</p>}
+    </>
   )
 }
 

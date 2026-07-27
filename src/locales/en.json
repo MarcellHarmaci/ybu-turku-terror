@@ -167,6 +167,55 @@
         }
       ]
     },
+    "food": {
+      "title": "Food",
+      "description": "Yyteri has several restaurants that are open during the tournament. You can get a discount at some of the restaurants by saying at the register that you are an ultimate player / participating in the YBU 2026 tournament. Below, you can find an approximate list of restaurants and grocery stores near the beach as well as the tournament discounts.",
+      "options": [
+        {
+          "name": "K-Market Länsipori",
+          "note": "on the way to Yyteri, about 15,8 km from Yyteri",
+          "hours": "Fri 7-22, Sat 8-22 & Sun 10-22",
+          "description": "e.g. breakfast items, snacks and drinks",
+          "discount": "Food -10% (a separate electronic discount pass)",
+          "address": "Korpraalintie 36, 28600 Pori"
+        },
+        {
+          "name": "Kota pizzeria",
+          "hours": "Fri-Sat 13-20",
+          "discount": "Food -10%"
+        },
+        {
+          "name": "Rento burger",
+          "hours": "Fri 13.30-17.30, Sat 13-18.30",
+          "discount": "Food -10%"
+        },
+        {
+          "name": "Yyteri Shop / café",
+          "hours": "Fri-Sat 10-20"
+        },
+        {
+          "name": "K-Supermarket Dyyni",
+          "note": "about 6 km from Yyteri",
+          "hours": "Fri 7-23, Sat 8-23 & Sun 9-23",
+          "address": "Kiviaidantie 11, 28800 Pori"
+        },
+        {
+          "group": "Dune restaurants/container restaurants",
+          "places": [
+            {
+              "name": "Jungle juice bar",
+              "hours": "Fri-Sun 11-19",
+              "discount": "A discount drink"
+            },
+            {
+              "name": "R-Kioski Yyteri",
+              "hours": "Fri 10-20, Sat 10-21",
+              "discount": "Products -30% by saying \"ÄRRÄ KESÄ\""
+            }
+          ]
+        }
+      ]
+    },
     "schedule": {
       "title": "Schedule",
       "description": "You can find the preliminary schedule for the tournament below. More detailed game schedules will be published closer to the tournament.",
@@ -187,6 +236,19 @@
               "event": "Saunas are reserved for the tournament’s participants. The saunas are located close to the Camping area’s gate."
             }
           ]
+        }
+      ]
+    },
+    "feedback": {
+      "title": "Feedback and the spirit award",
+      "items": [
+        {
+          "description": "Please, remember to answer a questionnaire about the spirit award on behalf of your team after the pool plays:",
+          "url": "https://forms.gle/5ib4txFBvxDCnkJv5"
+        },
+        {
+          "description": "You can give us feedback after the tournament via this questionnaire:",
+          "url": "https://forms.gle/WnA5vDQo12CzPicY9"
         }
       ]
     }
