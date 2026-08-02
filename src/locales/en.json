@@ -13,7 +13,7 @@
     "tournament": {
       "title": "Tournament",
       "news": "News",
-      "teams": "Teams",
+      "teams": "Teams/pools",
       "standings": "Standings"
     },
     "language": "Language",
@@ -64,7 +64,7 @@
       "title": "Yyteri Beach Ultimate Tournament 2026",
       "host": "Hosted by Turku Terror",
       "location": "Location: Yyteri, Pori",
-      "deadline": "Sign-up deadline: 1.7.2026"
+      "deadline": "Sign-up deadline: 31.7.2026"
     },
     "main": {
       "overview": "Overview",
@@ -97,7 +97,7 @@
             {
               "name": "Pori - Yyteri bus",
               "urls": ["https://pjl.pori.fi/etusivu/aikataulut-ja-reitit/"],
-              "description": "Line 34 from Porin center to Yyteriin, stops ‘Yyteri leirintä I’ (camping), ‘Yyterin Sannat E’ (info and beach), ‘Yyterin Hotelli E’ (hotel, not in order). Ride takes about 25 minutes."
+              "description": "Line 34 from Pori center to Yyteri, stops ‘Yyteri leirintä I’ (camping), ‘Yyterin Sannat E’ (info and beach), ‘Yyterin Hotelli E’ (hotel, not in order). Ride takes about 25 minutes."
             },
             {
               "name": "Taxis",
@@ -131,7 +131,7 @@
               ]
             },
             {
-              "name": "Via a ship",
+              "name": "By ferry",
               "urls": [
                 "https://www.sales.vikingline.com/",
                 "https://www.tallink.com/",
@@ -254,7 +254,7 @@
     }
   },
   "rules": {
-    "title": "Rules (säännöt englanniksi)",
+    "title": "Rules",
     "general": {
       "title": "General rules",
       "content": [
@@ -336,6 +336,10 @@
     "title": "News"
   },
   "standings": {
-    "title": "Standings"
+    "title": "Standings 2025"
+  },
+  "teams": {
+    "title": "Teams and pools",
+    "comingSoon": "Coming soon..."
   }
 }

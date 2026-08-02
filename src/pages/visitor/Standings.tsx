@@ -39,7 +39,10 @@ export function Standings() {
         <Table>
           <TableBody>
             {data.map((row, rowIndex) => (
-              <TableRow key={`row-${rowIndex}`}>
+              <TableRow
+                key={`row-${rowIndex}`}
+                className={rowIndex % 2 === 1 ? "bg-muted/50" : undefined}
+              >
                 {row.map((cell, colIndex) => (
                   <TableCell key={`row-${rowIndex}-col-${colIndex}`}>
                     {cell}

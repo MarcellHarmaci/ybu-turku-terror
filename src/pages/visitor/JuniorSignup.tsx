@@ -98,7 +98,7 @@ export function JuniorSignUp() {
             Pelit on tarkoitus pelata aikavälillä 11-17, kerrothan jos on
             aikatauluhaasteita.
           </p>
-          <p>Ilmoittautuminen 1.7. mennessä.</p>
+          <p>Ilmoittautuminen 31.7. mennessä.</p>
           <p>
             Pelaajamaksu 5€ per pelaaja - maksu Mobile Pay 045 123 1246 (Asmo
             Soinio) - viestiin joukkueen nimi

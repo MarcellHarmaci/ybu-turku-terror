@@ -78,7 +78,7 @@ export function Home() {
         </CardContent>
       </Card>
 
-      <Card className="shadow-xl">
+      <Card className="shadow-xl pb-0">
         <CardHeader>
           <CardTitle className="text-2xl md:text-3xl">
             {t("home.general.title")}
@@ -90,8 +90,8 @@ export function Home() {
               <p key={`general-info-${index}`}>{paragraph}</p>
             )
           )}
-          <img src="beach-map.png" alt="Beach Map" />
         </CardContent>
+          <img src="beach-map.png" alt="Beach Map" />
       </Card>
 
       <Card className="shadow-xl">
