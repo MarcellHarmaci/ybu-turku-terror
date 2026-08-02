@@ -22,6 +22,7 @@ import News from "./pages/visitor/News"
 import Rules from "./pages/visitor/Rules"
 import SignUp from "./pages/visitor/Signup"
 import Standings from "./pages/visitor/Standings"
+import Teams from "./pages/visitor/Teams"
 
 const RouteConfig = () => (
   <BrowserRouter>
@@ -31,7 +32,7 @@ const RouteConfig = () => (
         <Route path={PATH_RULES} element={<Rules />} />
         <Route path={PATH_SIGN_UP} element={<SignUp />} />
         <Route path={PATH_SIGN_UP_JUNIOR} element={<JuniorSignUp />} />
-        <Route path={PATH_TEAMS} element={<></>} />
+        <Route path={PATH_TEAMS} element={<Teams />} />
         <Route path={PATH_NEWS} element={<News />} />
         <Route path={PATH_STANDINGS} element={<Standings />} />
       </Route>

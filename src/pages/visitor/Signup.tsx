@@ -68,7 +68,7 @@ export function SignUp() {
             <CardDescription>
               {t("signup.description")}
               <br />
-              {t("signup.deadline")}: <b>1.7.2026</b>
+              {t("signup.deadline")}: <b>31.7.2026</b>
             </CardDescription>
           </CardHeader>
           <CardContent>

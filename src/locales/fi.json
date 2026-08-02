@@ -64,7 +64,7 @@
       "title": "Yyterin Beach Ultimate Turnaus 2026",
       "host": "Isäntänä Turku Terror",
       "location": "Paikka: Yyteri, Pori",
-      "deadline": "Ilmoittautuminen päättyy: 1.7.2026"
+      "deadline": "Ilmoittautuminen päättyy: 31.7.2026"
     },
     "main": {
       "overview": "Yleiskatsaus",
@@ -228,10 +228,17 @@
       ]
     }
   },
+  "rules": {
+    "title": "Säännöt englanniksi"
+  },
   "news": {
     "title": "Uutiset"
   },
   "standings": {
-    "title": "Sarjataulukko"
+    "title": "Sarjataulukko 2025"
+  },
+  "teams": {
+    "title": "Joukkueet",
+    "comingSoon": "Tulossa pian..."
   }
 }
