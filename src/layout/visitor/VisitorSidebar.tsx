@@ -22,11 +22,13 @@ import {
 } from "@/consts"
 import {
   IconBeach,
+  IconCalendarEvent,
   IconClipboardCheck,
   IconGavel,
   IconInfoCircle,
+  IconList,
   IconNews,
-  IconTable,
+  IconTrophy,
   IconUsers,
 } from "@tabler/icons-react"
 import { useTranslation } from "react-i18next"
@@ -83,17 +85,17 @@ const VisitorSidebar = () => {
         {
           name: t("sidebar.tournament.gameList"),
           url: PATH_GAME_LIST,
-          icon: IconTable,
+          icon: IconList,
         },
         {
           name: t("sidebar.tournament.schedule"),
           url: PATH_SCHEDULE,
-          icon: IconTable,
+          icon: IconCalendarEvent,
         },
         {
           name: t("sidebar.tournament.standings"),
           url: PATH_STANDINGS,
-          icon: IconTable,
+          icon: IconTrophy,
         },
       ],
     },
