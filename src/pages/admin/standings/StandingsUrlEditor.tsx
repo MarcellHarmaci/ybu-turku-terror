@@ -2,12 +2,12 @@ import toast from "@/components/custom/toast"
 import { Button } from "@/components/ui/button"
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { useSaveUrl } from "@/service/standings/useSaveUrl"
-import { useUrl } from "@/service/standings/useUrl"
+import { useSaveUrl } from "@/service/url/useSaveUrl"
+import { useUrl } from "@/service/url/useUrl"
 import { useEffect, useState } from "react"
 
 export function StandingsUrlEditor() {
-  const { url: savedUrl, isLoading } = useUrl()
+  const { url: savedUrl, isLoading } = useUrl("standings")
   const { save, loading: isSaving, success, error } = useSaveUrl()
   const [url, setUrl] = useState<string | undefined>(savedUrl)
 
