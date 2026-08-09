@@ -3,6 +3,7 @@ import {
   PATH_ADMIN_EDITOR_NEWS,
   PATH_ADMIN_EDITOR_STANDINGS,
   PATH_ADMIN_HOME,
+  PATH_GAME_LIST,
   PATH_HOME,
   PATH_NEWS,
   PATH_RULES,
@@ -16,6 +17,7 @@ import VisitorLayout from "./layout/visitor"
 import AdminHome from "./pages/admin/AdminHome"
 import NewsEditor from "./pages/admin/news/NewsEditor"
 import { StandingsUrlEditor } from "./pages/admin/standings/StandingsUrlEditor"
+import GameList from "./pages/visitor/GameList"
 import Home from "./pages/visitor/Home"
 import JuniorSignUp from "./pages/visitor/JuniorSignup"
 import News from "./pages/visitor/News"
@@ -32,8 +34,10 @@ const RouteConfig = () => (
         <Route path={PATH_RULES} element={<Rules />} />
         <Route path={PATH_SIGN_UP} element={<SignUp />} />
         <Route path={PATH_SIGN_UP_JUNIOR} element={<JuniorSignUp />} />
-        <Route path={PATH_TEAMS} element={<Teams />} />
+
         <Route path={PATH_NEWS} element={<News />} />
+        <Route path={PATH_TEAMS} element={<Teams />} />
+        <Route path={PATH_GAME_LIST} element={<GameList />} />
         <Route path={PATH_STANDINGS} element={<Standings />} />
       </Route>
 

@@ -14,6 +14,7 @@
       "title": "Tournament",
       "news": "News",
       "teams": "Teams/pools",
+      "gameList": "Game List",
       "standings": "Standings"
     },
     "language": "Language",
@@ -334,6 +335,9 @@
   },
   "news": {
     "title": "News"
+  },
+  "gameList": {
+    "title": "Game List 2025"
   },
   "standings": {
     "title": "Standings 2025"

@@ -10,6 +10,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import {
+  PATH_GAME_LIST,
   PATH_HOME,
   PATH_NEWS,
   PATH_RULES,
@@ -77,6 +78,11 @@ const VisitorSidebar = () => {
           name: t("sidebar.tournament.teams"),
           url: PATH_TEAMS,
           icon: IconUsers,
+        },
+        {
+          name: t("sidebar.tournament.gameList"),
+          url: PATH_GAME_LIST,
+          icon: IconTable,
         },
         {
           name: t("sidebar.tournament.standings"),
