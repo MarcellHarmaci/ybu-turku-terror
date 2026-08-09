@@ -5,6 +5,7 @@ export const PATH_SIGN_UP_JUNIOR = "/sign-up-junior"
 export const PATH_NEWS = "/news"
 export const PATH_TEAMS = "/teams"
 export const PATH_GAME_LIST = "/game-list"
+export const PATH_SCHEDULE = "/schedule"
 export const PATH_STANDINGS = "/standings"
 
 export const PATH_ADMIN_HOME = "/admin"

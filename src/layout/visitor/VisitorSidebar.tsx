@@ -14,6 +14,7 @@ import {
   PATH_HOME,
   PATH_NEWS,
   PATH_RULES,
+  PATH_SCHEDULE,
   PATH_SIGN_UP,
   PATH_SIGN_UP_JUNIOR,
   PATH_STANDINGS,
@@ -82,6 +83,11 @@ const VisitorSidebar = () => {
         {
           name: t("sidebar.tournament.gameList"),
           url: PATH_GAME_LIST,
+          icon: IconTable,
+        },
+        {
+          name: t("sidebar.tournament.schedule"),
+          url: PATH_SCHEDULE,
           icon: IconTable,
         },
         {

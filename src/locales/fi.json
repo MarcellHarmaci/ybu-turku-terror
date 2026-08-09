@@ -15,6 +15,7 @@
       "news": "Uutiset",
       "teams": "Joukkueet",
       "gameList": "Pelilista",
+      "schedule": "Aikataulu",
       "standings": "Sarjataulukko"
     },
     "language": "Kieli",
@@ -237,6 +238,9 @@
   },
   "gameList": {
     "title": "Pelilista 2025"
+  },
+  "schedule": {
+    "title": "Aikataulu 2025"
   },
   "standings": {
     "title": "Sarjataulukko 2025"
