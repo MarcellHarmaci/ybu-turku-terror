@@ -8,7 +8,7 @@ i18n.use(initReactI18next).init({
     en: { translation: en },
     fi: { translation: fi },
   },
-  lng: "en",
+  lng: "fi",
   fallbackLng: "en",
   supportedLngs: ["en", "fi"],
   ns: ["translation"],

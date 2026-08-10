@@ -14,8 +14,8 @@ const LanguageSelect = () => {
   const { t, i18n } = useTranslation()
 
   const items = [
-    { label: "English", value: "en" },
     { label: "Suomi", value: "fi" },
+    { label: "English", value: "en" },
   ]
 
   return (

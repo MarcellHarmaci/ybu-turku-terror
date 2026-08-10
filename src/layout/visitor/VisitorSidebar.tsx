@@ -41,7 +41,7 @@ import ThemeToggle from "../../components/custom/sidebar/ThemeToggle"
  */
 const VisitorSidebar = () => {
   const { openMobile, setOpenMobile } = useSidebar()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const sidebarConfig = {
     navGeneral: {
@@ -102,7 +102,7 @@ const VisitorSidebar = () => {
   }
 
   return (
-    <Sidebar>
+    <Sidebar lang={i18n.language}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>

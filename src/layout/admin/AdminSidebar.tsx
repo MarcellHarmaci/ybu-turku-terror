@@ -23,6 +23,7 @@ import {
   IconSettings,
   IconTrophy,
 } from "@tabler/icons-react"
+import { useTranslation } from "react-i18next"
 import { Link } from "react-router"
 import LanguageSelect from "../../components/custom/sidebar/LanguageSelect"
 import ThemeToggle from "../../components/custom/sidebar/ThemeToggle"
@@ -59,10 +60,11 @@ const sidebarConfig = {
  * @see https://ui.shadcn.com/blocks
  */
 const AdminSidebar = () => {
+  const { i18n } = useTranslation()
   const { openMobile, setOpenMobile } = useSidebar()
 
   return (
-    <Sidebar>
+    <Sidebar lang={i18n.language}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
