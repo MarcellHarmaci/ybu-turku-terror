@@ -10,9 +10,11 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import {
+  PATH_GAME_LIST,
   PATH_HOME,
   PATH_NEWS,
   PATH_RULES,
+  PATH_SCHEDULE,
   PATH_SIGN_UP,
   PATH_SIGN_UP_JUNIOR,
   PATH_STANDINGS,
@@ -20,11 +22,13 @@ import {
 } from "@/consts"
 import {
   IconBeach,
+  IconCalendarEvent,
   IconClipboardCheck,
   IconGavel,
   IconInfoCircle,
+  IconList,
   IconNews,
-  IconTable,
+  IconTrophy,
   IconUsers,
 } from "@tabler/icons-react"
 import { useTranslation } from "react-i18next"
@@ -79,9 +83,19 @@ const VisitorSidebar = () => {
           icon: IconUsers,
         },
         {
+          name: t("sidebar.tournament.gameList"),
+          url: PATH_GAME_LIST,
+          icon: IconList,
+        },
+        {
+          name: t("sidebar.tournament.schedule"),
+          url: PATH_SCHEDULE,
+          icon: IconCalendarEvent,
+        },
+        {
           name: t("sidebar.tournament.standings"),
           url: PATH_STANDINGS,
-          icon: IconTable,
+          icon: IconTrophy,
         },
       ],
     },

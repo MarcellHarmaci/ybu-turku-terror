@@ -2,13 +2,17 @@ import toast from "@/components/custom/toast"
 import { Button } from "@/components/ui/button"
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { useSaveUrl } from "@/service/standings/useSaveUrl"
-import { useUrl } from "@/service/standings/useUrl"
+import { useSaveUrl } from "@/service/url/useSaveUrl"
+import { useUrl } from "@/service/url/useUrl"
 import { useEffect, useState } from "react"
 
-export function StandingsUrlEditor() {
-  const { url: savedUrl, isLoading } = useUrl()
-  const { save, loading: isSaving, success, error } = useSaveUrl()
+interface UrlEditorProps {
+  urlId: string
+}
+
+export function UrlEditor({ urlId }: UrlEditorProps) {
+  const { url: savedUrl, isLoading } = useUrl(urlId)
+  const { save, loading: isSaving, success, error } = useSaveUrl(urlId)
   const [url, setUrl] = useState<string | undefined>(savedUrl)
 
   useEffect(() => {
@@ -36,7 +40,7 @@ export function StandingsUrlEditor() {
         <Input
           id="standings-url"
           className="shadow-sm"
-          defaultValue={url}
+          defaultValue={savedUrl}
           onChange={(e) => setUrl(e.target.value)}
         />
         <FieldDescription>

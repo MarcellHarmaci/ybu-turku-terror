@@ -2,12 +2,16 @@ export const PATH_HOME = "/"
 export const PATH_RULES = "/rules"
 export const PATH_SIGN_UP = "/sign-up"
 export const PATH_SIGN_UP_JUNIOR = "/sign-up-junior"
-export const PATH_TEAMS = "/teams"
 export const PATH_NEWS = "/news"
+export const PATH_TEAMS = "/teams"
+export const PATH_GAME_LIST = "/game-list"
+export const PATH_SCHEDULE = "/schedule"
 export const PATH_STANDINGS = "/standings"
 
 export const PATH_ADMIN_HOME = "/admin"
 export const PATH_ADMIN_EDITOR_NEWS = "/admin/editor/news"
+export const PATH_ADMIN_EDITOR_GAME_LIST = "/admin/editor/game-list"
+export const PATH_ADMIN_EDITOR_SCHEDULE = "/admin/editor/schedule"
 export const PATH_ADMIN_EDITOR_STANDINGS = "/admin/editor/standings"
 
 export const DATE_FORMAT = new Intl.DateTimeFormat("fi-FI")

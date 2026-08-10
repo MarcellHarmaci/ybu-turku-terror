@@ -1,8 +1,8 @@
 import { useDocument } from "@/firestore/useDocument"
 import { urlConverter } from "./converter"
 
-export const useUrl = () => {
-  const docHook = useDocument("url", "standings", urlConverter)
+export const useUrl = (urlId: string) => {
+  const docHook = useDocument("url", urlId, urlConverter)
 
   return {
     isLoading: docHook.isLoading,
