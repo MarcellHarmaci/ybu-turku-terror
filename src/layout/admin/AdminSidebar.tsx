@@ -10,11 +10,19 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import {
+  PATH_ADMIN_EDITOR_GAME_LIST,
   PATH_ADMIN_EDITOR_NEWS,
+  PATH_ADMIN_EDITOR_SCHEDULE,
   PATH_ADMIN_EDITOR_STANDINGS,
   PATH_ADMIN_HOME,
 } from "@/consts"
-import { IconNews, IconSettings, IconTable } from "@tabler/icons-react"
+import {
+  IconCalendarEvent,
+  IconList,
+  IconNews,
+  IconSettings,
+  IconTrophy,
+} from "@tabler/icons-react"
 import { Link } from "react-router"
 import LanguageSelect from "../../components/custom/sidebar/LanguageSelect"
 import ThemeToggle from "../../components/custom/sidebar/ThemeToggle"
@@ -29,9 +37,19 @@ const sidebarConfig = {
         icon: IconNews,
       },
       {
+        name: "Game List",
+        url: PATH_ADMIN_EDITOR_GAME_LIST,
+        icon: IconList,
+      },
+      {
+        name: "Schedule",
+        url: PATH_ADMIN_EDITOR_SCHEDULE,
+        icon: IconCalendarEvent,
+      },
+      {
         name: "Standings",
         url: PATH_ADMIN_EDITOR_STANDINGS,
-        icon: IconTable,
+        icon: IconTrophy,
       },
     ],
   },

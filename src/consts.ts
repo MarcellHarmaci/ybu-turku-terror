@@ -10,6 +10,8 @@ export const PATH_STANDINGS = "/standings"
 
 export const PATH_ADMIN_HOME = "/admin"
 export const PATH_ADMIN_EDITOR_NEWS = "/admin/editor/news"
+export const PATH_ADMIN_EDITOR_GAME_LIST = "/admin/editor/game-list"
+export const PATH_ADMIN_EDITOR_SCHEDULE = "/admin/editor/schedule"
 export const PATH_ADMIN_EDITOR_STANDINGS = "/admin/editor/standings"
 
 export const DATE_FORMAT = new Intl.DateTimeFormat("fi-FI")
