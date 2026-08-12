@@ -18,6 +18,12 @@
       "schedule": "Aikataulu",
       "standings": "Sarjataulukko"
     },
+    "junior": {
+      "title": "Junnuturnaus",
+      "gameList": "Pelilista",
+      "schedule": "Aikataulu",
+      "standings": "Sarjataulukko"
+    },
     "language": "Kieli",
     "mode": {
       "switch": "Vaihda {{nextMode}}-tilaan",
@@ -248,5 +254,16 @@
   "teams": {
     "title": "Joukkueet",
     "comingSoon": "Tulossa pian..."
+  },
+  "junior": {
+    "gameList": {
+      "title": "Junnujen pelilista 2026"
+    },
+    "schedule": {
+      "title": "Junnujen aikataulu 2026"
+    },
+    "standings": {
+      "title": "Junnujen sarjataulukko 2026"
+    }
   }
 }

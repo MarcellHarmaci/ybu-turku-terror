@@ -18,6 +18,12 @@
       "schedule": "Schedule",
       "standings": "Standings"
     },
+    "junior": {
+      "title": "Junior Tournament",
+      "gameList": "Game List",
+      "schedule": "Schedule",
+      "standings": "Standings"
+    },
     "language": "Language",
     "mode": {
       "switch": "Switch to {{nextMode}} mode",
@@ -349,5 +355,16 @@
   "teams": {
     "title": "Teams and pools",
     "comingSoon": "Coming soon..."
+  },
+  "junior": {
+    "gameList": {
+      "title": "Junior Game List 2026"
+    },
+    "schedule": {
+      "title": "Junior Schedule 2026"
+    },
+    "standings": {
+      "title": "Junior Standings 2026"
+    }
   }
 }

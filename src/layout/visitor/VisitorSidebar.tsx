@@ -12,6 +12,9 @@ import {
 import {
   PATH_GAME_LIST,
   PATH_HOME,
+  PATH_JUNIOR_GAME_LIST,
+  PATH_JUNIOR_SCHEDULE,
+  PATH_JUNIOR_STANDINGS,
   PATH_NEWS,
   PATH_RULES,
   PATH_SCHEDULE,
@@ -99,6 +102,26 @@ const VisitorSidebar = () => {
         },
       ],
     },
+    junior: {
+      title: t("sidebar.junior.title"),
+      items: [
+        {
+          name: t("sidebar.junior.gameList"),
+          url: PATH_JUNIOR_GAME_LIST,
+          icon: IconList,
+        },
+        {
+          name: t("sidebar.junior.schedule"),
+          url: PATH_JUNIOR_SCHEDULE,
+          icon: IconCalendarEvent,
+        },
+        {
+          name: t("sidebar.junior.standings"),
+          url: PATH_JUNIOR_STANDINGS,
+          icon: IconTrophy,
+        },
+      ],
+    },
   }
 
   return (
@@ -129,6 +152,10 @@ const VisitorSidebar = () => {
         <SidebarGroup
           title={sidebarConfig.tournament.title}
           items={sidebarConfig.tournament.items}
+        />
+        <SidebarGroup
+          title={sidebarConfig.junior.title}
+          items={sidebarConfig.junior.items}
         />
       </SidebarContent>
       <SidebarFooter>
