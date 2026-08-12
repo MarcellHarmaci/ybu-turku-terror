@@ -12,13 +12,15 @@ import {
 import {
   PATH_GAME_LIST,
   PATH_HOME,
+  PATH_JUNIOR_GAME_LIST,
+  PATH_JUNIOR_SCHEDULE,
+  PATH_JUNIOR_STANDINGS,
   PATH_NEWS,
   PATH_RULES,
   PATH_SCHEDULE,
   PATH_SIGN_UP,
   PATH_SIGN_UP_JUNIOR,
   PATH_STANDINGS,
-  PATH_TEAMS,
 } from "@/consts"
 import {
   IconBeach,
@@ -29,7 +31,6 @@ import {
   IconList,
   IconNews,
   IconTrophy,
-  IconUsers,
 } from "@tabler/icons-react"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router"
@@ -67,21 +68,21 @@ const VisitorSidebar = () => {
           url: PATH_SIGN_UP_JUNIOR,
           icon: IconClipboardCheck,
         },
-      ],
-    },
-    tournament: {
-      title: t("sidebar.tournament.title"),
-      items: [
         {
           name: t("sidebar.tournament.news"),
           url: PATH_NEWS,
           icon: IconNews,
         },
-        {
-          name: t("sidebar.tournament.teams"),
-          url: PATH_TEAMS,
-          icon: IconUsers,
-        },
+      ],
+    },
+    tournament: {
+      title: t("sidebar.tournament.title"),
+      items: [
+        // {
+        //   name: t("sidebar.tournament.teams"),
+        //   url: PATH_TEAMS,
+        //   icon: IconUsers,
+        // },
         {
           name: t("sidebar.tournament.gameList"),
           url: PATH_GAME_LIST,
@@ -95,6 +96,26 @@ const VisitorSidebar = () => {
         {
           name: t("sidebar.tournament.standings"),
           url: PATH_STANDINGS,
+          icon: IconTrophy,
+        },
+      ],
+    },
+    junior: {
+      title: t("sidebar.junior.title"),
+      items: [
+        {
+          name: t("sidebar.junior.gameList"),
+          url: PATH_JUNIOR_GAME_LIST,
+          icon: IconList,
+        },
+        {
+          name: t("sidebar.junior.schedule"),
+          url: PATH_JUNIOR_SCHEDULE,
+          icon: IconCalendarEvent,
+        },
+        {
+          name: t("sidebar.junior.standings"),
+          url: PATH_JUNIOR_STANDINGS,
           icon: IconTrophy,
         },
       ],
@@ -129,6 +150,10 @@ const VisitorSidebar = () => {
         <SidebarGroup
           title={sidebarConfig.tournament.title}
           items={sidebarConfig.tournament.items}
+        />
+        <SidebarGroup
+          title={sidebarConfig.junior.title}
+          items={sidebarConfig.junior.items}
         />
       </SidebarContent>
       <SidebarFooter>
