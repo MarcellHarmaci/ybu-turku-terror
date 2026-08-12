@@ -21,7 +21,6 @@ import {
   PATH_SIGN_UP,
   PATH_SIGN_UP_JUNIOR,
   PATH_STANDINGS,
-  PATH_TEAMS,
 } from "@/consts"
 import {
   IconBeach,
@@ -32,7 +31,6 @@ import {
   IconList,
   IconNews,
   IconTrophy,
-  IconUsers,
 } from "@tabler/icons-react"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router"
@@ -70,21 +68,21 @@ const VisitorSidebar = () => {
           url: PATH_SIGN_UP_JUNIOR,
           icon: IconClipboardCheck,
         },
-      ],
-    },
-    tournament: {
-      title: t("sidebar.tournament.title"),
-      items: [
         {
           name: t("sidebar.tournament.news"),
           url: PATH_NEWS,
           icon: IconNews,
         },
-        {
-          name: t("sidebar.tournament.teams"),
-          url: PATH_TEAMS,
-          icon: IconUsers,
-        },
+      ],
+    },
+    tournament: {
+      title: t("sidebar.tournament.title"),
+      items: [
+        // {
+        //   name: t("sidebar.tournament.teams"),
+        //   url: PATH_TEAMS,
+        //   icon: IconUsers,
+        // },
         {
           name: t("sidebar.tournament.gameList"),
           url: PATH_GAME_LIST,
