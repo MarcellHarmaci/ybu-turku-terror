@@ -15,6 +15,9 @@ import {
   PATH_ADMIN_EDITOR_SCHEDULE,
   PATH_ADMIN_EDITOR_STANDINGS,
   PATH_ADMIN_HOME,
+  PATH_ADMIN_JUNIOR_EDITOR_GAME_LIST,
+  PATH_ADMIN_JUNIOR_EDITOR_SCHEDULE,
+  PATH_ADMIN_JUNIOR_EDITOR_STANDINGS,
 } from "@/consts"
 import {
   IconCalendarEvent,
@@ -29,14 +32,19 @@ import LanguageSelect from "../../components/custom/sidebar/LanguageSelect"
 import ThemeToggle from "../../components/custom/sidebar/ThemeToggle"
 
 const sidebarConfig = {
-  cms: {
-    title: "Content management",
+  general: {
+    title: "General",
     items: [
       {
         name: "News",
         url: PATH_ADMIN_EDITOR_NEWS,
         icon: IconNews,
       },
+    ],
+  },
+  tournament: {
+    title: "Tournament",
+    items: [
       {
         name: "Game List",
         url: PATH_ADMIN_EDITOR_GAME_LIST,
@@ -50,6 +58,26 @@ const sidebarConfig = {
       {
         name: "Standings",
         url: PATH_ADMIN_EDITOR_STANDINGS,
+        icon: IconTrophy,
+      },
+    ],
+  },
+  junior: {
+    title: "Junior Tournament",
+    items: [
+      {
+        name: "Game List",
+        url: PATH_ADMIN_JUNIOR_EDITOR_GAME_LIST,
+        icon: IconList,
+      },
+      {
+        name: "Schedule",
+        url: PATH_ADMIN_JUNIOR_EDITOR_SCHEDULE,
+        icon: IconCalendarEvent,
+      },
+      {
+        name: "Standings",
+        url: PATH_ADMIN_JUNIOR_EDITOR_STANDINGS,
         icon: IconTrophy,
       },
     ],
@@ -83,8 +111,16 @@ const AdminSidebar = () => {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup
-          title={sidebarConfig.cms.title}
-          items={sidebarConfig.cms.items}
+          title={sidebarConfig.general.title}
+          items={sidebarConfig.general.items}
+        />
+        <SidebarGroup
+          title={sidebarConfig.tournament.title}
+          items={sidebarConfig.tournament.items}
+        />
+        <SidebarGroup
+          title={sidebarConfig.junior.title}
+          items={sidebarConfig.junior.items}
         />
       </SidebarContent>
       <SidebarFooter>

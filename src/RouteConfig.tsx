@@ -5,6 +5,9 @@ import {
   PATH_ADMIN_EDITOR_SCHEDULE,
   PATH_ADMIN_EDITOR_STANDINGS,
   PATH_ADMIN_HOME,
+  PATH_ADMIN_JUNIOR_EDITOR_GAME_LIST,
+  PATH_ADMIN_JUNIOR_EDITOR_SCHEDULE,
+  PATH_ADMIN_JUNIOR_EDITOR_STANDINGS,
   PATH_GAME_LIST,
   PATH_HOME,
   PATH_JUNIOR,
@@ -22,6 +25,9 @@ import {
 import AdminLayout from "./layout/admin"
 import VisitorLayout from "./layout/visitor"
 import AdminHome from "./pages/admin/AdminHome"
+import { JuniorGameListUrlEditor } from "./pages/admin/junior-url/JuniorGameListUrlEditor"
+import { JuniorScheduleUrlEditor } from "./pages/admin/junior-url/JuniorScheduleUrlEditor"
+import { JuniorStandingsUrlEditor } from "./pages/admin/junior-url/JuniorStandingsUrlEditor"
 import NewsEditor from "./pages/admin/news/NewsEditor"
 import { GameListUrlEditor } from "./pages/admin/url/GameListUrlEditor"
 import { ScheduleUrlEditor } from "./pages/admin/url/ScheduleUrlEditor"
@@ -65,6 +71,7 @@ const RouteConfig = () => (
       <Route path={PATH_ADMIN_HOME} element={<AdminLayout />}>
         <Route index element={<AdminHome />} />
         <Route path={PATH_ADMIN_EDITOR_NEWS} element={<NewsEditor />} />
+        {/* Tournament */}
         <Route
           path={PATH_ADMIN_EDITOR_GAME_LIST}
           element={<GameListUrlEditor />}
@@ -76,6 +83,19 @@ const RouteConfig = () => (
         <Route
           path={PATH_ADMIN_EDITOR_STANDINGS}
           element={<StandingsUrlEditor />}
+        />
+        {/* Junior Tournament */}
+        <Route
+          path={PATH_ADMIN_JUNIOR_EDITOR_GAME_LIST}
+          element={<JuniorGameListUrlEditor />}
+        />
+        <Route
+          path={PATH_ADMIN_JUNIOR_EDITOR_SCHEDULE}
+          element={<JuniorScheduleUrlEditor />}
+        />
+        <Route
+          path={PATH_ADMIN_JUNIOR_EDITOR_STANDINGS}
+          element={<JuniorStandingsUrlEditor />}
         />
       </Route>
     </Routes>
