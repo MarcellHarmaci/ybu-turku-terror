@@ -45,6 +45,16 @@ export function Rules() {
               <div key={`rule-beach-${index}`}>
                 <p className="text-lg">{rule.title}</p>
                 <p>{rule.rule}</p>
+                {rule.bullets && (
+                  <ul className="list-inside list-disc ml-4">
+                    {rule.bullets.map((bullet: string, bulletIndex: number) => (
+                      <li key={`rule-beach-${index}-bullet-${bulletIndex}`}>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {rule.ending && <p>{rule.ending}</p>}
               </div>
             )
           )}

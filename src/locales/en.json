@@ -266,9 +266,9 @@
     "general": {
       "title": "General rules",
       "content": [
-        "Games are up to 13 points (hard cap), time cap 35 minutes. The final game is up to 15 points (hard cap), time cap 45 minutes.",
-        "When the time cap is reached, the current point is finished. If one team leads by 3 or more points when the time is up, then the game is over (pagacap). If not and neither team has reached 13 points, the new point cap will be the leading team’s score +1.",
-        "Announcements on the loudspeaker are “Pelikello käy” (game starts), “20 minuuttia pelattu” (20 minutes played) and “peliaika päättynyt” (game time is over). At 20 minutes there is an opportunity for a 1 minute long water break. ",
+        "Games are up to 11 points (hard cap), time cap 30 minutes. Same rules apply for finals.",
+        "When the time cap is reached, the current point is finished. If one team leads by 3 or more points when the time is up, then the game is over (pagacap). If not and neither team has reached 11 points, the new point cap will be the leading team’s score +1.",
+        "Announcements on the loudspeaker are “Pelikello käy” (game starts), “15 minuuttia pelattu” (15 minutes played) and “peliaika päättynyt” (game time is over). At 15 minutes there is an opportunity for a 1 minute long water break.",
         "No half time. No time-outs. No brick rule. Callahan goals apply.",
         "Mixed rule: Both men and women from each team have to be on the field at every point. Teams decide themselves how many men and women they put on the field.",
         "No visiting players are allowed in the quarter finals, semi finals or final match."
@@ -298,9 +298,9 @@
           "title": "Change of possession",
           "rule": "A turnover results whenever one of the following items occur:",
           "bullets": [
-            "- the disc touches the ground (also when knocked down by the defence)",
-            "- the disc is caught outside the field",
-            "- the disc is intercepted by an opposing player"
+            "the disc touches the ground (also when knocked down by the defence)",
+            "the disc is caught outside the field",
+            "the disc is intercepted by an opposing player"
           ],
           "ending": "Upon a turnover the defence immediately takes possession of the disc and becomes the offence."
         },
