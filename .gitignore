@@ -26,4 +26,3 @@ dist-ssr
 .env
 .firebase
 firestore.rules
-.firebaserc

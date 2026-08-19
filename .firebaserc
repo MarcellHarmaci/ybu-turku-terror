@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "ybu-turku-terror",
+    "staging": "ybu-turku-terror"
+  },
+  "targets": {},
+  "etags": {}
+}
