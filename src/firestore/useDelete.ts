@@ -4,7 +4,7 @@ import { useState } from "react"
 import { db } from "../firebase"
 
 export interface DeleteOperation {
-  delete: (docId: string, ...pathSegments: string[]) => void
+  delete: (docId: string, ...pathSegments: string[]) => Promise<boolean>
   loading: boolean
   success: boolean
   error?: string
@@ -22,11 +22,15 @@ export const useDelete = (collectionName: string) => {
     setLoading(true)
     setError(undefined)
 
-    deleteDoc(docRef)
-      .then(() => setSuccess(true))
+    return deleteDoc(docRef)
+      .then(() => {
+        setSuccess(true)
+        return true
+      })
       .catch((reason: FirebaseError) => {
         setError(reason.message)
         console.error(reason)
+        return false
       })
       .finally(() => {
         setLoading(false)

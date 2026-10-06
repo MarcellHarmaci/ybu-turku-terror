@@ -29,6 +29,9 @@ export const PATHS = {
       SCHEDULE: "/admin/junior/schedule",
       STANDINGS: "/admin/junior/standings",
     },
+    CMS: {
+        PAGES: "/admin/page"
+    }
   },
 }
 

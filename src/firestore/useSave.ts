@@ -35,13 +35,15 @@ export const useSave = <
 
     setLoading(true)
 
-    setDoc(document, data)
+    return setDoc(document, data)
       .then(() => {
         setSuccess(true)
+        return true
       })
       .catch((reason: FirebaseError) => {
         setError(reason.message)
         console.error(reason)
+        return false
       })
       .finally(() => {
         setLoading(false)

@@ -22,6 +22,7 @@ import Teams from "./pages/visitor/Teams"
 import JuniorGameList from "./pages/visitor/junior/JuniorGameList"
 import JuniorSchedule from "./pages/visitor/junior/JuniorSchedule"
 import JuniorStandings from "./pages/visitor/junior/JuniorStandings"
+import { PagesPage } from "./pages/admin/cms/PagesPage"
 
 const RouteConfig = () => (
   <BrowserRouter>
@@ -74,6 +75,11 @@ const RouteConfig = () => (
         <Route
           path={PATHS.ADMIN.JUNIOR.STANDINGS}
           element={<JuniorStandingsUrlEditor />}
+        />
+        {/* CMS */}
+        <Route
+          path={PATHS.ADMIN.CMS.PAGES}
+          element={<PagesPage />}
         />
       </Route>
     </Routes>
