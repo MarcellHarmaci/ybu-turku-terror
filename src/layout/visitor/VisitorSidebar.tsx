@@ -9,19 +9,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import {
-  PATH_GAME_LIST,
-  PATH_HOME,
-  PATH_JUNIOR_GAME_LIST,
-  PATH_JUNIOR_SCHEDULE,
-  PATH_JUNIOR_STANDINGS,
-  PATH_NEWS,
-  PATH_RULES,
-  PATH_SCHEDULE,
-  PATH_SIGN_UP,
-  PATH_SIGN_UP_JUNIOR,
-  PATH_STANDINGS,
-} from "@/consts"
+import { PATHS } from "@/consts"
 import {
   IconBeach,
   IconCalendarEvent,
@@ -50,27 +38,27 @@ const VisitorSidebar = () => {
       items: [
         {
           name: t("sidebar.general.info"),
-          url: PATH_HOME,
+          url: PATHS.HOME,
           icon: IconInfoCircle,
         },
         {
           name: t("sidebar.general.rules"),
-          url: PATH_RULES,
+          url: PATHS.RULES,
           icon: IconGavel,
         },
         {
           name: t("sidebar.general.signup"),
-          url: PATH_SIGN_UP,
+          url: PATHS.SIGN_UP,
           icon: IconClipboardCheck,
         },
         {
           name: t("sidebar.general.junior-signup"),
-          url: PATH_SIGN_UP_JUNIOR,
+          url: PATHS.SIGN_UP_JUNIOR,
           icon: IconClipboardCheck,
         },
         {
           name: t("sidebar.tournament.news"),
-          url: PATH_NEWS,
+          url: PATHS.TOURNAMENT.NEWS,
           icon: IconNews,
         },
       ],
@@ -80,22 +68,22 @@ const VisitorSidebar = () => {
       items: [
         // {
         //   name: t("sidebar.tournament.teams"),
-        //   url: PATH_TEAMS,
+        //   url: PATHS.TOURNAMENT.TEAMS,
         //   icon: IconUsers,
         // },
         {
           name: t("sidebar.tournament.gameList"),
-          url: PATH_GAME_LIST,
+          url: PATHS.TOURNAMENT.GAME_LIST,
           icon: IconList,
         },
         {
           name: t("sidebar.tournament.schedule"),
-          url: PATH_SCHEDULE,
+          url: PATHS.TOURNAMENT.SCHEDULE,
           icon: IconCalendarEvent,
         },
         {
           name: t("sidebar.tournament.standings"),
-          url: PATH_STANDINGS,
+          url: PATHS.TOURNAMENT.STANDINGS,
           icon: IconTrophy,
         },
       ],
@@ -105,17 +93,17 @@ const VisitorSidebar = () => {
       items: [
         {
           name: t("sidebar.junior.gameList"),
-          url: PATH_JUNIOR_GAME_LIST,
+          url: PATHS.JUNIOR.GAME_LIST,
           icon: IconList,
         },
         {
           name: t("sidebar.junior.schedule"),
-          url: PATH_JUNIOR_SCHEDULE,
+          url: PATHS.JUNIOR.SCHEDULE,
           icon: IconCalendarEvent,
         },
         {
           name: t("sidebar.junior.standings"),
-          url: PATH_JUNIOR_STANDINGS,
+          url: PATHS.JUNIOR.STANDINGS,
           icon: IconTrophy,
         },
       ],
@@ -132,7 +120,7 @@ const VisitorSidebar = () => {
               className="data-[slot=sidebar-menu-button]:p-1.5!"
               onClick={() => setOpenMobile(!openMobile)}
             >
-              <Link to={PATH_HOME}>
+              <Link to={PATHS.HOME}>
                 <IconBeach className="size-6!" />
                 <span className="text-base font-semibold">
                   Yyteri Beach Ultimate

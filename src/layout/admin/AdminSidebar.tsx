@@ -9,16 +9,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import {
-  PATH_ADMIN_EDITOR_GAME_LIST,
-  PATH_ADMIN_EDITOR_NEWS,
-  PATH_ADMIN_EDITOR_SCHEDULE,
-  PATH_ADMIN_EDITOR_STANDINGS,
-  PATH_ADMIN_HOME,
-  PATH_ADMIN_JUNIOR_EDITOR_GAME_LIST,
-  PATH_ADMIN_JUNIOR_EDITOR_SCHEDULE,
-  PATH_ADMIN_JUNIOR_EDITOR_STANDINGS,
-} from "@/consts"
+import { PATHS } from "@/consts"
 import {
   IconCalendarEvent,
   IconList,
@@ -37,7 +28,7 @@ const sidebarConfig = {
     items: [
       {
         name: "News",
-        url: PATH_ADMIN_EDITOR_NEWS,
+        url: PATHS.ADMIN.NEWS,
         icon: IconNews,
       },
     ],
@@ -47,17 +38,17 @@ const sidebarConfig = {
     items: [
       {
         name: "Game List",
-        url: PATH_ADMIN_EDITOR_GAME_LIST,
+        url: PATHS.ADMIN.TOURNAMENT.GAME_LIST,
         icon: IconList,
       },
       {
         name: "Schedule",
-        url: PATH_ADMIN_EDITOR_SCHEDULE,
+        url: PATHS.ADMIN.TOURNAMENT.SCHEDULE,
         icon: IconCalendarEvent,
       },
       {
         name: "Standings",
-        url: PATH_ADMIN_EDITOR_STANDINGS,
+        url: PATHS.ADMIN.TOURNAMENT.STANDINGS,
         icon: IconTrophy,
       },
     ],
@@ -67,17 +58,17 @@ const sidebarConfig = {
     items: [
       {
         name: "Game List",
-        url: PATH_ADMIN_JUNIOR_EDITOR_GAME_LIST,
+        url: PATHS.ADMIN.JUNIOR.GAME_LIST,
         icon: IconList,
       },
       {
         name: "Schedule",
-        url: PATH_ADMIN_JUNIOR_EDITOR_SCHEDULE,
+        url: PATHS.ADMIN.JUNIOR.SCHEDULE,
         icon: IconCalendarEvent,
       },
       {
         name: "Standings",
-        url: PATH_ADMIN_JUNIOR_EDITOR_STANDINGS,
+        url: PATHS.ADMIN.JUNIOR.STANDINGS,
         icon: IconTrophy,
       },
     ],
@@ -101,7 +92,7 @@ const AdminSidebar = () => {
               className="data-[slot=sidebar-menu-button]:p-1.5!"
               onClick={() => setOpenMobile(!openMobile)}
             >
-              <Link to={PATH_ADMIN_HOME}>
+              <Link to={PATHS.ADMIN.HOME}>
                 <IconSettings className="size-6!" />
                 <span className="text-base font-semibold">Admininstration</span>
               </Link>

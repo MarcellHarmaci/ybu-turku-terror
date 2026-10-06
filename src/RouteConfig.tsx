@@ -1,27 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router"
-import {
-  PATH_ADMIN_EDITOR_GAME_LIST,
-  PATH_ADMIN_EDITOR_NEWS,
-  PATH_ADMIN_EDITOR_SCHEDULE,
-  PATH_ADMIN_EDITOR_STANDINGS,
-  PATH_ADMIN_HOME,
-  PATH_ADMIN_JUNIOR_EDITOR_GAME_LIST,
-  PATH_ADMIN_JUNIOR_EDITOR_SCHEDULE,
-  PATH_ADMIN_JUNIOR_EDITOR_STANDINGS,
-  PATH_GAME_LIST,
-  PATH_HOME,
-  PATH_JUNIOR,
-  PATH_JUNIOR_GAME_LIST,
-  PATH_JUNIOR_SCHEDULE,
-  PATH_JUNIOR_STANDINGS,
-  PATH_NEWS,
-  PATH_RULES,
-  PATH_SCHEDULE,
-  PATH_SIGN_UP,
-  PATH_SIGN_UP_JUNIOR,
-  PATH_STANDINGS,
-  PATH_TEAMS,
-} from "./consts"
+import { PATHS } from "./consts"
 import AdminLayout from "./layout/admin"
 import VisitorLayout from "./layout/visitor"
 import AdminHome from "./pages/admin/AdminHome"
@@ -49,52 +27,52 @@ const RouteConfig = () => (
   <BrowserRouter>
     <Routes>
       <Route element={<VisitorLayout />}>
-        <Route path={PATH_HOME} element={<Home />} />
-        <Route path={PATH_RULES} element={<Rules />} />
-        <Route path={PATH_SIGN_UP} element={<SignUp />} />
-        <Route path={PATH_SIGN_UP_JUNIOR} element={<JuniorSignUp />} />
+        <Route path={PATHS.HOME} element={<Home />} />
+        <Route path={PATHS.RULES} element={<Rules />} />
+        <Route path={PATHS.SIGN_UP} element={<SignUp />} />
+        <Route path={PATHS.SIGN_UP_JUNIOR} element={<JuniorSignUp />} />
 
-        <Route path={PATH_NEWS} element={<News />} />
-        <Route path={PATH_TEAMS} element={<Teams />} />
-        <Route path={PATH_GAME_LIST} element={<GameList />} />
-        <Route path={PATH_SCHEDULE} element={<Schedule />} />
-        <Route path={PATH_STANDINGS} element={<Standings />} />
+        <Route path={PATHS.TOURNAMENT.NEWS} element={<News />} />
+        <Route path={PATHS.TOURNAMENT.TEAMS} element={<Teams />} />
+        <Route path={PATHS.TOURNAMENT.GAME_LIST} element={<GameList />} />
+        <Route path={PATHS.TOURNAMENT.SCHEDULE} element={<Schedule />} />
+        <Route path={PATHS.TOURNAMENT.STANDINGS} element={<Standings />} />
 
-        <Route path={PATH_JUNIOR}>
+        <Route path={PATHS.JUNIOR.HOME}>
           <Route index element={<Home />} />
-          <Route path={PATH_JUNIOR_GAME_LIST} element={<JuniorGameList />} />
-          <Route path={PATH_JUNIOR_SCHEDULE} element={<JuniorSchedule />} />
-          <Route path={PATH_JUNIOR_STANDINGS} element={<JuniorStandings />} />
+          <Route path={PATHS.JUNIOR.GAME_LIST} element={<JuniorGameList />} />
+          <Route path={PATHS.JUNIOR.SCHEDULE} element={<JuniorSchedule />} />
+          <Route path={PATHS.JUNIOR.STANDINGS} element={<JuniorStandings />} />
         </Route>
       </Route>
 
-      <Route path={PATH_ADMIN_HOME} element={<AdminLayout />}>
+      <Route path={PATHS.ADMIN.HOME} element={<AdminLayout />}>
         <Route index element={<AdminHome />} />
-        <Route path={PATH_ADMIN_EDITOR_NEWS} element={<NewsEditor />} />
+        <Route path={PATHS.ADMIN.NEWS} element={<NewsEditor />} />
         {/* Tournament */}
         <Route
-          path={PATH_ADMIN_EDITOR_GAME_LIST}
+          path={PATHS.ADMIN.TOURNAMENT.GAME_LIST}
           element={<GameListUrlEditor />}
         />
         <Route
-          path={PATH_ADMIN_EDITOR_SCHEDULE}
+          path={PATHS.ADMIN.TOURNAMENT.SCHEDULE}
           element={<ScheduleUrlEditor />}
         />
         <Route
-          path={PATH_ADMIN_EDITOR_STANDINGS}
+          path={PATHS.ADMIN.TOURNAMENT.STANDINGS}
           element={<StandingsUrlEditor />}
         />
         {/* Junior Tournament */}
         <Route
-          path={PATH_ADMIN_JUNIOR_EDITOR_GAME_LIST}
+          path={PATHS.ADMIN.JUNIOR.GAME_LIST}
           element={<JuniorGameListUrlEditor />}
         />
         <Route
-          path={PATH_ADMIN_JUNIOR_EDITOR_SCHEDULE}
+          path={PATHS.ADMIN.JUNIOR.SCHEDULE}
           element={<JuniorScheduleUrlEditor />}
         />
         <Route
-          path={PATH_ADMIN_JUNIOR_EDITOR_STANDINGS}
+          path={PATHS.ADMIN.JUNIOR.STANDINGS}
           element={<JuniorStandingsUrlEditor />}
         />
       </Route>
