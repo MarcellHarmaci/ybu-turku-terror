@@ -16,6 +16,8 @@ export const PATHS = {
     SCHEDULE: "/junior/schedule",
     STANDINGS: "/junior/standings",
   },
+  CMS_PAGE_ROOT: "/content",
+  CMS_PAGES: "/content/:pageId/*",
   ADMIN: {
     HOME: "/admin",
     NEWS: "/admin/news",

@@ -18,7 +18,8 @@ export const useDocument = <ModelType, DbModelType extends DocumentData>(
   converter: FirestoreDataConverter<ModelType, DbModelType>,
   config?: ServiceHookConfig
 ) => {
-  const [data, setData] = useState<ModelType | undefined>()
+  // null means the document does not exist
+  const [data, setData] = useState<ModelType | null>()
   const [error, setError] = useState<string>()
 
   const docRef = doc(db, collectionName, docId).withConverter(converter)
@@ -28,7 +29,8 @@ export const useDocument = <ModelType, DbModelType extends DocumentData>(
 
     const unsubscribe = onSnapshot(
       docRef,
-      (docSnapshot) => setData(docSnapshot.data()),
+      (docSnapshot) =>
+        setData(docSnapshot.exists() ? docSnapshot.data() : null),
       (error: FirestoreError) => {
         console.error("Firestore onSnapshot error:", error)
         setError(error.message)
@@ -38,5 +40,10 @@ export const useDocument = <ModelType, DbModelType extends DocumentData>(
     return unsubscribe
   }, [config])
 
-  return { isLoading: data === undefined, data, error }
+  return {
+    isLoading: data === undefined,
+    notFound: data === null,
+    data: data ?? undefined,
+    error,
+  }
 }

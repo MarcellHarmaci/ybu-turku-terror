@@ -3,6 +3,7 @@ import { PATHS } from "./consts"
 import AdminLayout from "./layout/admin"
 import VisitorLayout from "./layout/visitor"
 import AdminHome from "./pages/admin/AdminHome"
+import { PagesPage } from "./pages/admin/cms/PagesPage"
 import { JuniorGameListUrlEditor } from "./pages/admin/junior-url/JuniorGameListUrlEditor"
 import { JuniorScheduleUrlEditor } from "./pages/admin/junior-url/JuniorScheduleUrlEditor"
 import { JuniorStandingsUrlEditor } from "./pages/admin/junior-url/JuniorStandingsUrlEditor"
@@ -19,10 +20,10 @@ import Schedule from "./pages/visitor/Schedule"
 import SignUp from "./pages/visitor/Signup"
 import Standings from "./pages/visitor/Standings"
 import Teams from "./pages/visitor/Teams"
+import CmsContentPage from "./pages/visitor/cms-content/CmsContentPage"
 import JuniorGameList from "./pages/visitor/junior/JuniorGameList"
 import JuniorSchedule from "./pages/visitor/junior/JuniorSchedule"
 import JuniorStandings from "./pages/visitor/junior/JuniorStandings"
-import { PagesPage } from "./pages/admin/cms/PagesPage"
 
 const RouteConfig = () => (
   <BrowserRouter>
@@ -45,6 +46,8 @@ const RouteConfig = () => (
           <Route path={PATHS.JUNIOR.SCHEDULE} element={<JuniorSchedule />} />
           <Route path={PATHS.JUNIOR.STANDINGS} element={<JuniorStandings />} />
         </Route>
+
+        <Route path={PATHS.CMS_PAGES} element={<CmsContentPage />} />
       </Route>
 
       <Route path={PATHS.ADMIN.HOME} element={<AdminLayout />}>
@@ -77,10 +80,7 @@ const RouteConfig = () => (
           element={<JuniorStandingsUrlEditor />}
         />
         {/* CMS */}
-        <Route
-          path={PATHS.ADMIN.CMS.PAGES}
-          element={<PagesPage />}
-        />
+        <Route path={PATHS.ADMIN.CMS.PAGES} element={<PagesPage />} />
       </Route>
     </Routes>
   </BrowserRouter>

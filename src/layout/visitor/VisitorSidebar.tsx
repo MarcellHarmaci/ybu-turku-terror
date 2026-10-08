@@ -1,3 +1,4 @@
+import { SidebarCmsPageGroup } from "@/components/custom/sidebar/SidebarCmsPageGroup"
 import SidebarGroup from "@/components/custom/sidebar/SidebarGroup"
 import {
   Sidebar,
@@ -143,6 +144,7 @@ const VisitorSidebar = () => {
           title={sidebarConfig.junior.title}
           items={sidebarConfig.junior.items}
         />
+        <SidebarCmsPageGroup />
       </SidebarContent>
       <SidebarFooter>
         <LanguageSelect />
