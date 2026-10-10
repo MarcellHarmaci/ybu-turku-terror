@@ -1,5 +1,5 @@
 import { useDocument } from "@/firestore/useDocument"
-import { converter, type DbPage } from "@/pages/admin/cms/model/data"
+import { pageConverter, type DbPage } from "@/pages/admin/cms/model/data"
 import type { Page } from "@/pages/admin/cms/model/domain"
 import { useMemo } from "react"
 
@@ -9,7 +9,7 @@ export const usePage = (pageId?: string) => {
   return useDocument<Page, DbPage>(
     "page",
     pageId ?? "missing",
-    converter,
+    pageConverter,
     config
   )
 }

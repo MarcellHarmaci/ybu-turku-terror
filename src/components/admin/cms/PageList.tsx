@@ -1,9 +1,13 @@
 import { DeletePageDialogButton } from "@/components/admin/cms/DeletePageDialogButton"
 import { EditPageDialogButton } from "@/components/admin/cms/EditPageDialogButton"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { PATHS } from "@/consts"
 import type { Page } from "@/pages/admin/cms/model/domain"
+import { IconLayout } from "@tabler/icons-react"
 import { Fragment } from "react"
+import { generatePath, Link } from "react-router"
 
 interface PageListProps {
   items?: Page[]
@@ -23,6 +27,17 @@ export function PageList({ items = [] }: PageListProps) {
                 <span className="truncate">{page.title}</span>
                 <div className="flex gap-1">
                   <EditPageDialogButton page={page} />
+                  {page.id && (
+                    <Button variant="ghost" size="icon" asChild>
+                      <Link
+                        to={generatePath(PATHS.ADMIN.CMS.EDIT_PAGE, {
+                          pageId: page.id,
+                        })}
+                      >
+                        <IconLayout />
+                      </Link>
+                    </Button>
+                  )}
                   <DeletePageDialogButton page={page} />
                 </div>
               </div>
