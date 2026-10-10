@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 
 import { X as XIcon, ChevronsUpDown } from "lucide-react";
 import {

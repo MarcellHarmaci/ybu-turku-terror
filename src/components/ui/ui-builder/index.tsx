@@ -328,7 +328,7 @@ function MainLayout({ panelConfig }: { panelConfig: PanelConfig }) {
       {/* Desktop Layout */}
       <div className="hidden md:flex flex-1 overflow-hidden">
         <ResizablePanelGroup
-          direction="horizontal"
+          orientation="horizontal"
           className="flex overflow-hidden flex-1"
         >
           {mainPanels.map((panel, index) => (

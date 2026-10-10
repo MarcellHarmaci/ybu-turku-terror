@@ -42,12 +42,12 @@ export function CodePanel({className}: {className?: string}) {
       primaryLabel: customCodeGenerator?.label ?? "React",
       variables: JSON.stringify(
         serializedVariables,
-        (key, value) => (typeof value === "function" ? undefined : value),
+        (_key, value) => (typeof value === "function" ? undefined : value),
         2
       ),
       layers: JSON.stringify(
         page,
-        (key, value) => (typeof value === "function" ? undefined : value),
+        (_key, value) => (typeof value === "function" ? undefined : value),
         2
       ),
     };

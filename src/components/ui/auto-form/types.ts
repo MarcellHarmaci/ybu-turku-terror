@@ -85,12 +85,13 @@ export type FieldConfig<SchemaType extends z.infer<z.ZodObject<any, any>>> = {
   [Key in keyof SchemaType]?: FieldConfigItem | FieldConfigObject;
 };
 
-export enum DependencyType {
-  DISABLES,
-  REQUIRES,
-  HIDES,
-  SETS_OPTIONS,
-}
+export const DependencyType = {
+  DISABLES: 0,
+  REQUIRES: 1,
+  HIDES: 2,
+  SETS_OPTIONS: 3,
+} as const;
+export type DependencyType = (typeof DependencyType)[keyof typeof DependencyType];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Required for Zod generic inference
 type BaseDependency<SchemaType extends z.infer<z.ZodObject<any, any>>> = {
@@ -105,9 +106,9 @@ type BaseDependency<SchemaType extends z.infer<z.ZodObject<any, any>>> = {
 export type ValueDependency<SchemaType extends z.infer<z.ZodObject<any, any>>> =
   BaseDependency<SchemaType> & {
     type:
-      | DependencyType.DISABLES
-      | DependencyType.REQUIRES
-      | DependencyType.HIDES;
+      | typeof DependencyType.DISABLES
+      | typeof DependencyType.REQUIRES
+      | typeof DependencyType.HIDES;
   };
 
 export type EnumValues = readonly [string, ...string[]];
@@ -116,7 +117,7 @@ export type OptionsDependency<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Required for Zod generic inference
   SchemaType extends z.infer<z.ZodObject<any, any>>,
 > = BaseDependency<SchemaType> & {
-  type: DependencyType.SETS_OPTIONS;
+  type: typeof DependencyType.SETS_OPTIONS;
 
   // Partial array of values from sourceField that will trigger the dependency
   options: EnumValues;

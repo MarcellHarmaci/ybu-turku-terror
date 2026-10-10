@@ -47,7 +47,7 @@ import {
 
 export const classNameFieldOverrides: FieldConfigFunction = (
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  layer,
+  _layer,
 ) => {
   return {
     fieldType: ({
@@ -72,7 +72,7 @@ export const classNameFieldOverrides: FieldConfigFunction = (
 
 export const emailClassNameFieldOverrides: FieldConfigFunction = (
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  layer,
+  _layer,
 ) => {
   return {
     fieldType: ({
@@ -410,7 +410,7 @@ export const functionPropFieldOverrides = (propName: string): ReturnType<FieldCo
 };
 
 export const textInputFieldOverrides = (
-  layer: ComponentLayer,
+  _layer: ComponentLayer,
   allowVariableBinding = false,
   propName: string
 ) => {

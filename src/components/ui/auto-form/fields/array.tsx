@@ -185,10 +185,8 @@ function ObjectAutoFormArray({
  */
 function PrimitiveAutoFormArray({
   name,
-  item,
   form,
   path = [],
-  fieldConfig,
   itemDefType,
   title,
 }: {

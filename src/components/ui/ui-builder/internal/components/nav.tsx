@@ -658,8 +658,7 @@ function PagesPopover() {
   const { pages, selectedPageId, addPageLayer, selectPage } = useLayerStore();
   const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selectedPage, setSelectedPage] = useState<string | null>(
+  const [, setSelectedPage] = useState<string | null>(
     selectedPageId
   );
   const [textInputValue, setTextInputValue] = useState("");
