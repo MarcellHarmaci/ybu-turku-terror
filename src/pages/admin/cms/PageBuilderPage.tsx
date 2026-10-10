@@ -82,17 +82,19 @@ function PageBuilderPage() {
           Save
         </Button>
       </div>
-      <UIBuilder
-        key={pageId}
-        componentRegistry={componentRegistry}
-        initialLayers={[content?.layer ?? EMPTY_LAYER]}
-        initialVariables={content?.variables ?? EMPTY_VARIABLES}
-        persistLayerStore={false}
-        allowPagesCreation={false}
-        allowPagesDeletion={false}
-        onChange={(pages) => setLayer(pages[0])}
-        onVariablesChange={setVariables}
-      />
+      <div className="overflow-hidden rounded-lg border">
+        <UIBuilder
+          key={pageId}
+          componentRegistry={componentRegistry}
+          initialLayers={[content?.layer ?? EMPTY_LAYER]}
+          initialVariables={content?.variables ?? EMPTY_VARIABLES}
+          persistLayerStore={false}
+          allowPagesCreation={false}
+          allowPagesDeletion={false}
+          onChange={(pages) => setLayer(pages[0])}
+          onVariablesChange={setVariables}
+        />
+      </div>
     </div>
   )
 }
