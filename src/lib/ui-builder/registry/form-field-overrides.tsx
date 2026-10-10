@@ -155,6 +155,8 @@ export const childrenAsTextareaFieldOverrides = (
   allowVariableBinding = true
 ) => {
   return {
+    // Show text content above the other props
+    order: -1,
     renderParent: allowVariableBinding
       ? ({ children }: { children: React.ReactNode }) => (
           <ChildrenVariableBindingWrapper>
@@ -189,6 +191,8 @@ export const childrenAsTipTapFieldOverrides = (
   allowVariableBinding = true
 ) => {
   return {
+    // Show text content above the other props
+    order: -1,
     renderParent: allowVariableBinding
       ? ({ children }: { children: React.ReactNode }) => (
           <ChildrenVariableBindingWrapper>
