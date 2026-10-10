@@ -53,9 +53,9 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 import { Input } from "@/components/ui/input";
+import { Kbd } from "@/components/ui/kbd";
 import { cn } from "@/lib/utils";
 import { CodePanel } from "@/components/ui/ui-builder/components/code-panel";
 import {
@@ -346,9 +346,9 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         </TooltipTrigger>
         <TooltipContent className="flex items-center gap-2">
           Undo
-          <CommandShortcut className="ml-0 text-sm leading-3">
+          <Kbd>
             {SHORTCUTS.undo.shortcutDisplay}
-          </CommandShortcut>
+          </Kbd>
         </TooltipContent>
       </Tooltip>
 
@@ -367,9 +367,9 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         </TooltipTrigger>
         <TooltipContent className="flex items-center gap-2">
           Redo
-          <CommandShortcut className="ml-0 text-sm leading-3">
+          <Kbd>
             {SHORTCUTS.redo.shortcutDisplay}
-          </CommandShortcut>
+          </Kbd>
         </TooltipContent>
       </Tooltip>
 
@@ -387,9 +387,9 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
         </TooltipTrigger>
         <TooltipContent className="flex items-center gap-2">
           Preview
-          <CommandShortcut className="ml-0 text-sm leading-3">
+          <Kbd>
             ⌘+⇧+P
-          </CommandShortcut>
+          </Kbd>
         </TooltipContent>
       </Tooltip>
 
@@ -408,9 +408,9 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
           </TooltipTrigger>
           <TooltipContent className="flex items-center gap-2">
             Export Code
-            <CommandShortcut className="ml-0 text-sm leading-3">
+            <Kbd>
               ⌘+⇧+E
-            </CommandShortcut>
+            </Kbd>
           </TooltipContent>
         </Tooltip>
       )}

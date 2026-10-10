@@ -82,7 +82,7 @@ function PageBuilderPage() {
           Save
         </Button>
       </div>
-      <div className="overflow-hidden rounded-lg border">
+      <div className="isolate overflow-hidden rounded-lg border">
         <UIBuilder
           key={pageId}
           componentRegistry={componentRegistry}

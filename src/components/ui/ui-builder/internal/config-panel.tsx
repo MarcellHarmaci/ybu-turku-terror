@@ -3,6 +3,7 @@ import { z } from "zod";
 import {
   useLayerStore,
 } from "@/lib/ui-builder/store/layer-store";
+import { useEditorStore } from "@/lib/ui-builder/store/editor-store";
 import { Button } from "@/components/ui/button";
 import AutoForm from "@/components/ui/auto-form";
 import { addDefaultValues } from "@/lib/ui-builder/store/schema-utils";
@@ -17,6 +18,9 @@ export const ConfigPanel = () => {
     updateLayer,
     pages,
   } = useLayerStore();
+  const allowPagesCreation = useEditorStore(
+    (state) => state.allowPagesCreation
+  );
 
   
 
@@ -52,6 +56,7 @@ export const ConfigPanel = () => {
       removeLayer={handleDeleteLayer}
       duplicateLayer={handleDuplicateLayer}
       updateLayerProps={handleUpdateLayerProps}
+      allowDuplicate={allowPagesCreation}
       allowDelete={pages.length > 1}
     />
   );
@@ -66,6 +71,7 @@ interface PageLayerFormProps {
     props: Record<string, any>,
     rest?: Omit<ComponentLayer, "props" | "children">
   ) => void;
+  allowDuplicate: boolean;
   allowDelete: boolean;
 }
 
@@ -74,6 +80,7 @@ const PageLayerForm: React.FC<PageLayerFormProps> = ({
   removeLayer,
   duplicateLayer,
   updateLayerProps,
+  allowDuplicate,
   allowDelete,
 }) => {
 
@@ -126,14 +133,16 @@ const PageLayerForm: React.FC<PageLayerFormProps> = ({
       values={values}
       fieldConfig={fieldConfig}
     >
-      <Button
-        type="button"
-        variant="secondary"
-        className="mt-4 w-full"
-        onClick={handleDuplicateLayer}
-      >
-        Duplicate Page
-      </Button>
+      {allowDuplicate && (
+        <Button
+          type="button"
+          variant="secondary"
+          className="mt-4 w-full"
+          onClick={handleDuplicateLayer}
+        >
+          Duplicate Page
+        </Button>
+      )}
       {allowDelete && (
         <Button
           type="button"
