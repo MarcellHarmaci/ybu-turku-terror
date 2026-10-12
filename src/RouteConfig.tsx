@@ -3,6 +3,7 @@ import { PATHS } from "./consts"
 import AdminLayout from "./layout/admin"
 import VisitorLayout from "./layout/visitor"
 import AdminHome from "./pages/admin/AdminHome"
+import PageBuilderPage from "./pages/admin/cms/PageBuilderPage"
 import { PagesPage } from "./pages/admin/cms/PagesPage"
 import { JuniorGameListUrlEditor } from "./pages/admin/junior-url/JuniorGameListUrlEditor"
 import { JuniorScheduleUrlEditor } from "./pages/admin/junior-url/JuniorScheduleUrlEditor"
@@ -81,6 +82,10 @@ const RouteConfig = () => (
         />
         {/* CMS */}
         <Route path={PATHS.ADMIN.CMS.PAGES} element={<PagesPage />} />
+        <Route
+          path={PATHS.ADMIN.CMS.EDIT_PAGE}
+          element={<PageBuilderPage />}
+        />
       </Route>
     </Routes>
   </BrowserRouter>

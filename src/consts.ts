@@ -32,8 +32,9 @@ export const PATHS = {
       STANDINGS: "/admin/junior/standings",
     },
     CMS: {
-        PAGES: "/admin/page"
-    }
+      PAGES: "/admin/page",
+      EDIT_PAGE: "/admin/page/edit/:pageId",
+    },
   },
 }
 
