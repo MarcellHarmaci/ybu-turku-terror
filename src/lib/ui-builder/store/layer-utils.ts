@@ -388,7 +388,7 @@ export const createComponentLayer = (
   const newLayer: ComponentLayer = {
     id: id || createId(),
     type: layerType,
-    name: name || layerType,
+    name: name || componentDef.label || layerType,
     props: initialProps,
     children: defaultChildren,
   };

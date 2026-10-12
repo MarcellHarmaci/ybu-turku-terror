@@ -90,6 +90,10 @@ export interface RegistryEntry<T extends ReactComponentType<any>> {
   component?: T;
   schema: ZodObject<any> | ZodSchema<any>;
   from?: string;
+  /** Tab the component is listed under in the add component popover. Falls back to the `from` directory. */
+  category?: string;
+  /** Display name in the add component popover and default name for new layers. Falls back to the registry key. */
+  label?: string;
   isFromDefaultExport?: boolean;
   defaultChildren?: ComponentLayer[] | string | VariableReference;
   defaultVariableBindings?: DefaultVariableBinding[];

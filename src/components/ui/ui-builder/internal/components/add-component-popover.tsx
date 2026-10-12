@@ -130,17 +130,21 @@ export function AddComponentsPopover({
     const componentOptions = Object.keys(componentRegistry)
       // Filter to only show components that are valid children of the parent
       .filter((name) => isValidChildOfParent(componentRegistry, name, parentLayerType))
-      .map((name) => ({
-        value: name,
-        label: name,
-        type: "component",
-        from: componentRegistry[name as keyof typeof componentRegistry]?.from,
-      }));
+      .map((name) => {
+        const entry = componentRegistry[name as keyof typeof componentRegistry];
+        return {
+          value: name,
+          label: entry?.label ?? name,
+          type: "component",
+          from: entry?.from,
+          category: entry?.category,
+        };
+      });
     return componentOptions.reduce(
       (acc, option) => {
         const fromRoot = option.from?.split("/").slice(0, -1).join("/"); // removes file name from path
 
-        const group = fromRoot || "other";
+        const group = option.category || fromRoot || "other";
         if (!acc[group]) {
           acc[group] = [];
         }
@@ -239,7 +243,7 @@ export function AddComponentsPopover({
     <div className={cn("relative flex justify-center", className)}>
       <Popover open={open} onOpenChange={handleOpenChange}>
         <PopoverTrigger asChild>{children}</PopoverTrigger>
-        <PopoverContent className="w-[320px] p-0" align="start">
+        <PopoverContent className="w-[320px] overflow-hidden p-0" align="start">
           {/* Top-level toggle between Components and Blocks */}
           {hasBlocks && (
             <div className="flex border-b">
@@ -271,12 +275,13 @@ export function AddComponentsPopover({
           {/* Components View */}
           {activeView === "components" && categories.length > 0 ? (
             <Tabs defaultValue={defaultTab} className="w-full">
-              <TabsList className={cn(categories.length > 1 ? "h-14 w-full rounded-none border-b flex flex-row overflow-x-scroll justify-start": "hidden")}>
+              <TabsList className={cn(categories.length > 1 ? "h-auto group-data-horizontal/tabs:h-auto w-full rounded-none border-b flex flex-row overflow-x-auto justify-start": "hidden")}>
                 {categories.map((category) => (
-                  <TabsTrigger key={category} value={category} className="flex flex-col justify-start items-start overflow-hidden px-2 py-1 min-w-24 min-h-11 shrink-0">
-                    <div className="text-sm">{formatCategoryName(category)}</div>
-                    <div className="w-full min-h-[12px] text-[8px] leading-[9px] text-left text-muted-foreground text-wrap">{category}</div>
-                    
+                  <TabsTrigger key={category} value={category} className="flex flex-col justify-start items-start overflow-hidden px-2 py-1 min-w-24 shrink-0">
+                    <div className="text-sm">{isPathCategory(category) ? formatCategoryName(category) : category}</div>
+                    {isPathCategory(category) && (
+                      <div className="w-full min-h-[12px] text-[8px] leading-[9px] text-left text-muted-foreground text-wrap">{category}</div>
+                    )}
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -321,7 +326,7 @@ export function AddComponentsPopover({
           {/* Blocks View */}
           {activeView === "blocks" && hasBlocks && (
             <Tabs defaultValue={defaultBlockCategory} className="w-full">
-              <TabsList className="h-14 w-full rounded-none border-b flex flex-row overflow-x-scroll justify-start">
+              <TabsList className="h-auto group-data-horizontal/tabs:h-auto w-full rounded-none border-b flex flex-row overflow-x-auto justify-start">
                 {blockCategories.map((category) => (
                   <TabsTrigger key={category} value={category} className="flex flex-col justify-start items-start overflow-hidden px-2 py-1 min-w-24 min-h-11 shrink-0">
                     <div className="text-sm">{formatCategoryName(category)}</div>
@@ -473,6 +478,8 @@ const GroupedComponentItem = memo(({
   return (
     <CommandItem 
       key={component.value} 
+      value={component.value}
+      keywords={[component.label]}
       onSelect={handleSelect}
       className="cursor-pointer flex items-center gap-2 py-2"
     >
@@ -640,6 +647,11 @@ const ComponentPreview = memo(({
 ComponentPreview.displayName = "ComponentPreview";
 
 // @components/ui/ui-builder becomes Components UI Builder
+// Categories derived from `from` import paths, as opposed to an explicit registry `category`
+function isPathCategory(category: string) {
+  return category === "other" || category.includes("/");
+}
+
 function formatCategoryName(name: string) {
   const words = name.split("/");
   const lastWord = words[words.length - 1];

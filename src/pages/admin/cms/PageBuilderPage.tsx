@@ -4,27 +4,21 @@ import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
 import UIBuilder from "@/components/ui/ui-builder"
 import type { ComponentLayer, Variable } from "@/components/ui/ui-builder/types"
-import { complexComponentDefinitions } from "@/lib/ui-builder/registry/complex-component-definitions"
-import { primitiveComponentDefinitions } from "@/lib/ui-builder/registry/primitive-component-definitions"
 import { usePage } from "@/service/page/usePage"
 import { usePageContent } from "@/service/page/usePageContent"
 import { useSavePageContent } from "@/service/page/useSavePageContent"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-
-// TODO customize component registry!
-// Default full component registry
-const componentRegistry = {
-  ...primitiveComponentDefinitions,
-  ...complexComponentDefinitions,
-}
+import { componentRegistry } from "./componentRegistry"
 
 const EMPTY_LAYER: ComponentLayer = {
   id: "1",
   type: "div",
   name: "Page 1",
   props: {
-    className: "h-screen p-4 flex flex-col gap-2 bg-background overflow-y-scroll",
+    // min-h-screen, not a fixed height: in a fixed-height flex column, children
+    // with overflow-hidden (e.g. Card) shrink to nothing once the content overflows
+    className: "min-h-screen flex flex-col gap-2 bg-background",
   },
   children: [],
 }
@@ -62,7 +56,9 @@ function PageBuilderPage() {
   }
 
   if (error || contentError) {
-    return <Alert type="error" title="Error" description={error ?? contentError} />
+    return (
+      <Alert type="error" title="Error" description={error ?? contentError} />
+    )
   }
 
   if (notFound) {
