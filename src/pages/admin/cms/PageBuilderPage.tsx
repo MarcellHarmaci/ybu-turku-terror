@@ -9,7 +9,7 @@ import { usePageContent } from "@/service/page/usePageContent"
 import { useSavePageContent } from "@/service/page/useSavePageContent"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import { componentRegistry } from "./componentRegistry"
+import { componentRegistry } from "@/lib/ui-builder/componentRegistry"
 
 const EMPTY_LAYER: ComponentLayer = {
   id: "1",

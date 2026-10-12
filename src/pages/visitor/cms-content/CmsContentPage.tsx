@@ -1,15 +1,9 @@
 import Alert from "@/components/custom/Alert"
 import LayerRenderer from "@/components/ui/ui-builder/layer-renderer"
-import { complexComponentDefinitions } from "@/lib/ui-builder/registry/complex-component-definitions"
-import { primitiveComponentDefinitions } from "@/lib/ui-builder/registry/primitive-component-definitions"
+import { componentRegistry } from "@/lib/ui-builder/componentRegistry"
 import { usePage } from "@/service/page/usePage"
 import { usePageContent } from "@/service/page/usePageContent"
 import { useParams } from "react-router"
-
-const componentRegistry = {
-  ...primitiveComponentDefinitions, // div, span, img, etc.
-  ...complexComponentDefinitions, // Button, Badge, Card, etc.
-}
 
 function CmsContentPage() {
   const { pageId } = useParams()
@@ -44,7 +38,9 @@ function CmsContentPage() {
           variables={pageContent.variables}
         />
       ) : (
-        <div className="text-muted-foreground">This page has no content yet.</div>
+        <div className="text-muted-foreground">
+          This page has no content yet.
+        </div>
       )}
     </div>
   )

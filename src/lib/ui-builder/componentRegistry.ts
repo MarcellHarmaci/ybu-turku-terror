@@ -1,3 +1,4 @@
+import ShadowCard from "@/components/custom/ShadowCard"
 import type {
   ComponentRegistry,
   RegistryEntry,
@@ -8,6 +9,7 @@ import { primitiveComponentDefinitions } from "@/lib/ui-builder/registry/primiti
 const definitions: ComponentRegistry = {
   ...primitiveComponentDefinitions,
   ...complexComponentDefinitions,
+  Card: { ...complexComponentDefinitions.Card, component: ShadowCard },
 }
 
 const entry = (
@@ -27,6 +29,8 @@ const entry = (
  * The add component popover shows the categories as tabs and lists the
  * components in the order they appear here. Delete a line to remove a component.
  * Child-only components (e.g. Card Title) only appear when adding into their parent.
+ * The visitor CMS page renders with this registry too, so removing a component
+ * also stops it from rendering on existing pages.
  */
 export const componentRegistry: ComponentRegistry = Object.fromEntries([
   // Layout
