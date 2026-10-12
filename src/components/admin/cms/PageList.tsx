@@ -22,19 +22,20 @@ export function PageList({ items = [] }: PageListProps) {
         ) : (
           items.map((page, index) => (
             <Fragment key={page.id ?? index}>
-              {index > 0 && <Separator />}
+              {index > 0 && <Separator className="opacity-40" />}
               <div className="flex items-center justify-between gap-2 py-2">
                 <span className="truncate">{page.title}</span>
-                <div className="flex gap-1">
+                <div className="flex gap-2">
                   <EditPageDialogButton page={page} />
                   {page.id && (
-                    <Button variant="ghost" size="icon" asChild>
+                    <Button variant="ghost" asChild>
                       <Link
                         to={generatePath(PATHS.ADMIN.CMS.EDIT_PAGE, {
                           pageId: page.id,
                         })}
                       >
                         <IconLayout />
+                        Edit layout
                       </Link>
                     </Button>
                   )}

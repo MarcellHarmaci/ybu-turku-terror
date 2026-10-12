@@ -5,7 +5,7 @@ import { Spinner } from "@/components/ui/spinner"
 import UIBuilder from "@/components/ui/ui-builder"
 import type { ComponentLayer, Variable } from "@/components/ui/ui-builder/types"
 import { usePage } from "@/service/page/usePage"
-import { usePageContent } from "@/service/page/usePageContent"
+import { usePageContentOnce } from "@/service/page/usePageContentOnce"
 import { useSavePageContent } from "@/service/page/useSavePageContent"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
@@ -31,7 +31,7 @@ function PageBuilderPage() {
     data: content,
     isLoading: isContentLoading,
     error: contentError,
-  } = usePageContent(pageId)
+  } = usePageContentOnce(pageId)
   const { save, loading: saving, error: saveError } = useSavePageContent()
 
   const [layer, setLayer] = useState<ComponentLayer>()

@@ -49,8 +49,8 @@ export function EditPageDialogButton({ page }: EditPageDialogButtonProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange} modal>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <IconPencil />
+        <Button variant="ghost">
+          <IconPencil /> Rename
         </Button>
       </DialogTrigger>
       <DialogContent>

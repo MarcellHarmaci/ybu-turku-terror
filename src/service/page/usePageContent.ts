@@ -1,4 +1,4 @@
-import { useDocumentOnce } from "@/firestore/useDocumentOnce"
+import { useDocument } from "@/firestore/useDocument"
 import {
   pageContentConverter,
   type DbPageContent,
@@ -9,7 +9,7 @@ import { useMemo } from "react"
 export const usePageContent = (pageId?: string) => {
   const config = useMemo(() => ({ skip: !pageId }), [pageId])
 
-  return useDocumentOnce<PageContent, DbPageContent>(
+  return useDocument<PageContent, DbPageContent>(
     "page-content",
     pageId ?? "missing",
     pageContentConverter,
