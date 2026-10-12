@@ -12,6 +12,7 @@ import {
 import { PATHS } from "@/consts"
 import {
   IconCalendarEvent,
+  IconFileText,
   IconList,
   IconNews,
   IconSettings,
@@ -73,6 +74,16 @@ const sidebarConfig = {
       },
     ],
   },
+  cms: {
+    title: "CMS",
+    items: [
+      {
+        name: "Pages",
+        url: PATHS.ADMIN.CMS.PAGES,
+        icon: IconFileText,
+      },
+    ],
+  },
 }
 
 /**
@@ -112,6 +123,10 @@ const AdminSidebar = () => {
         <SidebarGroup
           title={sidebarConfig.junior.title}
           items={sidebarConfig.junior.items}
+        />
+        <SidebarGroup
+          title={sidebarConfig.cms.title}
+          items={sidebarConfig.cms.items}
         />
       </SidebarContent>
       <SidebarFooter>
